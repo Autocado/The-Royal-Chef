@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://xid04bc15tcv"]
+
+[ext_resource type="SpriteFrames" uid="uid://cvqda18u1w0mn" path="res://testwalk_w.tres" id="1_0ue0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t76kc"]
+size = Vector2(14, 17)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_0ue0m")
+animation = &"testwalk_w"
+frame_progress = 0.5778165
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_t76kc")

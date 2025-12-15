@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://byh4ncvallkwe"]
+
+[ext_resource type="Texture2D" uid="uid://di0yx7va1811s" path="res://Eris Esra's Character Template 4.0/16x16/16x16 Walk-Sheet.png" id="1_s3uad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrv10"]
+atlas = ExtResource("1_s3uad")
+region = Rect2(0, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc3js"]
+atlas = ExtResource("1_s3uad")
+region = Rect2(20, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgfdq"]
+atlas = ExtResource("1_s3uad")
+region = Rect2(40, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnx51"]
+atlas = ExtResource("1_s3uad")
+region = Rect2(60, 40, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrv10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc3js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgfdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnx51")
+}],
+"loop": true,
+"name": &"testwalk_d",
+"speed": 5.0
+}]
