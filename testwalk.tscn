@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd65x4mgni3k"]
+
+[ext_resource type="Texture2D" uid="uid://di0yx7va1811s" path="res://Eris Esra's Character Template 4.0/16x16/16x16 Walk-Sheet.png" id="1_bk14w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uypgf"]
+atlas = ExtResource("1_bk14w")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whjkp"]
+atlas = ExtResource("1_bk14w")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl3i6"]
+atlas = ExtResource("1_bk14w")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puduq"]
+atlas = ExtResource("1_bk14w")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkhea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uypgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whjkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl3i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puduq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vkhea")
+frame_progress = 0.33868563
