@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $CharacterBody2D/idle
-@export var speed = 80
+@export var speed = 70
 
 func get_input():
 	# Get the input direction and handle the movement/deceleration.

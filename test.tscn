@@ -6,7 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://l3wxl7tl3jn2" path="res://test.tres" id="3_6uqi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
-size = Vector2(16, 18)
+size = Vector2(18, 26)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8uh7m")
@@ -14,6 +14,7 @@ script = ExtResource("1_8uh7m")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(73, -8)
 texture = ExtResource("2_ppyta")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -24,9 +25,9 @@ zoom = Vector2(5, 5)
 
 [node name="idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = ExtResource("3_6uqi0")
-animation = &"testwalk"
-frame_progress = 0.78415215
+animation = &"white"
+frame_progress = 0.62359405
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_ppyta")
