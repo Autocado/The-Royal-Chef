@@ -26,3 +26,17 @@ func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	
+func _physics_process_dir(_delta):
+	var input_dir
+	var moving:bool = false
+	
+	input_dir = Vector2.ZERO
+	if Input.is_action_just_pressed("ui_right"):
+		input_dir = Vector2(0,1)
+	elif Input.is_action_just_pressed("ui_left"):
+		input_dir = Vector2(0,-1)
+	elif Input.is_action_just_pressed("ui_down"):
+		input_dir = Vector2(0,1)
+	elif Input.is_action_just_pressed("ui_up"):
+		input_dir = Vector2(0,-1)
+		
