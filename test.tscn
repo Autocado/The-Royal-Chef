@@ -25,8 +25,7 @@ zoom = Vector2(5, 5)
 
 [node name="idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = ExtResource("3_6uqi0")
-animation = &"white"
-frame_progress = 0.62359405
+animation = &"testwalk_a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 3)

@@ -1,42 +1,38 @@
 extends CharacterBody2D
-@onready var animated_sprite_2d = $CharacterBody2D/idle
-@export var speed = 70
+var max_speed = 80
+var last_direction := Vector2(1,0)
 
-func get_input():
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * speed
-	
 func _physics_process(_delta):
-	var axisX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	var axisY = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
-	if axisX > 0:
-		$idle.play("testwalk_d")
-		$idle.flip_h = false
-	elif axisX < 0:
-		$idle.play("testwalk_d")
-		$idle.flip_h = true
-	elif axisY > 0:
-		$idle.play("testwalk_w")
-	elif axisY < 0:
-		$idle.play("testwalk")
-	else:
-		$idle.play("white")
-	get_input()
+	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	velocity = direction * max_speed
 	move_and_slide()
 	
-func _physics_process_dir(_delta):
-	var input_dir
-	var moving:bool = false
 	
-	input_dir = Vector2.ZERO
-	if Input.is_action_just_pressed("ui_right"):
-		input_dir = Vector2(0,1)
-	elif Input.is_action_just_pressed("ui_left"):
-		input_dir = Vector2(0,-1)
-	elif Input.is_action_just_pressed("ui_down"):
-		input_dir = Vector2(0,1)
-	elif Input.is_action_just_pressed("ui_up"):
-		input_dir = Vector2(0,-1)
+	if direction.length() > 0:
+		last_direction = direction
+		play_walk_animation(direction)
+		print(direction)
+	else:
+		play_idle_animation(last_direction)
+		print(direction)
 		
+func play_walk_animation(direction):
+	if direction.x < 0:
+		$idle.play("testwalk_a")
+	elif direction.x > 0:
+		$idle.play("testwalk_d")
+	elif direction.y < 0:
+		$idle.play("testwalk_w")
+	elif  direction.y > 0:
+		$idle.play("testwalk")
+	
+	
+func play_idle_animation(direction):
+	if direction.x < 0:
+		$idle.play("idle_a")
+	elif direction.x > 0:
+		$idle.play("idle_d")
+	elif direction.y < 0:
+		$idle.play("idle_w")
+	elif  direction.y > 0:
+		$idle.play("idle_c")
