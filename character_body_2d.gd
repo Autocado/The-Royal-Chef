@@ -1,12 +1,22 @@
 extends CharacterBody2D
-var max_speed = 80
+var walk_speed = 80
+var run_speed = 100
 var last_direction := Vector2(1,0)
+var current_speed: int = walk_speed
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * max_speed
+	velocity = direction * current_speed
 	move_and_slide()
 	
+	if Input.is_action_pressed("run"):
+		current_speed = run_speed
+		velocity = direction * current_speed
+		$idle.speed_scale = 2
+	else:
+		current_speed = walk_speed
+		velocity = direction * current_speed
+		$idle.speed_scale = 1
 	
 	if direction.length() > 0:
 		last_direction = direction
@@ -36,3 +46,4 @@ func play_idle_animation(direction):
 		$idle.play("idle_w")
 	elif  direction.y > 0:
 		$idle.play("idle_c")
+	
