@@ -1,12 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://byhl7q2wpfi0t"]
+[gd_scene load_steps=13 format=3 uid="uid://byhl7q2wpfi0t"]
 
 [ext_resource type="Script" uid="uid://daqarfsmp03m4" path="res://icon.gd" id="1_8uh7m"]
 [ext_resource type="Script" uid="uid://dqfwrp4g1ao48" path="res://character_body_2d.gd" id="2_6uqi0"]
 [ext_resource type="Texture2D" uid="uid://c3kqprhsklcf1" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Tiled/Tilemaps/Beginning Fields.png" id="2_ppyta"]
 [ext_resource type="SpriteFrames" uid="uid://l3wxl7tl3jn2" path="res://test.tres" id="3_6uqi0"]
+[ext_resource type="Texture2D" uid="uid://c4i7kmithlylq" path="res://Eris Esra's Character Template 4.0/16x32/16x32 Idle-Sheet left.png" id="5_ykrsh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g14j6"]
+atlas = ExtResource("5_ykrsh")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbegm"]
+atlas = ExtResource("5_ykrsh")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehkex"]
+atlas = ExtResource("5_ykrsh")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xersf"]
+atlas = ExtResource("5_ykrsh")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00tp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g14j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbegm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehkex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xersf")
+}],
+"loop": true,
+"name": &"npc",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77dp3"]
+size = Vector2(12, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
-size = Vector2(18, 26)
+size = Vector2(12, 25)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8uh7m")
@@ -17,6 +57,19 @@ script = ExtResource("1_8uh7m")
 position = Vector2(73, -8)
 texture = ExtResource("2_ppyta")
 
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(152, -55)
+
+[node name="Nidle" type="AnimatedSprite2D" parent="CharacterBody2D2"]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_00tp4")
+animation = &"npc"
+frame_progress = 0.029805144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_77dp3")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("2_6uqi0")
 
@@ -25,8 +78,8 @@ zoom = Vector2(5, 5)
 
 [node name="idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = ExtResource("3_6uqi0")
-animation = &"testwalk_a"
+animation = &"idle_a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 3)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_ppyta")
