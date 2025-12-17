@@ -43,7 +43,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77dp3"]
-size = Vector2(12, 17)
+size = Vector2(12, 13.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(12, 25)
@@ -58,7 +58,8 @@ position = Vector2(73, -8)
 texture = ExtResource("2_ppyta")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-position = Vector2(152, -55)
+y_sort_enabled = true
+position = Vector2(105, -77)
 
 [node name="Nidle" type="AnimatedSprite2D" parent="CharacterBody2D2"]
 position = Vector2(0, -3)
@@ -67,10 +68,10 @@ animation = &"npc"
 frame_progress = 0.029805144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_77dp3")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("2_6uqi0")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
