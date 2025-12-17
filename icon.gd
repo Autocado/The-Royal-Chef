@@ -6,7 +6,3 @@ func _ready() -> void:
 	animated_sprite_2d.play("white")
 	animated_npc.play("npc")
 	
-	if $CharacterBody2D2.position.y < $CharacterBody2D.position.y:
-		$CharacterBody2D2.z_index = 1
-	else:
-		$CharacterBody2D.z_index = 2
