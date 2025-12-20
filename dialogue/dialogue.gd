@@ -1,14 +1,21 @@
 extends Control
 
-@export_file("*.jason") var d_file
+signal dialogue_finished
+
+@export_file("*.json") var d_file
 
 var dialogue = []
 var current_dialogue_id = 0
+var d_active=false
 
 func _ready():
-	start()
+	$NinePatchRect.visible = false
 	
 func start():
+	if d_active:
+		return
+	$NinePatchRect.visible = true
+	d_active = true
 	dialogue = load_dialogue()
 	current_dialogue_id = -1
 	next_script()
@@ -18,13 +25,18 @@ func load_dialogue():
 	var content = JSON.parse_string(file.get_as_text())
 	return content
 
-func _intput(event):
+func _input(event):
+	if !d_active:
+		return
 	if event.is_action_pressed("ui_accept"):
 		next_script()
 	
 func next_script():
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue) :
+		d_active = false
+		$NinePatchRect.visible = false
+		emit_signal("dialogue_finished")
 		return
 	
 	$NinePatchRect/name.text = dialogue[current_dialogue_id]['name']
