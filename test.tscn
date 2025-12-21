@@ -50,6 +50,9 @@ size = Vector2(12, 13.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(12, 25)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_interact"]
+radius = 16.0
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8uh7m")
 
@@ -73,6 +76,13 @@ frame_progress = 0.029805144
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 shape = SubResource("RectangleShape2D_77dp3")
 
+[node name="NpcInteractionArea" type="Area2D" parent="CharacterBody2D2"]
+monitoring = true
+monitorable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2/NpcInteractionArea"]
+shape = SubResource("CircleShape2D_interact")
+
 [node name="dialogue" parent="." instance=ExtResource("6_g14j6")]
 offset_left = 99.0
 offset_top = -67.0
@@ -95,3 +105,4 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_ppyta")
 
 [connection signal="dialogue_finished" from="dialogue" to="." method="_on_dialogue_dialogue_finished"]
+[connection signal="body_entered" from="CharacterBody2D2/NpcInteractionArea" to="." method="_on_npc_interaction_area_body_entered"]
