@@ -10,7 +10,7 @@ func _ready() -> void:
 	interaction_area.body_exited.connect(_on_interaction_body_exited)
 
 func _process(_delta: float) -> void:
-	if player_in_range and Input.is_action_just_pressed("chat"):
+	if player_in_range and !dialogue.d_active:
 		dialogue.start()
 
 func _on_interaction_body_entered(body: Node) -> void:
