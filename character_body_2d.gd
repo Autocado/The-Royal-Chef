@@ -3,8 +3,12 @@ var walk_speed = 80
 var run_speed = 100
 var last_direction := Vector2(1,0)
 var current_speed: int = walk_speed
+var can_move := true
 
 func _physics_process(_delta):
+	if !can_move:
+		velocity = Vector2.ZERO
+		return
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * current_speed
 	move_and_slide()

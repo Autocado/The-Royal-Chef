@@ -1,5 +1,6 @@
 extends Control
 
+signal dialogue_started
 signal dialogue_finished
 
 @export_file("*.json") var d_file
@@ -16,6 +17,7 @@ func start():
 		return
 	$NinePatchRect.visible = true
 	d_active = true
+	emit_signal("dialogue_started")
 	dialogue = load_dialogue()
 	current_dialogue_id = -1
 	next_script()

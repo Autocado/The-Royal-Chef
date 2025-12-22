@@ -7,11 +7,15 @@ extends Node2D
 func _ready() -> void:
 	animated_sprite_2d.play("white")
 	animated_npc.play("npc")
+	dialogue.dialogue_started.connect(_on_dialogue_dialogue_started)
+	dialogue.dialogue_finished.connect(_on_dialogue_dialogue_finished)
 	
 
+func _on_dialogue_dialogue_started() -> void:
+	player.can_move = false
 
 func _on_dialogue_dialogue_finished() -> void:
-	pass # Replace with function body.
+	player.can_move = true
 
 
 func _on_npc_interaction_area_body_entered(body: Node) -> void:
