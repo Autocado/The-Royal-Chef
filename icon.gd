@@ -15,5 +15,5 @@ func _on_dialogue_dialogue_finished() -> void:
 
 
 func _on_npc_interaction_area_body_entered(body: Node) -> void:
-	if body == player:
+	if Input.is_action_just_pressed("chat"):
 		dialogue.start()

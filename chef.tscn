@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://domd5ohkuqplj"]
+
+[ext_resource type="Script" uid="uid://dqfwrp4g1ao48" path="res://character_body_2d.gd" id="1_mivr5"]
+[ext_resource type="SpriteFrames" uid="uid://l3wxl7tl3jn2" path="res://test.tres" id="2_j8bwy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mivr5"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cx38"]
+size = Vector2(12, 25)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_mivr5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="NpcInteractionArea" type="Area2D" parent="Camera2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/NpcInteractionArea"]
+shape = SubResource("CircleShape2D_mivr5")
+
+[node name="idle" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_j8bwy")
+animation = &"idle_a"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_5cx38")
