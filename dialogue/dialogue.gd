@@ -2,7 +2,7 @@ extends Control
 
 signal dialogue_finished
 
-@export_file("*.json") var d_file
+@export_file("*.json") var d_file := "res://dialogue/dialogue1.json"
 
 var dialogue = []
 var current_dialogue_id = 0
@@ -17,12 +17,27 @@ func start():
 	$NinePatchRect.visible = true
 	d_active = true
 	dialogue = load_dialogue()
+	if dialogue.is_empty():
+		d_active = false
+		$NinePatchRect.visible = false
+		emit_signal("dialogue_finished")
+		return
 	current_dialogue_id = -1
 	next_script()
 	
 func load_dialogue():
-	var file = FileAccess.open("res://dialogue/dialogue1.json",FileAccess.READ)
+	var file_path = d_file
+	if file_path.is_empty():
+		push_error("Dialogue file path is empty.")
+		return []
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file == null:
+		push_error("Failed to open dialogue file: %s" % file_path)
+		return []
 	var content = JSON.parse_string(file.get_as_text())
+	if content == null:
+		push_error("Failed to parse dialogue JSON: %s" % file_path)
+		return []
 	return content
 
 func _input(event):

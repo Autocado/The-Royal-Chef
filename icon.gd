@@ -1,7 +1,6 @@
 extends Node2D
 @onready var animated_sprite_2d = $CharacterBody2D/idle
 @onready var animated_npc = $CharacterBody2D2/Nidle
-@onready var dialogue = $dialogue
 @onready var player = $CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,8 +11,3 @@ func _ready() -> void:
 
 func _on_dialogue_dialogue_finished() -> void:
 	pass # Replace with function body.
-
-
-func _on_npc_interaction_area_body_entered(body: Node) -> void:
-	if Input.is_action_just_pressed("chat"):
-		dialogue.start()
