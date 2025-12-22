@@ -1,25 +1,32 @@
 extends Control
 
+signal dialogue_started
 signal dialogue_finished
 
 @export_file("*.json") var d_file := "res://dialogue/dialogue1.json"
 
 var dialogue = []
 var current_dialogue_id = 0
+@onready var backdrop = $Backdrop
+
 var d_active=false
 
 func _ready():
 	$NinePatchRect.visible = false
+	backdrop.visible = false
 	
 func start():
 	if d_active:
 		return
 	$NinePatchRect.visible = true
+	backdrop.visible = true
 	d_active = true
+	emit_signal("dialogue_started")
 	dialogue = load_dialogue()
 	if dialogue.is_empty():
 		d_active = false
 		$NinePatchRect.visible = false
+		backdrop.visible = false
 		emit_signal("dialogue_finished")
 		return
 	current_dialogue_id = -1
@@ -51,6 +58,7 @@ func next_script():
 	if current_dialogue_id >= len(dialogue) :
 		d_active = false
 		$NinePatchRect.visible = false
+		backdrop.visible = false
 		emit_signal("dialogue_finished")
 		return
 	
