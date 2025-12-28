@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj1xc2ycltyma"]
+
+[ext_resource type="Script" uid="uid://bk8nbb7gfucbv" path="res://testdialogue 2/dialogstystem.gd" id="1_jb0db"]
+[ext_resource type="Texture2D" uid="uid://c4i7kmithlylq" path="res://Eris Esra's Character Template 4.0/16x32/16x32 Idle-Sheet left.png" id="1_x3mmd"]
+[ext_resource type="Script" uid="uid://u1g0ljo58pb0" path="res://dialogchoices.gd" id="3_hw0i3"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hw0i3"]
+
+[node name="dialogue_stystem" type="Control" node_paths=PackedStringArray("char_text", "char_name", "char_sprite", "BaseLayer", "ChoiceLayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jb0db")
+char_text = NodePath("Base/BG/text")
+char_name = NodePath("Base/BG/name")
+char_sprite = NodePath("Base/character")
+BaseLayer = NodePath("Base")
+ChoiceLayer = NodePath("Base/choices")
+
+[node name="Base" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Base"]
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="character" type="TextureRect" parent="Base"]
+offset_left = 314.0
+offset_top = 42.0
+offset_right = 820.0
+offset_bottom = 548.0
+texture = ExtResource("1_x3mmd")
+expand_mode = 2
+
+[node name="BG" type="ColorRect" parent="Base"]
+offset_left = 34.0
+offset_top = 469.0
+offset_right = 1122.0
+offset_bottom = 630.0
+color = Color(0.8215499, 0.60634255, 1, 0.73)
+
+[node name="text" type="Label" parent="Base/BG"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 17.0
+offset_right = 544.0
+offset_bottom = 83.5
+scale = Vector2(2, 2)
+text = "text"
+
+[node name="name" type="Label" parent="Base/BG"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -44.0
+offset_right = 169.0
+offset_bottom = -19.666672
+scale = Vector2(2, 2)
+text = "name"
+
+[node name="choices" type="CanvasLayer" parent="Base"]
+visible = false
+script = ExtResource("3_hw0i3")
+b_group = SubResource("ButtonGroup_hw0i3")
+
+[node name="ColorRect" type="ColorRect" parent="Base/choices"]
+offset_right = 1155.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0.60200006)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Base/choices/ColorRect"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 326.0
+offset_right = 1125.0
+offset_bottom = 462.0
+tooltip_auto_translate_mode = 1
+
+[node name="Button" type="Button" parent="Base/choices/ColorRect/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hw0i3")
+text = "choices 1"
+
+[node name="Button2" type="Button" parent="Base/choices/ColorRect/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hw0i3")
+text = "choices 2"
+
+[node name="Button3" type="Button" parent="Base/choices/ColorRect/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hw0i3")
+text = "choices 3"
+
+[node name="Button4" type="Button" parent="Base/choices/ColorRect/VBoxContainer"]
+visible = false
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hw0i3")
+text = "choices 4"
+
+[connection signal="next_id" from="Base/choices" to="." method="_on_choices_next_id"]
