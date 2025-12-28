@@ -1,0 +1,31 @@
+{
+	"start" : {
+		"name": "ni",
+		"text": "penkuyrai",
+		"next": "A"
+	},
+	"A": {
+		"text": "kuy",
+		"next": "B"
+	},
+	"B": {
+		"text": "pod nud di",
+		"choices" : {
+			"kuy rai a": "B+",
+			"kuy" : "B-",
+			"fuck you" : "B-"
+		}
+	},
+	"B+": {
+		"text": "nah uh",
+		"next": "c"
+	},
+		"B-": {
+		"text": "ma di",
+		"next": "c"
+	},
+	"c": {
+		"text": "bye",
+		"next": "B"
+	}
+}

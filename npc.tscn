@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0u0de0bwd8eh" path="res://character_body_2d_2.gd" id="1_kh24r"]
 [ext_resource type="Texture2D" uid="uid://c4i7kmithlylq" path="res://Eris Esra's Character Template 4.0/16x32/16x32 Idle-Sheet left.png" id="2_ul7y6"]
-[ext_resource type="PackedScene" uid="uid://bior7mvdfhvpu" path="res://dialogue/dialogue.tscn" id="3_bc6q4"]
+[ext_resource type="PackedScene" uid="uid://bior7mvdfhvpu" path="res://dialogue.tscn" id="3_bc6q4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g14j6"]
 atlas = ExtResource("2_ul7y6")
