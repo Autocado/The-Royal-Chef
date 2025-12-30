@@ -59,3 +59,7 @@ func next_script():
 	$CanvasLayer/NinePatchRect/text.text = dialogue[current_dialogue_id]['text']
 func UnFreeze():
 	single.emit_signal("unFreeze")
+	if single.connect("unFreeze",Callable()):
+		var player = $"../../CharacterBody2D"
+		player.set_physics_process(true)
+		player.set_process_input(true)

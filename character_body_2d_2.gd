@@ -25,15 +25,10 @@ func _on_interaction_body_exited(body: Node) -> void:
 
 
 func FreezePlayer():
+	var player =$"../CharacterBody2D"
 	if single.connect("Freeze",Callable()):
-			var player =$"../CharacterBody2D"
-			player.set_physics_process(false)
-			player.set_process_input(false)
-func walk_again():
-	if single.connect("unFreeze",Callable()):
-		var player =$"../CharacterBody2D"
-		player.set_physics_process(true)
-		player.set_process_input(true)
+		player.set_physics_process(false)
+		player.set_process_input(false)
 
 func _on_dialogue_dialogue_finished() -> void:
 	pass # Replace with function body.
