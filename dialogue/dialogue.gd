@@ -8,19 +8,18 @@ var dialogue = []
 var current_dialogue_id = 0
 var d_active=false
 
-@onready var dialogue_box: NinePatchRect = $NinePatchRect
-@onready var name_label: RichTextLabel = $NinePatchRect/name
-@onready var text_label: RichTextLabel = $NinePatchRect/text
+@onready var dialogue_box: NinePatchRect = get_node_or_null("NinePatchRect")
+@onready var name_label: RichTextLabel = dialogue_box != null ? dialogue_box.get_node_or_null("name") : null
+@onready var text_label: RichTextLabel = dialogue_box != null ? dialogue_box.get_node_or_null("text") : null
 
 func _ready():
-	if dialogue_box:
+	if dialogue_box != null:
 		dialogue_box.visible = false
 		
 func start():
 	if d_active:
 		return
-	if dialogue_box == null:
-		push_error("Dialogue UI is missing. Ensure NinePatchRect exists as a child.")
+	if not _ensure_ui():
 		return
 	dialogue_box.visible = true
 	d_active = true
@@ -67,3 +66,12 @@ func next_script():
 	text_label.text = dialogue[current_dialogue_id]['text']
 func UnFreeze():
 	single.emit_signal("unFreeze")
+
+func _ensure_ui() -> bool:
+	if dialogue_box == null:
+		push_error("Dialogue UI is missing. Ensure a NinePatchRect exists as a direct child of the Dialogue node.")
+		return false
+	if name_label == null or text_label == null:
+		push_error("Dialogue UI is missing required child labels (name or text).")
+		return false
+	return true
