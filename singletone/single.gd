@@ -1,5 +1,5 @@
 extends Node
 
 
-signal Freeze(chat)
-signal unFreeze(chat)
+signal Freeze
+signal unFreeze

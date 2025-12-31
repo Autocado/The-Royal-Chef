@@ -4,6 +4,12 @@ var run_speed = 100
 var last_direction := Vector2(1,0)
 var current_speed: int = walk_speed
 
+func _ready() -> void:
+	if not single.Freeze.is_connected(_on_freeze_requested):
+		single.Freeze.connect(_on_freeze_requested)
+	if not single.unFreeze.is_connected(_on_unfreeze_requested):
+		single.unFreeze.connect(_on_unfreeze_requested)
+
 func _physics_process(_delta):
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * current_speed
@@ -46,4 +52,14 @@ func play_idle_animation(direction):
 		$idle.play("idle_w")
 	elif  direction.y > 0:
 		$idle.play("idle_c")
+
+func _on_freeze_requested() -> void:
+	velocity = Vector2.ZERO
+	set_physics_process(false)
+	set_process_input(false)
+	$idle.stop()
+
+func _on_unfreeze_requested() -> void:
+	set_physics_process(true)
+	set_process_input(true)
 	
