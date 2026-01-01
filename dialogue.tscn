@@ -16,34 +16,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vigd0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
-offset_top = 491.00003
-offset_right = 1547.7405
-offset_bottom = 694.13306
-scale = Vector2(0.74431086, 0.77480894)
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -99.0
+offset_top = 4.0
+offset_right = 132.0
+offset_bottom = 60.0
 texture = ExtResource("1_kp46k")
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="name" type="RichTextLabel" parent="CanvasLayer/NinePatchRect"]
+[node name="name" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_top = -60.66017
-offset_right = 635.2448
-offset_bottom = -35.277573
-scale = Vector2(2.5, 2.5)
+offset_left = 1.0
+offset_top = -17.0
+offset_right = 214.33334
+offset_bottom = 6.333336
+scale = Vector2(0.8, 0.8)
 text = "name"
-tab_size = 24
 
-[node name="text" type="RichTextLabel" parent="CanvasLayer/NinePatchRect"]
+[node name="text" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 6.717623
-offset_top = 7.7437744
-offset_right = 773.1985
-offset_bottom = 100.66995
-scale = Vector2(2, 2)
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 450.0
+offset_bottom = 101.0
+scale = Vector2(0.5, 0.5)
 text = "chatting"
-tab_size = 24

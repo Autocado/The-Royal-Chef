@@ -9,17 +9,17 @@ var current_dialogue_id = 0
 var d_active=false
 
 func _ready():
-	$CanvasLayer/NinePatchRect.visible = false
+	$NinePatchRect.visible = false
 	
 func start():
 	if d_active:
 		return
-	$CanvasLayer/NinePatchRect.visible = true
+	$NinePatchRect.visible = true
 	d_active = true
 	dialogue = load_dialogue()
 	if dialogue.is_empty():
 		d_active = false
-		$CanvasLayer/NinePatchRect.visible = false
+		$NinePatchRect.visible = false
 		emit_signal("dialogue_finished")
 		return
 	current_dialogue_id = -1
@@ -50,12 +50,10 @@ func next_script():
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue) :
 		d_active = false
-		$CanvasLayer/NinePatchRect.visible = false
+		$NinePatchRect.visible = false
 		emit_signal("dialogue_finished")
-		UnFreeze()
 		return
 	
-	$CanvasLayer/NinePatchRect/name.text = dialogue[current_dialogue_id]['name']
-	$CanvasLayer/NinePatchRect/text.text = dialogue[current_dialogue_id]['text']
-func UnFreeze():
-	single.emit_signal("unFreeze")
+	$NinePatchRect/name.text = dialogue[current_dialogue_id]['name']
+	$NinePatchRect/text.text = dialogue[current_dialogue_id]['text']
+	
