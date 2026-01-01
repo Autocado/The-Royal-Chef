@@ -7,12 +7,14 @@ const COLLISION_CONTAINER_NAME := "GeneratedCollisions"
 func _ready() -> void:
 	animated_sprite_2d.play("white")
 	animated_npc.play("npc")
-	_add_tile_collisions($Water)
+	_add_tile_collisions($Water, 1.0, $bridge)
 	_add_tile_collisions($"trees 1", 0.5)
 	_add_tile_collisions($"trees 2", 0.5)
+	_add_tile_collisions($building)
+	_add_tile_collisions($castle)
 	
 
-func _add_tile_collisions(tile_map: TileMapLayer, height_fraction: float = 1.0) -> void:
+func _add_tile_collisions(tile_map: TileMapLayer, height_fraction: float = 1.0, skip_map: TileMapLayer = null) -> void:
 	var existing_container := tile_map.get_node_or_null(COLLISION_CONTAINER_NAME)
 	if existing_container:
 		existing_container.queue_free()
@@ -23,7 +25,13 @@ func _add_tile_collisions(tile_map: TileMapLayer, height_fraction: float = 1.0) 
 
 	var tile_size := Vector2(tile_map.tile_set.tile_size)
 	var collision_size := Vector2(tile_size.x, tile_size.y * height_fraction)
+	var skip_cells := {}
+	if skip_map:
+		for cell in skip_map.get_used_cells():
+			skip_cells[cell] = true
 	for cell in tile_map.get_used_cells():
+		if skip_cells.has(cell):
+			continue
 		var collision_shape := CollisionShape2D.new()
 		var rectangle := RectangleShape2D.new()
 		rectangle.size = collision_size
