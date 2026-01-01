@@ -10,7 +10,7 @@ func _ready() -> void:
 	_add_tile_collisions($Water, 1.0, $bridge)
 	_add_tile_collisions($"trees 1", 0.5)
 	_add_tile_collisions($"trees 2", 0.5)
-	_add_tile_collisions($building, 1.0, null, Vector2(0.8, 0.6))
+	_add_tile_collisions($building, 1.0, null, Vector2(0.5, 0.4))
 	_add_tile_collisions($castle)
 	
 
