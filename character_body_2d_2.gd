@@ -4,8 +4,13 @@ extends CharacterBody2D
 @onready var interaction_area = $NpcInteractionArea
 @onready var player: CharacterBody2D = $"../CharacterBody2D"
 
+@export var speaker_name := "Jeff"
+@export var prompt_message := ""
+@export var prompt_scene_path := ""
+
 var player_in_range := false
 var player_frozen := false
+var awaiting_choice := false
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_on_interaction_body_entered)
@@ -13,7 +18,16 @@ func _ready() -> void:
 	dialogue.dialogue_finished.connect(_on_dialogue_dialogue_finished)
 
 func _process(_delta: float) -> void:
+	if awaiting_choice:
+		if Input.is_action_just_pressed("ui_yes"):
+			_accept_choice()
+		elif Input.is_action_just_pressed("ui_no"):
+			_decline_choice()
+		return
 	if player_in_range and Input.is_action_just_pressed("chat"):
+		if prompt_message != "" and prompt_scene_path != "":
+			_show_prompt()
+			return
 		single.emit_signal("Freeze",Callable())
 		freeze_player()
 		dialogue.start()
@@ -42,3 +56,21 @@ func unfreeze_player():
 func _on_dialogue_dialogue_finished() -> void:
 	unfreeze_player()
 	single.emit_signal("unFreeze")
+
+func _show_prompt() -> void:
+	single.emit_signal("Freeze", Callable())
+	freeze_player()
+	awaiting_choice = true
+	dialogue.show_custom_message(speaker_name, prompt_message)
+
+func _accept_choice() -> void:
+	dialogue.hide_custom_message()
+	awaiting_choice = false
+	unfreeze_player()
+	if prompt_scene_path != "":
+		get_tree().change_scene_to_file(prompt_scene_path)
+
+func _decline_choice() -> void:
+	dialogue.hide_custom_message()
+	awaiting_choice = false
+	unfreeze_player()

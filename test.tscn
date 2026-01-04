@@ -20614,6 +20614,9 @@ shape = SubResource("SegmentShape2D_a3se8")
 
 [node name="jeff" parent="." instance=ExtResource("27_dpmuy")]
 position = Vector2(35, -33)
+prompt_message = "Do you want to come in? (Y/N)"
+prompt_scene_path = "res://palace.tscn"
+speaker_name = "Jeff"
 
 [node name="CharacterBody2D5" parent="." instance=ExtResource("27_dpmuy")]
 position = Vector2(-6, 51)

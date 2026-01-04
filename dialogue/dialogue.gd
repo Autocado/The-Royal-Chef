@@ -7,14 +7,18 @@ signal dialogue_finished
 var dialogue = []
 var current_dialogue_id = 0
 var d_active=false
+var allow_input_advance := true
+var custom_message_active := false
 
 func _ready():
 	$CanvasLayer/NinePatchRect.visible = false
-	
+
 func start():
 	if d_active:
 		return
 	$CanvasLayer/NinePatchRect.visible = true
+	allow_input_advance = true
+	custom_message_active = false
 	d_active = true
 	dialogue = load_dialogue()
 	if dialogue.is_empty():
@@ -43,6 +47,8 @@ func load_dialogue():
 func _input(event):
 	if !d_active:
 		return
+	if not allow_input_advance:
+		return
 	if event.is_action_pressed("ui_accept"):
 		next_script()
 	
@@ -57,5 +63,21 @@ func next_script():
 	
 	$CanvasLayer/NinePatchRect/name.text = dialogue[current_dialogue_id]['name']
 	$CanvasLayer/NinePatchRect/text.text = dialogue[current_dialogue_id]['text']
+
+func show_custom_message(speaker: String, message: String) -> void:
+	$CanvasLayer/NinePatchRect/name.text = speaker
+	$CanvasLayer/NinePatchRect/text.text = message
+	$CanvasLayer/NinePatchRect.visible = true
+	d_active = true
+	allow_input_advance = false
+	custom_message_active = true
+
+func hide_custom_message() -> void:
+	if not custom_message_active:
+		return
+	$CanvasLayer/NinePatchRect.visible = false
+	d_active = false
+	allow_input_advance = true
+	custom_message_active = false
 func UnFreeze():
 	single.emit_signal("unFreeze")
