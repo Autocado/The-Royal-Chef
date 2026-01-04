@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dkiidjebuosgg" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Trees and Bushes/Tree_Emerald_4.png" id="12_naet1"]
 [ext_resource type="Texture2D" uid="uid://lgyyc8g6y1ka" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Buildings/Well_Hay_1.png" id="13_pdf00"]
 [ext_resource type="Texture2D" uid="uid://b5kcw6at2hkbt" path="res://Eris Esra's Character Template 4.0/16x32/FEN8ya.png" id="14_a6gra"]
-[ext_resource type="PackedScene" uid="uid://c1rinb1mk7aqn" path="res://npc_sell.tscn" id="16_uty7l"]
-[ext_resource type="PackedScene" uid="uid://cw41ej7bdpenc" path="res://npc_potionseller.tscn" id="17_45l4g"]
+[ext_resource type="PackedScene" path="res://npc_sell.tscn" id="16_uty7l"]
+[ext_resource type="PackedScene" path="res://npc_potionseller.tscn" id="17_45l4g"]
 [ext_resource type="PackedScene" uid="uid://bmkcmv2ehj88m" path="res://npc.tscn" id="27_dpmuy"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="29_j75vh"]
 
@@ -20486,7 +20486,7 @@ b = Vector2(-30, 26)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_a3se8"]
 b = Vector2(1, 30)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_8uh7m")
 
 [node name="Grass" type="TileMapLayer" parent="."]
