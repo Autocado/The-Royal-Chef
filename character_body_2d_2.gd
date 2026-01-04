@@ -68,9 +68,11 @@ func _show_prompt() -> void:
 	dialogue.show_custom_message(speaker_name, prompt_message)
 
 func _accept_choice() -> void:
+	if prompt_scene_path == "" or not ResourceLoader.exists(prompt_scene_path):
+		push_error("Prompt scene path is invalid: %s" % prompt_scene_path)
+		return
 	_hide_prompt()
-	if prompt_scene_path != "":
-		get_tree().change_scene_to_file(prompt_scene_path)
+	get_tree().call_deferred("change_scene_to_file", prompt_scene_path)
 
 func _decline_choice() -> void:
 	_hide_prompt()
