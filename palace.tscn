@@ -1,3 +1,7 @@
 prompt_message = "Do you want to leave? (Y/N)"
 prompt_scene_path = "res://test.tscn"
 speaker_name = "Jeff"
+[ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="35_plr"]
+[node name="CharacterBody2D" parent="." instance=ExtResource("35_plr")]
+position = Vector2(-36, 318)
+
