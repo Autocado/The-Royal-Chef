@@ -1,16 +1,25 @@
 extends Node2D
-@onready var animated_sprite_2d = $CharacterBody2D/idle
-@onready var animated_npc = $CharacterBody2D2/Nidle
-@onready var player = $CharacterBody2D
+@onready var animated_sprite_2d: AnimatedSprite2D = get_node_or_null("CharacterBody2D/idle")
+@onready var animated_npc: AnimatedSprite2D = get_node_or_null("CharacterBody2D2/Nidle")
+@onready var player = get_node_or_null("CharacterBody2D")
 const COLLISION_CONTAINER_NAME := "GeneratedCollisions"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d.play("white")
-	animated_npc.play("npc")
+	_try_play(animated_sprite_2d, "white")
+	_try_play(animated_npc, "npc")
 	_add_tile_collisions($Water, 1.0, $bridge)
 	_add_tile_collisions($"trees 1", 0.5)
 	_add_tile_collisions($"trees 2", 0.5)
 	
+func _try_play(sprite: AnimatedSprite2D, anim: String) -> void:
+	if sprite == null:
+		push_warning("AnimatedSprite2D missing for animation '%s'." % anim)
+		return
+	if not sprite.sprite_frames:
+		push_warning("SpriteFrames missing on %s for animation '%s'." % [sprite.name, anim])
+		return
+	sprite.play(anim)
+
 
 func _add_tile_collisions(tile_map: TileMapLayer, height_fraction: float = 1.0, skip_map: TileMapLayer = null, collision_scale: Vector2 = Vector2.ONE) -> void:
 	var existing_container := tile_map.get_node_or_null(COLLISION_CONTAINER_NAME)
