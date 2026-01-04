@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuf0th1wher6s"]
+
+[ext_resource type="Texture2D" uid="uid://c4i7kmithlylq" path="res://Eris Esra's Character Template 4.0/16x32/16x32 Idle-Sheet left.png" id="1_6551q"]
+[ext_resource type="Script" uid="uid://dpii7t6u7ukkp" path="res://villager_2.gd" id="1_ew7ra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew7ra"]
+atlas = ExtResource("1_6551q")
+region = Rect2(0, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suj71"]
+atlas = ExtResource("1_6551q")
+region = Rect2(16, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe26y"]
+atlas = ExtResource("1_6551q")
+region = Rect2(32, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2cjp"]
+atlas = ExtResource("1_6551q")
+region = Rect2(48, 128, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txj3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew7ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suj71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe26y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2cjp")
+}],
+"loop": true,
+"name": &"standing2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81wue"]
+size = Vector2(12, 13.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jj24s"]
+radius = 16.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ew7ra")
+
+[node name="stan4" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_txj3m")
+animation = &"standing2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_81wue")
+
+[node name="NpcInteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractionArea"]
+shape = SubResource("CircleShape2D_jj24s")
