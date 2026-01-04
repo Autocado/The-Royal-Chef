@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://byhl7q2wpfi0t"]
+[gd_scene load_steps=59 format=4 uid="uid://byhl7q2wpfi0t"]
 
 [ext_resource type="Script" uid="uid://daqarfsmp03m4" path="res://icon.gd" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://b2qn0fuoy1l6x" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Ground Tileset/Tileset_Ground.png" id="2_vbegm"]
@@ -16,7 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://b5kcw6at2hkbt" path="res://Eris Esra's Character Template 4.0/16x32/FEN8ya.png" id="14_a6gra"]
 [ext_resource type="PackedScene" uid="uid://c1rinb1mk7aqn" path="res://npc_sell.tscn" id="16_uty7l"]
 [ext_resource type="PackedScene" uid="uid://cw41ej7bdpenc" path="res://npc_potionseller.tscn" id="17_45l4g"]
-[ext_resource type="Script" uid="uid://dkfmooiijgtea" path="res://area_2d.gd" id="19_4uo0j"]
+[ext_resource type="PackedScene" uid="uid://o0tvrd0r7u3t" path="res://Villager_1.tscn" id="18_vxl6d"]
+[ext_resource type="Script" path="res://area_2d.gd" id="19_4uo0j"]
+[ext_resource type="PackedScene" uid="uid://cuf0th1wher6s" path="res://Villager_2.tscn" id="19_eski5"]
+[ext_resource type="PackedScene" uid="uid://gnecjtqjr3sq" path="res://Villager_3.tscn" id="20_eski5"]
+[ext_resource type="PackedScene" uid="uid://c8afn8j75fbw3" path="res://Villager_4.tscn" id="21_pdf00"]
 [ext_resource type="PackedScene" uid="uid://bmkcmv2ehj88m" path="res://npc.tscn" id="27_dpmuy"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="29_j75vh"]
 
@@ -20634,6 +20638,18 @@ script = ExtResource("19_4uo0j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(32, -54)
 shape = SubResource("CircleShape2D_vxl6d")
+
+[node name="CharacterBody2D5" parent="." instance=ExtResource("18_vxl6d")]
+position = Vector2(-307, 232)
+
+[node name="CharacterBody2D6" parent="." instance=ExtResource("19_eski5")]
+position = Vector2(54, 345)
+
+[node name="CharacterBody2D7" parent="." instance=ExtResource("20_eski5")]
+position = Vector2(-312, 486)
+
+[node name="CharacterBody2D8" parent="." instance=ExtResource("21_pdf00")]
+position = Vector2(-370, 759)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
