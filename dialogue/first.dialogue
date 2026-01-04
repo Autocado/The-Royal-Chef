@@ -1,0 +1,18 @@
+~ start
+Villager : [#mood=happy]"Hi! You want to enter the palace right?"
+- Yes.
+	Chef : [#mood=happy]"..."
+	Villager : [#mood=neutral]"Well, beware the king! he's quite moody lately."
+	- Of course.
+		Chef : [#mood=happy]"..."
+		Villager: [#mood=neutral]"Good luck then."
+	- He's always moody.
+		Chef : [#mood=happy]"..."
+		Villager: [#mood=happy]"Haha! You're so real for this!"
+	- What a dictator.
+		Chef : [#mood=angry]"..."
+		Villager: [#mood=neutral]"That's kinda...truth."
+- No.
+	Chef : [#mood=neutral]"..."
+	Villager: [#mood=happy]"OK. Good luck. Whatever you're trying to do."
+=> END

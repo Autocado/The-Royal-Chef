@@ -20488,7 +20488,7 @@ b = Vector2(-30, 26)
 b = Vector2(1, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxl6d"]
-radius = 35.510563
+radius = 27.166155
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_8uh7m")
@@ -20616,23 +20616,23 @@ shape = SubResource("SegmentShape2D_dpmuy")
 position = Vector2(335, 178)
 shape = SubResource("SegmentShape2D_a3se8")
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("27_dpmuy")]
+[node name="Npc" parent="." instance=ExtResource("27_dpmuy")]
 position = Vector2(-12, 32)
 
-[node name="CharacterBody2D3" parent="." instance=ExtResource("16_uty7l")]
+[node name="Seller" parent="." instance=ExtResource("16_uty7l")]
 position = Vector2(-161, 332)
 
-[node name="CharacterBody2D4" parent="." instance=ExtResource("17_45l4g")]
+[node name="Potion seller" parent="." instance=ExtResource("17_45l4g")]
 position = Vector2(148, 197)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("29_j75vh")]
+[node name="Chef" parent="." instance=ExtResource("29_j75vh")]
 position = Vector2(33, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("19_4uo0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(30, -47)
+position = Vector2(32, -54)
 shape = SubResource("CircleShape2D_vxl6d")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

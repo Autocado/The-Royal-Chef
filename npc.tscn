@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmkcmv2ehj88m"]
+[gd_scene load_steps=10 format=3 uid="uid://bmkcmv2ehj88m"]
 
-[ext_resource type="Script" uid="uid://d0u0de0bwd8eh" path="res://character_body_2d_2.gd" id="1_kh24r"]
+[ext_resource type="Script" uid="uid://d3pqft6kja0ho" path="res://npc.gd" id="1_xxcha"]
 [ext_resource type="Texture2D" uid="uid://c4i7kmithlylq" path="res://Eris Esra's Character Template 4.0/16x32/16x32 Idle-Sheet left.png" id="2_ul7y6"]
-[ext_resource type="PackedScene" uid="uid://bior7mvdfhvpu" path="res://dialogue.tscn" id="3_bc6q4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g14j6"]
 atlas = ExtResource("2_ul7y6")
@@ -48,7 +47,7 @@ radius = 16.0
 
 [node name="CharacterBody2D2" type="CharacterBody2D"]
 y_sort_enabled = true
-script = ExtResource("1_kh24r")
+script = ExtResource("1_xxcha")
 
 [node name="Nidle" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
@@ -62,9 +61,3 @@ shape = SubResource("RectangleShape2D_d61ma")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractionArea"]
 shape = SubResource("CircleShape2D_slxoh")
-
-[node name="dialogue" parent="." instance=ExtResource("3_bc6q4")]
-offset_left = 0.0
-offset_top = 13.0
-offset_right = 0.0
-offset_bottom = 13.0

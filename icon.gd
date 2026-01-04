@@ -1,12 +1,8 @@
 extends Node2D
-@onready var animated_sprite_2d = $CharacterBody2D/idle
-@onready var animated_npc = $CharacterBody2D2/Nidle
 @onready var player = $CharacterBody2D
 const COLLISION_CONTAINER_NAME := "GeneratedCollisions"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d.play("white")
-	animated_npc.play("npc")
 	_add_tile_collisions($Water, 1.0, $bridge)
 	_add_tile_collisions($"trees 1", 0.5)
 	_add_tile_collisions($"trees 2", 0.5)

@@ -26,6 +26,8 @@ func _physics_process(_delta):
 		play_idle_animation(last_direction)
 		print(direction)
 		
+
+
 func play_walk_animation(direction):
 	if direction.x < 0:
 		$idle.play("testwalk_a")

@@ -1,0 +1,18 @@
+~ start
+Villager : [#mood=happy]"Good morning! Looking for something fresh today?"
+- Yes.
+	Chef : [#mood=happy]"..."
+	Villager : [#mood=happy]"I just picked a forest mint—give it a try!"
+	- Taste it.
+		Chef : [#mood=happy]"..."
+		Villager: [#mood=happy]"Here!"
+	- Politely Reject.
+		Chef : [#mood=neutral]"..."
+		Villager: [#mood=neutral]"Oh. OK."
+	- Rudely Reject.
+		Chef : [#mood=angry]"..."
+		Villager: [#mood=angry]"That's rude. >:("
+- Nuh uh.
+	Chef : [#mood=neutral]"..."
+	Villager: [#mood=neutral]"OK..."
+=> END

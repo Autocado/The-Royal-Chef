@@ -1,5 +1,31 @@
-[
-	{"name": "Chef", "text": "Good morning! Looking for something fresh today?"},
-	{"name": "Villager", "text": "Yes, I'd love the herb stew. Does it have the forest mint?"},
-	{"name": "Chef", "text": "Absolutely. I just picked it—give it a try!"}
-]
+{
+	"start": {
+		"name" : "Villager", 
+		"text" : "Good morning! Looking for something fresh today?"
+	},
+	"A" : { 
+		"name" : "Chef", 
+		"text" : "Yes, I'd love the herb stew. Does it have the forest mint?",
+	},
+	"B" : { 
+		"name" : "Villager", 
+		"text" : "Absolutely. I just picked it—give it a try!", 
+		"choices" : {
+			"Sure!": "B+",
+			"No, thank you." : "B+-",
+			"Ew. No." : "B-"
+			}
+	},
+	"B+" : {
+		"name" : "Villager", 
+		"text" : "Here!",
+	},
+		"B+-" : {
+			"name" : "Villager",
+			"text" : "Ok.."
+		},
+			"B-" : {
+				"name" : "Villager",
+				"text" : "That's rude. >:("
+			}
+}

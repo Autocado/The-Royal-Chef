@@ -8,7 +8,8 @@ func _on_body_entered(body: PhysicsBody2D):
 func _on_body_exited(body):
 	entered = false
 	
-func _process(delta):
-	if entered == true:
-		if  Input.is_action_just_pressed("ui_accept"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Interact"):
+		var actionable = $".".get_overlapping_areas()
+		if actionable.size() > 0:
 			get_tree().change_scene_to_file("res://palace.tscn")
