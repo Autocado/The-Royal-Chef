@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://botysftvq7jy0"]
+[gd_scene load_steps=93 format=4 uid="uid://botysftvq7jy0"]
 
 [ext_resource type="Texture2D" uid="uid://bsssorurywgvo" path="res://Eris Esra's Character Template 4.0/16x32/S__12468233.png" id="1_oix3w"]
 [ext_resource type="Texture2D" uid="uid://b5kcw6at2hkbt" path="res://Eris Esra's Character Template 4.0/16x32/FEN8ya.png" id="2_ls4ia"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://cruwt5iwixji" path="res://kitchen assets/Cabinet/Kitchen-utensils/Pickles-honey-and-knife.png" id="28_0wjkr"]
 [ext_resource type="Texture2D" uid="uid://p2wna3vvlixk" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plate.png" id="29_gr0vk"]
 [ext_resource type="Texture2D" uid="uid://b503xa7v8t652" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plates.png" id="30_bq5yi"]
+[ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="34_lb503"]
+[ext_resource type="Script" uid="uid://hnynoauwbfc1" path="res://area_2d_2.gd" id="35_ahoi8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6e772"]
 texture = ExtResource("1_oix3w")
@@ -11669,6 +11671,9 @@ size = Vector2(112, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlu38"]
 size = Vector2(160, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1j52w"]
+radius = 35.510563
+
 [node name="Node2D" type="Node2D"]
 
 [node name="void" type="TileMapLayer" parent="."]
@@ -11820,3 +11825,16 @@ shape = SubResource("RectangleShape2D_m1r8r")
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="colisions"]
 position = Vector2(-480, 179)
 shape = SubResource("RectangleShape2D_hlu38")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("34_lb503")]
+position = Vector2(-37, 207)
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("35_ahoi8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-39, 332)
+shape = SubResource("CircleShape2D_1j52w")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
