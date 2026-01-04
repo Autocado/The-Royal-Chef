@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://botysftvq7jy0"]
+[gd_scene load_steps=91 format=4 uid="uid://botysftvq7jy0"]
 
 [ext_resource type="Texture2D" uid="uid://bsssorurywgvo" path="res://Eris Esra's Character Template 4.0/16x32/S__12468233.png" id="1_oix3w"]
 [ext_resource type="Texture2D" uid="uid://b5kcw6at2hkbt" path="res://Eris Esra's Character Template 4.0/16x32/FEN8ya.png" id="2_ls4ia"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cruwt5iwixji" path="res://kitchen assets/Cabinet/Kitchen-utensils/Pickles-honey-and-knife.png" id="28_0wjkr"]
 [ext_resource type="Texture2D" uid="uid://p2wna3vvlixk" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plate.png" id="29_gr0vk"]
 [ext_resource type="Texture2D" uid="uid://b503xa7v8t652" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plates.png" id="30_bq5yi"]
+[ext_resource type="PackedScene" uid="uid://bmkcmv2ehj88m" path="res://npc.tscn" id="34_lb503"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6e772"]
 texture = ExtResource("1_oix3w")
@@ -11696,6 +11697,9 @@ position = Vector2(-711.75244, 78.98856)
 rotation = -1.580706
 scale = Vector2(3.8557398, 1.1691927)
 texture = ExtResource("17_tg7jk")
+
+[node name="jeff" parent="." instance=ExtResource("34_lb503")]
+position = Vector2(-82, 318)
 
 [node name="colisions" type="StaticBody2D" parent="."]
 
