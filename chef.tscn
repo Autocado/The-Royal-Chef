@@ -7,7 +7,7 @@
 radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cx38"]
-size = Vector2(12, 25)
+size = Vector2(12, 13)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -26,5 +26,5 @@ sprite_frames = ExtResource("2_j8bwy")
 animation = &"idle_a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_5cx38")
