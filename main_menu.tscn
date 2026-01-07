@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bk1atpb8venwp"]
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Start" type="TextureButton" parent="Control/Container"]
+layout_mode = 2
+
+[node name="Setting" type="TextureButton" parent="Control/Container"]
+layout_mode = 2
+
+[node name="Quit" type="TextureButton" parent="Control/Container"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
