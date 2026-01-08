@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2fkltv4ixub5"]
+
+[ext_resource type="Texture2D" uid="uid://d3188eqgjafdu" path="res://Eris Esra's Character Template 4.0/PCsprite_frame.png" id="1_kmjc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7ah1"]
+atlas = ExtResource("1_kmjc2")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s74rb"]
+atlas = ExtResource("1_kmjc2")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyh0o"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_e7ah1")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_s74rb")
+}],
+"loop": true,
+"name": &"Stand",
+"speed": 2.0
+}]
+
+[node name="ChefTurnBase" type="CharacterBody2D"]
+
+[node name="Stand" type="AnimatedSprite2D" parent="."]
+position = Vector2(831, 137)
+sprite_frames = SubResource("SpriteFrames_pyh0o")
+animation = &"Stand"
+frame_progress = 0.52006286
