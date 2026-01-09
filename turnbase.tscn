@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene load_steps=3 format=3 uid="uid://ceqd4q25vw1b"]
 
 [ext_resource type="Texture2D" uid="uid://clvbf2637g3jl" path="res://Eris Esra's Character Template 4.0/texture.png" id="1_dnt0y"]
+[ext_resource type="PackedScene" uid="uid://d2fkltv4ixub5" path="res://Chefturnbase.tscn" id="2_vc2uf"]
 
 [node name="Turnbase" type="Node2D"]
 
@@ -12,9 +13,9 @@ offset_bottom = 40.0
 
 [node name="Container" type="HBoxContainer" parent="ui"]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 413.0
-offset_right = 853.0
+offset_left = 253.0
+offset_top = 498.0
+offset_right = 922.0
 offset_bottom = 648.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ui/Container"]
@@ -25,3 +26,7 @@ patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
+
+[node name="ChefTurnBase" parent="." instance=ExtResource("2_vc2uf")]
+position = Vector2(728, 356.00003)
+scale = Vector2(1.3600025, 1.3600025)
