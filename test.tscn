@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://byhl7q2wpfi0t"]
+[gd_scene load_steps=105 format=4 uid="uid://byhl7q2wpfi0t"]
 
 [ext_resource type="Script" uid="uid://daqarfsmp03m4" path="res://icon.gd" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://b2qn0fuoy1l6x" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Ground Tileset/Tileset_Ground.png" id="2_vbegm"]
@@ -20995,6 +20995,10 @@ b = Vector2(0, 130)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1f472"]
 b = Vector2(1, 130)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vefa6"]
+a = Vector2(-261, 424)
+b = Vector2(-260, 230)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ej757"]
 a = Vector2(-13, -32)
 b = Vector2(-16, 45)
@@ -21012,6 +21016,22 @@ b = Vector2(402, -1)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ppv7d"]
 b = Vector2(0, 228)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4rsio"]
+a = Vector2(27, 111)
+b = Vector2(-160, 110)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fsvon"]
+a = Vector2(-142, 324)
+b = Vector2(-142, 280)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tgt5t"]
+a = Vector2(-64, 104)
+b = Vector2(-40, 91)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_avhts"]
+a = Vector2(-175, 431)
+b = Vector2(-231, 431)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxl6d"]
 radius = 49.648766
@@ -21290,7 +21310,8 @@ position = Vector2(-147, 400)
 shape = SubResource("SegmentShape2D_1f472")
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="collision"]
-position = Vector2(59, 14)
+position = Vector2(7, 343)
+shape = SubResource("SegmentShape2D_vefa6")
 
 [node name="CollisionShape2D44" type="CollisionShape2D" parent="collision"]
 position = Vector2(-192, 812)
@@ -21310,6 +21331,22 @@ shape = SubResource("SegmentShape2D_naet1")
 [node name="CollisionShape2D41" type="CollisionShape2D" parent="collision"]
 position = Vector2(2, 14)
 shape = SubResource("SegmentShape2D_ppv7d")
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="collision"]
+position = Vector2(-283, 703)
+shape = SubResource("SegmentShape2D_4rsio")
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="collision"]
+position = Vector2(-302, 490)
+shape = SubResource("SegmentShape2D_fsvon")
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="collision"]
+position = Vector2(-380, 669)
+shape = SubResource("SegmentShape2D_tgt5t")
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="collision"]
+position = Vector2(-78, 338)
+shape = SubResource("SegmentShape2D_avhts")
 
 [node name="Npc" parent="." instance=ExtResource("27_dpmuy")]
 position = Vector2(-12, 32)
