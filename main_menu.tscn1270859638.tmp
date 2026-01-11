@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk1atpb8venwp"]
+[gd_scene load_steps=6 format=3 uid="uid://bk1atpb8venwp"]
 
 [ext_resource type="FontFile" uid="uid://dou08g1gcif3v" path="res://Font/Round9x13.ttf" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://csuo3wusi5ys7" path="res://Font/NicerNightie.ttf" id="2_jix8l"]
 [ext_resource type="FontFile" uid="uid://cin7sout454n" path="res://Font/ExpressionPro.ttf" id="3_glbon"]
 [ext_resource type="SpriteFrames" uid="uid://ctfqjgo033t3r" path="res://Animation resource only/StartMenu.tres" id="3_jix8l"]
 [ext_resource type="Script" uid="uid://dnxygwt70t24d" path="res://StartButton.gd" id="3_nlkkf"]
-[ext_resource type="Script" uid="uid://c8a1giry3vo8v" path="res://ButtonEvent.gd" id="4_nlkkf"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -14,7 +13,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_nlkkf")
 
 [node name="Container" type="HBoxContainer" parent="Control"]
 layout_mode = 0
@@ -49,7 +47,7 @@ text = "GET OUT"
 
 [node name="Start" type="TextureButton" parent="Control/Container"]
 layout_mode = 2
-script = ExtResource("4_nlkkf")
+script = ExtResource("3_nlkkf")
 
 [node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Container/Start"]
 position = Vector2(560.00006, 388.00003)
