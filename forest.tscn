@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpfg5gdyigr30" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Trees and Bushes/Tree_Emerald_3.png" id="4_d8dn4"]
 [ext_resource type="Texture2D" uid="uid://dkiidjebuosgg" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Trees and Bushes/Tree_Emerald_4.png" id="5_5rndp"]
 [ext_resource type="Texture2D" uid="uid://b257lwjb6nkl" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/FEN8ya.png" id="6_dvh0n"]
-[ext_resource type="Script" uid="uid://bh8ecypt0yuxg" path="res://area_2d_3.gd" id="7_dvh0n"]
+[ext_resource type="Script" uid="uid://hnynoauwbfc1" path="res://MainMap.gd" id="8_5rndp"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="8_d8dn4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bw3fi"]
@@ -7155,7 +7155,7 @@ tile_map_data = PackedByteArray("AAD+//7/AAAmAD0AAAD+////AAAmAD4AAAD+/wAAAAAmAD8
 tile_set = SubResource("TileSet_5rndp")
 
 [node name="Area2D3" type="Area2D" parent="."]
-script = ExtResource("7_dvh0n")
+script = ExtResource("8_5rndp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2(-1, 1)

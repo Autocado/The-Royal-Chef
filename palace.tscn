@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://p2wna3vvlixk" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plate.png" id="29_gr0vk"]
 [ext_resource type="Texture2D" uid="uid://b503xa7v8t652" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plates.png" id="30_bq5yi"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="34_lb503"]
-[ext_resource type="Script" uid="uid://hnynoauwbfc1" path="res://area_2d_2.gd" id="35_ahoi8"]
+[ext_resource type="Script" uid="uid://hnynoauwbfc1" path="res://MainMap.gd" id="35_ahoi8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6e772"]
 texture = ExtResource("1_oix3w")

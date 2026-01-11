@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://byhl7q2wpfi0t"]
+[gd_scene load_steps=106 format=4 uid="uid://byhl7q2wpfi0t"]
 
 [ext_resource type="Script" uid="uid://daqarfsmp03m4" path="res://icon.gd" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://b2qn0fuoy1l6x" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Ground Tileset/Tileset_Ground.png" id="2_vbegm"]
@@ -18,9 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://c1rinb1mk7aqn" path="res://npc_sell.tscn" id="16_uty7l"]
 [ext_resource type="PackedScene" uid="uid://cw41ej7bdpenc" path="res://npc_potionseller.tscn" id="17_45l4g"]
 [ext_resource type="PackedScene" uid="uid://o0tvrd0r7u3t" path="res://Villager_1.tscn" id="18_vxl6d"]
-[ext_resource type="Script" uid="uid://dkfmooiijgtea" path="res://area_2d.gd" id="19_4uo0j"]
+[ext_resource type="Script" uid="uid://dkfmooiijgtea" path="res://Palace.gd" id="19_4uo0j"]
 [ext_resource type="PackedScene" uid="uid://cuf0th1wher6s" path="res://Villager_2.tscn" id="19_eski5"]
 [ext_resource type="PackedScene" uid="uid://gnecjtqjr3sq" path="res://Villager_3.tscn" id="20_eski5"]
+[ext_resource type="Script" uid="uid://4e0gt4ukwtsd" path="res://Forest.gd" id="21_15c7i"]
 [ext_resource type="PackedScene" uid="uid://c8afn8j75fbw3" path="res://Villager_4.tscn" id="21_pdf00"]
 [ext_resource type="PackedScene" uid="uid://bmkcmv2ehj88m" path="res://npc.tscn" id="27_dpmuy"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="29_j75vh"]
@@ -21360,17 +21361,17 @@ position = Vector2(148, 197)
 [node name="Chef" parent="." instance=ExtResource("29_j75vh")]
 position = Vector2(33, 1)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Palace" type="Area2D" parent="."]
 script = ExtResource("19_4uo0j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Palace"]
 position = Vector2(32, -54)
 shape = SubResource("CircleShape2D_vxl6d")
 
-[node name="Area2D2" type="Area2D" parent="."]
-script = ExtResource("19_4uo0j")
+[node name="Forest" type="Area2D" parent="."]
+script = ExtResource("21_15c7i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forest"]
 position = Vector2(-233, 911)
 shape = SubResource("CircleShape2D_vxl6d")
 
@@ -21386,7 +21387,7 @@ position = Vector2(-312, 486)
 [node name="CharacterBody2D8" parent="." instance=ExtResource("21_pdf00")]
 position = Vector2(-370, 759)
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
+[connection signal="body_entered" from="Palace" to="Palace" method="_on_body_entered"]
+[connection signal="body_exited" from="Palace" to="Palace" method="_on_body_exited"]
+[connection signal="body_entered" from="Forest" to="Forest" method="_on_body_entered"]
+[connection signal="body_exited" from="Forest" to="Forest" method="_on_body_exited"]

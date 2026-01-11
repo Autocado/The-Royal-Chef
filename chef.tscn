@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://domd5ohkuqplj"]
 
 [ext_resource type="Script" uid="uid://dqfwrp4g1ao48" path="res://character_body_2d.gd" id="1_mivr5"]
-[ext_resource type="SpriteFrames" uid="uid://l3wxl7tl3jn2" path="res://test.tres" id="2_j8bwy"]
+[ext_resource type="SpriteFrames" uid="uid://l3wxl7tl3jn2" path="res://Animation resource only/ChefChibi.tres" id="2_j8bwy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mivr5"]
 radius = 16.0
