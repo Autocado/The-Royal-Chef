@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://blkqqwsagx3lo"]
+
+[ext_resource type="Texture2D" uid="uid://doyownw1cpdwh" path="res://Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="1_r5scr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg87u"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp557"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0alp"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(192, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuw2n"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(288, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1smji"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(384, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37bcs"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(480, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckbc5"]
+atlas = ExtResource("1_r5scr")
+region = Rect2(576, 0, 96, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg87u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp557")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0alp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuw2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1smji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37bcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckbc5")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}]
