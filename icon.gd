@@ -1,2 +1,6 @@
 extends Node2D
-@onready var player = $CharacterBody2D
+
+func _ready() -> void:
+	preload("res://palace.tscn")
+	preload("res://forest.tscn")
+	preload("res://test.tscn")

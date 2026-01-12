@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk1atpb8venwp"]
+[gd_scene load_steps=6 format=3 uid="uid://bk1atpb8venwp"]
 
 [ext_resource type="FontFile" uid="uid://dou08g1gcif3v" path="res://Font/Round9x13.ttf" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://csuo3wusi5ys7" path="res://Font/NicerNightie.ttf" id="2_jix8l"]
 [ext_resource type="FontFile" uid="uid://cin7sout454n" path="res://Font/ExpressionPro.ttf" id="3_glbon"]
 [ext_resource type="SpriteFrames" uid="uid://ctfqjgo033t3r" path="res://Animation resource only/StartMenu.tres" id="3_jix8l"]
-[ext_resource type="Script" uid="uid://dnxygwt70t24d" path="res://StartButton.gd" id="3_nlkkf"]
 [ext_resource type="Script" uid="uid://c8a1giry3vo8v" path="res://ButtonEvent.gd" id="4_nlkkf"]
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -14,17 +13,22 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_nlkkf")
 
 [node name="Container" type="HBoxContainer" parent="Control"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Setting" type="TextureButton" parent="Control/Container"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Option" type="Label" parent="Control/Container/Setting"]
+[node name="Setting" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_bottom = 648.0
+
+[node name="Option" type="Label" parent="Control/Setting"]
 layout_mode = 0
 offset_left = 528.0
 offset_top = 442.0
@@ -34,10 +38,13 @@ theme_override_fonts/font = ExtResource("2_jix8l")
 theme_override_font_sizes/font_size = 36
 text = "Option"
 
-[node name="Quit" type="TextureButton" parent="Control/Container"]
-layout_mode = 2
+[node name="Quit" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 648.0
 
-[node name="GETOUT" type="Label" parent="Control/Container/Quit"]
+[node name="GETOUT" type="Label" parent="Control/Quit"]
 layout_mode = 0
 offset_left = 509.0
 offset_top = 521.0
@@ -47,29 +54,35 @@ theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 36
 text = "GET OUT"
 
-[node name="Start" type="TextureButton" parent="Control/Container"]
-layout_mode = 2
+[node name="Start" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 346.0
+offset_right = 455.5692
+offset_bottom = 364.5
+scale = Vector2(17.920006, 3.9999988)
 script = ExtResource("4_nlkkf")
 
-[node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Container/Start"]
-position = Vector2(560.00006, 388.00003)
-scale = Vector2(2.515625, 2.515625)
+[node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Start"]
+position = Vector2(7.5348263, 10.75602)
+scale = Vector2(0.14038081, 0.6289065)
 sprite_frames = ExtResource("3_jix8l")
 animation = &"Idle"
 frame_progress = 0.14185372
 
-[node name="Pressed" type="AnimatedSprite2D" parent="Control/Container/Start"]
-position = Vector2(560, 376)
-scale = Vector2(2.516, 2.516)
+[node name="Pressed" type="AnimatedSprite2D" parent="Control/Start"]
+position = Vector2(7.5348186, 7.7560024)
+scale = Vector2(0.14040175, 0.62900025)
 sprite_frames = ExtResource("3_jix8l")
 animation = &"Pressed"
+frame_progress = 0.111629814
 
-[node name="Cooking" type="Label" parent="Control/Container/Start"]
+[node name="Cooking" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 480.0
-offset_top = 364.0
-offset_right = 651.0
-offset_bottom = 402.0
+offset_left = 494.024
+offset_top = 368.024
+offset_right = 665.024
+offset_bottom = 406.024
 theme_override_colors/font_color = Color(1, 0.8000001, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5568628)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -78,8 +91,10 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_fu7sn")
 theme_override_font_sizes/font_size = 39
 text = "Cooking"
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[connection signal="button_down" from="Control/Start" to="Control/Start" method="_on_button_down"]
+[connection signal="button_up" from="Control/Start" to="Control/Start" method="_on_button_up"]
+[connection signal="mouse_entered" from="Control/Start" to="Control/Start" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Start" to="Control/Start" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/Start" to="Control/Start" method="_on_pressed"]
