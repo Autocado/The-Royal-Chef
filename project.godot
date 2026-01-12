@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 single="*res://singletone/single.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+PlayerStats="*res://PlayerStats.gd"
 
 [dialogue_manager]
 

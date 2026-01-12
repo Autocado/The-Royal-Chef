@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://iq0kqicxt8wq"]
 
-[ext_resource type="Script" uid="uid://bw5uu8vjlgjth" path="res://EntityResource.gd" id="1_vbyxe"]
+[ext_resource type="Script" uid="uid://bntphj0l0urwi" path="res://TurnBase Stuff/entity.gd" id="1_vbyxe"]
 [ext_resource type="Script" uid="uid://sm4m1kti62fn" path="res://TurnBase Stuff/attack.gd" id="1_wxup1"]
 [ext_resource type="Script" uid="uid://cqhn2xsb4fjxj" path="res://health.gd" id="2_vbyxe"]
 [ext_resource type="SpriteFrames" uid="uid://blkqqwsagx3lo" path="res://Animation resource only/SlimeHolder.tres" id="3_dab4h"]
@@ -20,7 +20,7 @@ script = ExtResource("1_wxup1")
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_vbyxe")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="EntitySprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_dab4h")
 animation = &"Idle"
 frame_progress = 0.40682787
