@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cqhn2xsb4fjxj" path="res://health.gd" id="2_vbyxe"]
 [ext_resource type="SpriteFrames" uid="uid://blkqqwsagx3lo" path="res://Animation resource only/SlimeHolder.tres" id="3_dab4h"]
 
-[node name="Entity" type="Control"]
+[node name="Entity" type="Control" node_paths=PackedStringArray("HealthNode", "AttackNode")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vbyxe")
+HealthNode = NodePath("Health")
+AttackNode = NodePath("Attack")
 
 [node name="Attack" type="Node" parent="."]
 script = ExtResource("1_wxup1")
@@ -22,5 +24,5 @@ script = ExtResource("2_vbyxe")
 
 [node name="EntitySprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_dab4h")
-animation = &"Idle"
-frame_progress = 0.40682787
+animation = &"hurt"
+frame_progress = 0.4121523

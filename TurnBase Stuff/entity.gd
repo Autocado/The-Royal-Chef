@@ -50,7 +50,7 @@ func _on_entity_sprite_animation_finished():
 	print_debug(HealthNode.CurrentHP)
 	if HealthNode.CurrentHP > 0:
 		print_debug("SHould Play")
-		entity_sprite.play("idle")
+		entity_sprite.play("Idle")
 
 func AttackAnim():
 	entity_sprite.play("hit")
