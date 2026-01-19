@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ceqd4q25vw1b"]
 
 [ext_resource type="Texture2D" uid="uid://clvbf2637g3jl" path="res://Eris Esra's Character Template 4.0/texture.png" id="1_dnt0y"]
-[ext_resource type="Script" uid="uid://b2ps0wn2johpu" path="res://addons/turnity/turn_manager.gd" id="1_me4h7"]
+[ext_resource type="Script" uid="uid://b2ps0wn2johpu" path="res://TurnBaseScene.gd" id="1_me4h7"]
 [ext_resource type="Script" uid="uid://caisaxtk4hmn1" path="res://addons/turnity/turn_socket.gd" id="2_pmcct"]
 [ext_resource type="PackedScene" uid="uid://d2fkltv4ixub5" path="res://Chefturnbase.tscn" id="2_vc2uf"]
 [ext_resource type="PackedScene" uid="uid://bua245xwn2dl1" path="res://TurnBase Stuff/slime_turn_base.tscn" id="4_s72hv"]
