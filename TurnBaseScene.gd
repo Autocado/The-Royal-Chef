@@ -21,8 +21,12 @@ func _sort_turn_order(a: TurnitySocket, b: TurnitySocket) -> bool:
 
 
 func _on_turn_activated(socket: TurnitySocket) -> void:
-	pass
+	var actor := socket.actor
+	if actor and actor.has_method("start_turn"):
+		actor.start_turn()
 
 
 func _on_turn_ended(socket: TurnitySocket) -> void:
-	pass
+	var actor := socket.actor
+	if actor and actor.has_method("end_turn"):
+		actor.end_turn()

@@ -9,8 +9,11 @@ var action_in_progress := false
 func _ready() -> void:
 	sprite.play("Stand")
 	turnity_socket.actor = self
-	TurnityManager.activated_turn.connect(_on_turn_activated)
-	TurnityManager.ended_turn.connect(_on_turn_ended)
+
+
+func start_turn() -> void:
+	input_enabled = true
+	action_in_progress = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -21,17 +24,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		await _perform_attack()
 
-
-func _on_turn_activated(socket: TurnitySocket) -> void:
-	input_enabled = socket.actor == self
-	if not input_enabled:
-		action_in_progress = false
-
-
-func _on_turn_ended(socket: TurnitySocket) -> void:
-	if socket.actor == self:
-		input_enabled = false
-		action_in_progress = false
+func end_turn() -> void:
+	input_enabled = false
+	action_in_progress = false
 
 
 func _perform_attack() -> void:

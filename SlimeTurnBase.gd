@@ -8,12 +8,10 @@ var acting := false
 func _ready() -> void:
 	sprite.play("idle")
 	turnity_socket.actor = self
-	TurnityManager.activated_turn.connect(_on_turn_activated)
-	TurnityManager.ended_turn.connect(_on_turn_ended)
 
 
-func _on_turn_activated(socket: TurnitySocket) -> void:
-	if socket.actor != self or acting:
+func start_turn() -> void:
+	if acting:
 		return
 
 	acting = true
@@ -25,6 +23,5 @@ func _on_turn_activated(socket: TurnitySocket) -> void:
 	TurnityManager.next_turn()
 
 
-func _on_turn_ended(socket: TurnitySocket) -> void:
-	if socket.actor == self:
-		acting = false
+func end_turn() -> void:
+	acting = false
