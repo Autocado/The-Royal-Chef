@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene load_steps=6 format=3 uid="uid://ceqd4q25vw1b"]
 
 [ext_resource type="Texture2D" uid="uid://clvbf2637g3jl" path="res://Eris Esra's Character Template 4.0/texture.png" id="1_dnt0y"]
 [ext_resource type="Script" uid="uid://b2ps0wn2johpu" path="res://addons/turnity/turn_manager.gd" id="1_me4h7"]
 [ext_resource type="Script" uid="uid://caisaxtk4hmn1" path="res://addons/turnity/turn_socket.gd" id="2_pmcct"]
 [ext_resource type="PackedScene" uid="uid://d2fkltv4ixub5" path="res://Chefturnbase.tscn" id="2_vc2uf"]
+[ext_resource type="PackedScene" uid="uid://bua245xwn2dl1" path="res://TurnBase Stuff/slime_turn_base.tscn" id="4_s72hv"]
 
 [node name="Turnbase" type="Node2D"]
 script = ExtResource("1_me4h7")
@@ -36,6 +37,10 @@ patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
+
+[node name="SlimeTurnBase" parent="." instance=ExtResource("4_s72hv")]
+position = Vector2(333.0001, 345.00003)
+scale = Vector2(5.28, 5.28)
 
 [node name="ChefTurnBase" parent="." instance=ExtResource("2_vc2uf")]
 position = Vector2(728, 356.00003)
