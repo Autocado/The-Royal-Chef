@@ -1,8 +1,11 @@
-[gd_scene load_steps=72 format=3 uid="uid://d2fkltv4ixub5"]
+[gd_scene load_steps=78 format=3 uid="uid://d2fkltv4ixub5"]
 
 [ext_resource type="Texture2D" uid="uid://ly7pewl8vpcu" path="res://Eris Esra's Character Template 4.0/PCskill.png" id="1_e7ah1"]
 [ext_resource type="Texture2D" uid="uid://d3188eqgjafdu" path="res://Eris Esra's Character Template 4.0/PCsprite_frame.png" id="1_kmjc2"]
 [ext_resource type="Script" uid="uid://7u21q7hl2vy8" path="res://chefturnbase.gd" id="1_s74rb"]
+[ext_resource type="Script" uid="uid://sm4m1kti62fn" path="res://TurnBase Stuff/attack.gd" id="2_b5s1y"]
+[ext_resource type="Script" uid="uid://cqhn2xsb4fjxj" path="res://TurnBase Stuff/health.gd" id="6_v3h1s"]
+[ext_resource type="FontFile" uid="uid://bjoxakgjb6a1t" path="res://Font/EquipmentPro.ttf" id="7_v3h1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyh0o"]
 atlas = ExtResource("1_e7ah1")
@@ -486,8 +489,100 @@ animations = [{
 "speed": 1.25
 }]
 
+[sub_resource type="GDScript" id="GDScript_wxup1"]
+script/source = "extends AnimatedSprite2D
+
+# Nodes
+@export var Health:Node
+@export var attack:Node
+@onready var entity_sprite = $EntitySprite
+@onready var health_bar = $HealthBar
+
+# Target
+var CurrentTargets:Array
+
+
+# Stats
+var Str:int
+var Dex:int
+var Int:int
+
+
+
+func _ready():
+	entity_sprite.play(\"Idle\")
+	attack.AttackSig.connect(AttackAnim)
+
+func _process(delta):
+	health_bar.value = Health.CurrentHP/Health.MaxHP
+
+func LoadEntity(TargetRes):
+	if TargetRes != PlayerStats:
+		entity_sprite.flip_h = true
+	Str = TargetRes.Str
+	Dex = TargetRes.Dex
+	Int = TargetRes.Int
+	Health.MaxHP = TargetRes.MaxHP
+	Health.CurrentHP = TargetRes.MaxHP
+	
+	attack.LoadSkills(TargetRes.Skills)
+	Health.Death.connect(Death)
+
+func ReceiveDamage(amount,type):
+	Health.TakeDamage(amount,type)
+	entity_sprite.play(\"hurt\")
+
+
+
+func Death():
+	queue_free()
+
+
+func _on_entity_sprite_animation_finished():
+	print_debug(Health.CurrentHP)
+	if Health.CurrentHP > 0:
+		print_debug(\"SHould Play\")
+		entity_sprite.play(\"Idle\")
+
+func AttackAnim():
+	entity_sprite.play(\"hit\")
+
+func MobAttack():
+	attack.MobAttack()
+
+
+func _on_chef_animation_finished() -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cg2k"]
+bg_color = Color(0, 0, 0, 0.21568628)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8392157, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0q85"]
+bg_color = Color(0.11764706, 0.8627451, 0.0627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8392157, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="ChefTurnBase" type="CharacterBody2D"]
 script = ExtResource("1_s74rb")
+
+[node name="attack" type="Node" parent="."]
+script = ExtResource("2_b5s1y")
 
 [node name="Chef" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7421875, 0.7421875)
@@ -495,3 +590,19 @@ sprite_frames = SubResource("SpriteFrames_pyh0o")
 animation = &"Skill"
 frame = 46
 frame_progress = 0.97178215
+script = SubResource("GDScript_wxup1")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("6_v3h1s")
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+offset_left = -68.0
+offset_top = 94.0
+offset_right = 80.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("7_v3h1s")
+theme_override_styles/background = SubResource("StyleBoxFlat_5cg2k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c0q85")
+value = 25.0
+
+[connection signal="animation_finished" from="Chef" to="." method="_on_chef_animation_finished"]

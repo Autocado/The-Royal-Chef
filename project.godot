@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 single="*res://singletone/single.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-PlayerStats="*res://PlayerStats.gd"
+PlayerStats="*res://TurnBase Stuff/PlayerStats.gd"
 TurnityManager="*res://addons/turnity/turn_manager.gd"
 
 [dialogue_manager]

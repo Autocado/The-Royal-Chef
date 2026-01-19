@@ -1,20 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://iq0kqicxt8wq"]
+[gd_scene load_steps=5 format=3 uid="uid://cf7tc871mod76"]
 
-[ext_resource type="Script" uid="uid://bntphj0l0urwi" path="res://TurnBase Stuff/entity.gd" id="1_vbyxe"]
 [ext_resource type="Script" uid="uid://sm4m1kti62fn" path="res://TurnBase Stuff/attack.gd" id="1_wxup1"]
-[ext_resource type="Script" uid="uid://cqhn2xsb4fjxj" path="res://health.gd" id="2_vbyxe"]
+[ext_resource type="Script" uid="uid://cqhn2xsb4fjxj" path="res://TurnBase Stuff/health.gd" id="2_vbyxe"]
 [ext_resource type="SpriteFrames" uid="uid://blkqqwsagx3lo" path="res://Animation resource only/SlimeHolder.tres" id="3_dab4h"]
 
-[node name="Entity" type="Control" node_paths=PackedStringArray("HealthNode", "AttackNode")]
+[sub_resource type="GDScript" id="GDScript_wxup1"]
+script/source = "extends AnimatedSprite2D
+
+# Nodes
+@export var Health:Node
+@export var attack:Node
+@onready var entity_sprite = $EntitySprite
+@onready var health_bar = $HealthBar
+
+# Target
+var CurrentTargets:Array
+
+
+# Stats
+var Str:int
+var Dex:int
+var Int:int
+
+
+
+func _ready():
+	entity_sprite.play(\"Idle\")
+	attack.AttackSig.connect(AttackAnim)
+
+func _process(delta):
+	health_bar.value = Health.CurrentHP/Health.MaxHP
+
+func LoadEntity(TargetRes):
+	if TargetRes != PlayerStats:
+		entity_sprite.flip_h = true
+	Str = TargetRes.Str
+	Dex = TargetRes.Dex
+	Int = TargetRes.Int
+	Health.MaxHP = TargetRes.MaxHP
+	Health.CurrentHP = TargetRes.MaxHP
+	
+	attack.LoadSkills(TargetRes.Skills)
+	Health.Death.connect(Death)
+
+func ReceiveDamage(amount,type):
+	Health.TakeDamage(amount,type)
+	entity_sprite.play(\"hurt\")
+
+
+
+func Death():
+	queue_free()
+
+
+func _on_entity_sprite_animation_finished():
+	print_debug(Health.CurrentHP)
+	if Health.CurrentHP > 0:
+		print_debug(\"SHould Play\")
+		entity_sprite.play(\"Idle\")
+
+func AttackAnim():
+	entity_sprite.play(\"hit\")
+
+func MobAttack():
+	attack.MobAttack()
+
+
+func _on_chef_animation_finished() -> void:
+	pass # Replace with function body.
+"
+
+[node name="Entity" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vbyxe")
-HealthNode = NodePath("Health")
-AttackNode = NodePath("Attack")
+script = SubResource("GDScript_wxup1")
 
 [node name="Attack" type="Node" parent="."]
 script = ExtResource("1_wxup1")
