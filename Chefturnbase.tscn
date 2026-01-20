@@ -585,7 +585,8 @@ script = ExtResource("1_s74rb")
 script = ExtResource("2_b5s1y")
 
 [node name="Chef" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.7421875, 0.7421875)
+position = Vector2(3.5762787e-07, -2.3841855e-07)
+scale = Vector2(0.71875006, 0.71875006)
 sprite_frames = SubResource("SpriteFrames_pyh0o")
 animation = &"Skill"
 frame = 46

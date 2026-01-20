@@ -1,9 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://bua245xwn2dl1"]
+[gd_scene load_steps=31 format=3 uid="uid://bua245xwn2dl1"]
 
 [ext_resource type="Texture2D" uid="uid://d12103vamq8ko" path="res://Slime Enemy/Jump/Sprite Sheet - Blue Jump Start-up.png" id="1_m18uu"]
 [ext_resource type="Script" uid="uid://buq0fh13ouk1q" path="res://TurnBase Stuff/slime_turn_base.gd" id="1_tj23b"]
 [ext_resource type="Texture2D" uid="uid://rqdfj11lksjv" path="res://Slime Enemy/Jump/Sprite Sheet - Blue Jump Land.png" id="2_tj23b"]
 [ext_resource type="Texture2D" uid="uid://doyownw1cpdwh" path="res://Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="3_liw47"]
+[ext_resource type="Script" uid="uid://sm4m1kti62fn" path="res://TurnBase Stuff/attack.gd" id="5_coedg"]
+[ext_resource type="Script" uid="uid://cqhn2xsb4fjxj" path="res://TurnBase Stuff/health.gd" id="6_d1p1x"]
+[ext_resource type="FontFile" uid="uid://bjoxakgjb6a1t" path="res://Font/EquipmentPro.ttf" id="7_h1a5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mj6b"]
 atlas = ExtResource("1_m18uu")
@@ -158,10 +161,51 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1rfq"]
+bg_color = Color(0, 0, 0, 0.21568628)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8392157, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h36gj"]
+bg_color = Color(0.11764706, 0.8627451, 0.0627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8392157, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="SlimeTurnBase" type="CharacterBody2D"]
 script = ExtResource("1_tj23b")
 
 [node name="Slime" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12.000001)
+scale = Vector2(2.984375, 2.984375)
 sprite_frames = SubResource("SpriteFrames_l2ghp")
 animation = &"attack"
 frame_progress = 0.06584108
+
+[node name="attack" type="Node" parent="."]
+script = ExtResource("5_coedg")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("6_d1p1x")
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+offset_left = -74.0
+offset_top = 43.0
+offset_right = 74.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("7_h1a5w")
+theme_override_styles/background = SubResource("StyleBoxFlat_a1rfq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h36gj")
+value = 25.0

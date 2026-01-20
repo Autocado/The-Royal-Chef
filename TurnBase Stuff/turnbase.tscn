@@ -30,10 +30,16 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="SlimeTurnBase" parent="." instance=ExtResource("4_s72hv")]
-position = Vector2(333.0001, 345.00003)
-scale = Vector2(5.28, 5.28)
+[node name="TextureRect" type="TextureRect" parent="ui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.839998, 16.16)
 
 [node name="ChefTurnBase" parent="." instance=ExtResource("2_vc2uf")]
-position = Vector2(728, 356.00003)
-scale = Vector2(1.3600025, 1.3600025)
+position = Vector2(734.00006, 340.00003)
+scale = Vector2(1.2000026, 1.2000026)
+
+[node name="SlimeTurnBase" parent="." instance=ExtResource("4_s72hv")]
+position = Vector2(156.00012, 400.99994)
+scale = Vector2(1.2000027, 1.2000027)
