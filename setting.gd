@@ -13,7 +13,7 @@ func _on_button_up() -> void:
 	Sprite2.show()
 	Sprite2.play("Pressed")
 	await get_tree().create_timer(0.7).timeout
-	get_tree().change_scene_to_file("res://test.tscn")
+	
 
 
 func _on_mouse_entered() -> void:
