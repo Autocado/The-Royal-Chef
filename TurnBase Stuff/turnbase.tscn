@@ -1,23 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene load_steps=4 format=3 uid="uid://ceqd4q25vw1b"]
 
-[ext_resource type="Script" uid="uid://b2ps0wn2johpu" path="res://addons/turnity/turn_manager.gd" id="1_me4h7"]
+[ext_resource type="PackedScene" uid="uid://b8hwlxpph7xnp" path="res://TurnBase Stuff/EnemyGroup.tscn" id="2_pmcct"]
+[ext_resource type="Script" uid="uid://d2twdwr7won0" path="res://TurnBase Stuff/enemy_group.gd" id="3_s72hv"]
+[ext_resource type="PackedScene" uid="uid://dsm0veva3e76e" path="res://TurnBase Stuff/playergroup.tscn" id="4_7h6r0"]
 
 [node name="Turnbase" type="Node2D"]
-script = ExtResource("1_me4h7")
+
+[node name="Enemy" parent="." instance=ExtResource("2_pmcct")]
+position = Vector2(149, 58.000004)
+scale = Vector2(2.7282429, 2.7282429)
+script = ExtResource("3_s72hv")
+
+[node name="playergroup" parent="." instance=ExtResource("4_7h6r0")]
+position = Vector2(906, 127)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1021.0
-offset_top = 509.0
-offset_right = 1086.0
-offset_bottom = 648.0
+[node name="choice" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 801.0
+offset_top = 512.0
+offset_right = 1151.0
+offset_bottom = 656.0
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Attack" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
+text = "Attack"
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Defend" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
+disabled = true
+text = "Defend
+"
 
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Run" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
+disabled = true
+text = "Run"
+
+[connection signal="next_player" from="Enemy" to="playergroup" method="_on_enemy_next_player"]
+[connection signal="pressed" from="CanvasLayer/choice/Attack" to="Enemy" method="_on_attack_pressed"]

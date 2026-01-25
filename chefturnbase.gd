@@ -1,63 +1,28 @@
 extends CharacterBody2D
 
-# Nodes
-@export var Health:Node
-@export var attack:Node
-@onready var entity_sprite = $Chef
-@onready var health_bar = $HealthBar
+@onready var _focus = $Focus
+@onready var progress_bar = $Healthbar
+@onready var animation_player = $AnimationPlayer
 
-# Target
-var CurrentTargets:Array
+@export var MAX_HEALTH: float = 7
 
+var health: float = 7:
+	set(value):
+		health = value
+		_update_progress_bar()
+		_play_animation()
 
-# Stats
-var Str:int
-var Dex:int
-var Int:int
+func _update_progress_bar():
+	progress_bar.value = (health/MAX_HEALTH) * 100
 
+func _play_animation():
+	animation_player.play("hurt")
 
+func focus():
+	_focus.show()
 
-func _ready():
-	entity_sprite.play("Stand")
-	attack.AttackSig.connect(AttackAnim)
+func unfocus():
+	_focus.hide()
 
-func _process(delta):
-	health_bar.value = Health.CurrentHP/Health.MaxHP
-
-func LoadEntity(TargetRes):
-	if TargetRes != PlayerStats:
-		entity_sprite.flip_h = true
-	Str = TargetRes.Str
-	Dex = TargetRes.Dex
-	Int = TargetRes.Int
-	Health.MaxHP = TargetRes.MaxHP
-	Health.CurrentHP = TargetRes.MaxHP
-	
-	attack.LoadSkills(TargetRes.Skills)
-	Health.Death.connect(Death)
-
-func ReceiveDamage(amount,type):
-	Health.TakeDamage(amount,type)
-	entity_sprite.play("hurt")
-
-
-
-func Death():
-	queue_free()
-
-
-func _on_entity_sprite_animation_finished():
-	print_debug(Health.CurrentHP)
-	if Health.CurrentHP > 0:
-		print_debug("SHould Play")
-		entity_sprite.play("Stand")
-
-func AttackAnim():
-	entity_sprite.play("hit")
-
-func MobAttack():
-	attack.MobAttack()
-
-
-func _on_chef_animation_finished() -> void:
-	pass # Replace with function body.
+func take_damage(value):
+	health -= value

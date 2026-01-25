@@ -226,10 +226,11 @@ offset_bottom = 488.0
 script = ExtResource("1_qe12f")
 
 [node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Setting"]
+position = Vector2(94, 8)
+scale = Vector2(1.6640625, 1.6640625)
 sprite_frames = SubResource("SpriteFrames_dy7ct")
 animation = &"Hover"
-frame = 8
-frame_progress = 0.5843322
+frame_progress = 0.05452715
 
 [node name="Pressed" type="AnimatedSprite2D" parent="Control/Setting"]
 sprite_frames = SubResource("SpriteFrames_0o4t1")
@@ -279,8 +280,7 @@ frame_progress = 0.14185372
 position = Vector2(7.5348186, 7.7560024)
 scale = Vector2(0.14040175, 0.62900025)
 sprite_frames = ExtResource("3_jix8l")
-animation = &"Pressed"
-frame_progress = 0.111629814
+animation = &"Hover"
 
 [node name="Cooking" type="Label" parent="Control"]
 layout_mode = 0

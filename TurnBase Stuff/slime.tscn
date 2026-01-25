@@ -82,8 +82,8 @@ corner_radius_bottom_left = 5
 script = ExtResource("1_vcjn1")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -4.7683716e-07)
-scale = Vector2(1.4375, 1.4375)
+position = Vector2(0, 12)
+scale = Vector2(0.87500006, 0.87500006)
 sprite_frames = ExtResource("2_amsf1")
 animation = &"Idle"
 frame_progress = 0.6170034
@@ -98,10 +98,10 @@ frame = 2
 frame_progress = 0.5560019
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -31.999996
-offset_top = 29.000008
-offset_right = 68.0
-offset_bottom = 56.000008
+offset_left = -23.999996
+offset_top = 27.999998
+offset_right = 51.23138
+offset_bottom = 48.31247
 scale = Vector2(0.6400006, 0.6400006)
 theme_override_fonts/font = ExtResource("4_41l6u")
 theme_override_styles/background = SubResource("StyleBoxFlat_sluh1")
