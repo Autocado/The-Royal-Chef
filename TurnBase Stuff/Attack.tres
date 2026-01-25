@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://j3caj6pviryf"]
-
-[ext_resource type="Script" uid="uid://bcgk8ajj4ky58" path="res://TurnBase Stuff/SkillResource.gd" id="1_6dplc"]
-
-[resource]
-script = ExtResource("1_6dplc")
-SkillName = "Attack"
-SkillPower = 10.0
