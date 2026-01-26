@@ -7163,7 +7163,7 @@ script = ExtResource("8_5rndp")
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_dvh0n")
 
-[node name="Chef" parent="Area2D3" groups=["player"] instance=ExtResource("8_d8dn4")]
+[node name="Chef" parent="Area2D3" instance=ExtResource("8_d8dn4")]
 position = Vector2(2, 0)
 
 [node name="SlimeRoaming" parent="." instance=ExtResource("10_bw3fi")]
@@ -7178,6 +7178,6 @@ frame_progress = 0.0
 [connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D3" to="Area2D3" method="_on_body_exited"]
 [connection signal="animation_changed" from="SlimeRoaming/Walk" to="SlimeRoaming" method="_on_walk_animation_changed"]
-[connection signal="area_entered" from="SlimeRoaming/BattleArea" to="SlimeRoaming" method="_on_battle_area_area_entered"]
+[connection signal="area_entered" from="SlimeRoaming/Walk/DetectionArea/BattleArea" to="SlimeRoaming" method="_on_battle_area_area_entered"]
 
 [editable path="SlimeRoaming"]

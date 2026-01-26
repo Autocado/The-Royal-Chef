@@ -538,28 +538,28 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cg2k"]
-bg_color = Color(0, 0, 0, 0.21568628)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 0.8392157, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mor4d"]
+bg_color = Color(0, 0, 0, 0.25490198)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9999998, 0.8798965, 0.35941407, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0q85"]
-bg_color = Color(0.11764706, 0.8627451, 0.0627451, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_bottom = 2
-border_color = Color(1, 0.8392157, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5s1y"]
+bg_color = Color(0.27450982, 0.68235296, 0.3254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8784314, 0.36078432, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="ChefTurnBase" type="CharacterBody2D"]
 script = ExtResource("1_s74rb")
@@ -579,15 +579,16 @@ scale = Vector2(0.2785157, 0.2785157)
 sprite_frames = SubResource("SpriteFrames_b5s1y")
 animation = &"Focus"
 
-[node name="Healthbar" type="ProgressBar" parent="."]
-offset_left = -68.0
-offset_top = 94.0
-offset_right = 80.0
-offset_bottom = 121.0
-theme_override_fonts/font = ExtResource("7_v3h1s")
-theme_override_styles/background = SubResource("StyleBoxFlat_5cg2k")
-theme_override_styles/fill = SubResource("StyleBoxFlat_c0q85")
-value = 100.0
-metadata/_edit_use_anchors_ = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -50.000004
+offset_top = 92.00001
+offset_right = 59.090588
+offset_bottom = 110.000015
+scale = Vector2(0.99770737, 0.99770737)
+theme_override_fonts/font = ExtResource("7_v3h1s")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/background = SubResource("StyleBoxFlat_mor4d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b5s1y")
+value = 100.0

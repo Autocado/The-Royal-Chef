@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn1jmyk0uky73"
+path="res://.godot/imported/tuco-get-out.mp3-590c527fd916abf65e6fbc9ae03208e2.mp3str"
+
+[deps]
+
+source_file="res://Eris Esra's Character Template 4.0/tuco-get-out.mp3"
+dest_files=["res://.godot/imported/tuco-get-out.mp3-590c527fd916abf65e6fbc9ae03208e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

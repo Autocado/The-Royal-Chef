@@ -1,18 +1,24 @@
-[gd_scene load_steps=50 format=3 uid="uid://bk1atpb8venwp"]
+[gd_scene load_steps=69 format=3 uid="uid://bk1atpb8venwp"]
 
+[ext_resource type="Texture2D" uid="uid://b0esrfifida3c" path="res://background 1/1.png" id="1_48knj"]
 [ext_resource type="FontFile" uid="uid://dou08g1gcif3v" path="res://Font/Round9x13.ttf" id="1_fu7sn"]
 [ext_resource type="Script" uid="uid://ce3vi8sarfnnd" path="res://setting.gd" id="1_qe12f"]
 [ext_resource type="Texture2D" uid="uid://85avb8dw4vhq" path="res://Eris Esra's Character Template 4.0/OptionButton.png" id="2_8qtwp"]
 [ext_resource type="FontFile" uid="uid://csuo3wusi5ys7" path="res://Font/NicerNightie.ttf" id="2_jix8l"]
+[ext_resource type="Script" uid="uid://cl4eleql7cc5i" path="res://sky.gd" id="2_m2y5l"]
 [ext_resource type="Script" uid="uid://ctqrex4anpymw" path="res://quit.gd" id="3_8qtwp"]
 [ext_resource type="FontFile" uid="uid://cin7sout454n" path="res://Font/ExpressionPro.ttf" id="3_glbon"]
+[ext_resource type="Texture2D" uid="uid://cu5h1vf6fjx1x" path="res://background 1/2.png" id="3_imjy1"]
 [ext_resource type="SpriteFrames" uid="uid://ctfqjgo033t3r" path="res://Animation resource only/StartMenu.tres" id="3_jix8l"]
 [ext_resource type="Texture2D" uid="uid://bofx7a61ldsjb" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_1.png" id="4_7bbuq"]
 [ext_resource type="Script" uid="uid://c8a1giry3vo8v" path="res://ButtonEvent.gd" id="4_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://ira0k0x7m3fl" path="res://background 1/3.png" id="4_u5051"]
 [ext_resource type="Texture2D" uid="uid://05ykciw4t8ul" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_2.png" id="5_saq78"]
+[ext_resource type="Texture2D" uid="uid://db3jyrikkcnay" path="res://background 1/4.png" id="5_v2sba"]
 [ext_resource type="Texture2D" uid="uid://t0hx1mgmsnkh" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_3.png" id="6_8uw0o"]
 [ext_resource type="Texture2D" uid="uid://ccwhb7uj5rrf5" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_4.png" id="7_ql5ya"]
 [ext_resource type="Texture2D" uid="uid://bsu2scxb8rm1k" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_5.png" id="8_ka3nr"]
+[ext_resource type="AudioStream" uid="uid://viic2k2um0jo" path="res://Eris Esra's Character Template 4.0/book-flip.mp3" id="8_qby1g"]
 [ext_resource type="Texture2D" uid="uid://b6jmaay0gvay7" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_6.png" id="9_48knj"]
 [ext_resource type="Texture2D" uid="uid://cl1880yi1xqg7" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_7.png" id="10_m2y5l"]
 [ext_resource type="Texture2D" uid="uid://ohgc85gf6tet" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_8.png" id="11_imjy1"]
@@ -22,46 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://g6c7yt5gksx1" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_12.png" id="15_qby1g"]
 [ext_resource type="Texture2D" uid="uid://dn0sanmibj1n5" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_13.png" id="16_04soa"]
 [ext_resource type="Texture2D" uid="uid://dxgxeoia1amlo" path="res://Eris Esra's Character Template 4.0/pack_effect_fire_column/fire_column_medium/fire_column_medium_14.png" id="17_u6vjd"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0k4wn"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j5v2v"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iotk1"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w44g7"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cm266"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8g3n"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8u0te"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(384, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oiatc"]
-atlas = ExtResource("2_8qtwp")
-region = Rect2(512, 128, 128, 128)
+[ext_resource type="AudioStream" uid="uid://bn1jmyk0uky73" path="res://Eris Esra's Character Template 4.0/tuco-get-out.mp3" id="23_m2y5l"]
+[ext_resource type="Script" uid="uid://cn8gyefe87dun" path="res://control.gd" id="26_ai24q"]
+[ext_resource type="Script" uid="uid://drbw3x4bjnpe4" path="res://option.gd" id="29_imjy1"]
+[ext_resource type="Script" uid="uid://bxl5g36ebvqgr" path="res://Backbutton.gd" id="30_v2sba"]
+[ext_resource type="Texture2D" uid="uid://bdawpbqrxejo7" path="res://Eris Esra's Character Template 4.0/Arrow.png" id="31_ai24q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg3m2"]
 atlas = ExtResource("2_8qtwp")
@@ -111,39 +82,49 @@ region = Rect2(0, 512, 128, 128)
 atlas = ExtResource("2_8qtwp")
 region = Rect2(128, 512, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k4wn"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5v2v"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotk1"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w44g7"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm266"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8g3n"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u0te"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiatc"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(512, 128, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dy7ct"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dy7ct")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0o4t1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0k4wn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j5v2v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iotk1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w44g7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cm266")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g8g3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8u0te")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oiatc")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mg3m2")
 }, {
@@ -184,10 +165,48 @@ animations = [{
 "name": &"Hover",
 "speed": 13.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy7ct")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy7ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o4t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k4wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5v2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w44g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm266")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8g3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u0te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiatc")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 13.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
@@ -205,33 +224,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2sba"]
+atlas = ExtResource("2_8qtwp")
+region = Rect2(320, 480, 160, 160)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0k4wn"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_7bbuq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_saq78")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_8uw0o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_ql5ya")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ka3nr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_48knj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_m2y5l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_imjy1")
-}, {
 "duration": 1.0,
 "texture": ExtResource("12_u5051")
 }, {
@@ -251,16 +250,138 @@ animations = [{
 "texture": ExtResource("17_u6vjd")
 }],
 "loop": true,
+"name": &"Gone",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ql5ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ka3nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_48knj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m2y5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_imjy1")
+}],
+"loop": true,
 "name": &"Hover",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2sba")
+}],
+"loop": true,
+"name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7bbuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_saq78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8uw0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ql5ya")
+}],
+"loop": true,
+"name": &"Ignite",
+"speed": 9.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5v2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ql5ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ka3nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_48knj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m2y5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_imjy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u5051")
+}],
+"loop": true,
+"name": &"Pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qby1g"]
+atlas = ExtResource("31_ai24q")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04soa"]
+atlas = ExtResource("31_ai24q")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6vjd"]
+atlas = ExtResource("31_ai24q")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swr0i"]
+atlas = ExtResource("31_ai24q")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2urq5"]
+atlas = ExtResource("31_ai24q")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix6bv"]
+atlas = ExtResource("31_ai24q")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kjvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qby1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04soa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6vjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swr0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2urq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix6bv")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qby1g")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_j5v2v"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -270,63 +391,94 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Sky" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_48knj")
+
+[node name="Sky2" type="TextureRect" parent="Control/Sky"]
+layout_mode = 0
+offset_left = -49.999992
+offset_top = -9.999999
+offset_right = 1102.0
+offset_bottom = 638.0
+scale = Vector2(1.0800011, 1.0800011)
+script = ExtResource("2_m2y5l")
+
+[node name="Cshadow" type="TextureRect" parent="Control/Sky/Sky2"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_imjy1")
+
+[node name="Cshadow2" type="TextureRect" parent="Control/Sky/Sky2"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_u5051")
+
+[node name="Cloud" type="TextureRect" parent="Control/Sky/Sky2"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("5_v2sba")
+
 [node name="Container" type="HBoxContainer" parent="Control"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Setting" type="TextureButton" parent="Control"]
 layout_mode = 0
 offset_left = 455.0
-offset_top = 442.0
+offset_top = 454.0
 offset_right = 706.0
-offset_bottom = 488.0
+offset_bottom = 500.0
 script = ExtResource("1_qe12f")
 
 [node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Setting"]
 position = Vector2(125.000015, -6.9999924)
 scale = Vector2(2.5097659, 2.5097659)
 sprite_frames = SubResource("SpriteFrames_dy7ct")
-animation = &"Hover"
+animation = &"Open"
+frame = 6
+frame_progress = 0.88844985
 
 [node name="Pressed" type="AnimatedSprite2D" parent="Control/Setting"]
-position = Vector2(123, -8)
-scale = Vector2(2.5507813, 2.5507813)
+position = Vector2(123, -7)
+scale = Vector2(2.51, 2.51)
 sprite_frames = SubResource("SpriteFrames_0o4t1")
 animation = &"Pressed"
 
+[node name="Flip" type="AudioStreamPlayer2D" parent="Control/Setting"]
+stream = ExtResource("8_qby1g")
+
 [node name="Quit" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 4.0
-offset_right = 4.0
-offset_bottom = 648.0
+offset_left = 484.0
+offset_top = 530.0
+offset_right = 668.0
+offset_bottom = 601.0
 script = ExtResource("3_8qtwp")
 
 [node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Quit"]
-position = Vector2(534.99994, 538)
+position = Vector2(54.99994, 35)
 rotation = -1.5735853
-scale = Vector2(3.5439138, 3.5439138)
+scale = Vector2(3.5439136, 3.5439136)
 sprite_frames = SubResource("SpriteFrames_0k4wn")
 animation = &"Hover"
-frame_progress = 0.7843226
-
-[node name="GETOUT" type="Label" parent="Control/Quit"]
-layout_mode = 0
-offset_left = 509.0
-offset_top = 521.0
-offset_right = 633.0
-offset_bottom = 553.0
-theme_override_fonts/font = ExtResource("3_glbon")
-theme_override_font_sizes/font_size = 36
-text = "GET OUT"
 
 [node name="Pressed" type="AnimatedSprite2D" parent="Control/Quit"]
+position = Vector2(55, 35)
+rotation = -1.5742869
+scale = Vector2(3.544, 3.544)
 sprite_frames = SubResource("SpriteFrames_j5v2v")
+animation = &"Pressed"
+
+[node name="GET OUT" type="AudioStreamPlayer2D" parent="Control/Quit"]
+stream = ExtResource("23_m2y5l")
+volume_db = 10.0
 
 [node name="Start" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -338,20 +490,29 @@ scale = Vector2(17.920006, 3.9999988)
 script = ExtResource("4_nlkkf")
 
 [node name="Hover_Idle" type="AnimatedSprite2D" parent="Control/Start"]
-position = Vector2(7.5348263, 10.75602)
-scale = Vector2(0.14038081, 0.6289065)
+position = Vector2(7.5348206, 8.506012)
+scale = Vector2(0.127, 0.569)
 sprite_frames = ExtResource("3_jix8l")
 animation = &"Idle"
 frame_progress = 0.14185372
 
 [node name="Pressed" type="AnimatedSprite2D" parent="Control/Start"]
 position = Vector2(7.5348186, 7.7560024)
-scale = Vector2(0.14040175, 0.62900025)
+scale = Vector2(0.1270089, 0.56900024)
 sprite_frames = ExtResource("3_jix8l")
 animation = &"Hover"
 
-[node name="Cooking" type="Label" parent="Control"]
-layout_mode = 0
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_ai24q")
+
+[node name="Cooking" type="Label" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.375
+anchor_bottom = -0.375
 offset_left = 494.024
 offset_top = 368.024
 offset_right = 665.024
@@ -364,26 +525,85 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("1_fu7sn")
 theme_override_font_sizes/font_size = 39
 text = "Cooking"
-metadata/_edit_use_anchors_ = true
 
-[node name="Option" type="Label" parent="Control"]
+[node name="Option" type="Label" parent="Control/Control"]
 layout_mode = 0
 offset_left = 528.0
-offset_top = 442.0
-offset_right = 611.0
-offset_bottom = 478.0
+offset_top = 451.0
+offset_right = 631.0
+offset_bottom = 496.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_jix8l")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 45
 text = "Option"
+
+[node name="GETOUT" type="Label" parent="Control/Control"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 548.0
+offset_right = 640.0
+offset_bottom = 581.0
+theme_override_colors/font_color = Color(0.61285937, 0.09099447, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 37
+text = "GET OUT"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 53.0
+offset_right = 828.0
+offset_bottom = 601.0
+script = ExtResource("29_imjy1")
+
+[node name="Volume" type="HSlider" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 495.0
+offset_bottom = 206.0
+
+[node name="Back" type="TextureButton" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 477.0
+offset_right = 141.0
+offset_bottom = 581.0
+scale = Vector2(0.5999988, 0.5999988)
+script = ExtResource("30_v2sba")
+
+[node name="Arrow" type="AnimatedSprite2D" parent="Control/Panel/Back"]
+position = Vector2(66, 53)
+scale = Vector2(2.375, 2.375)
+sprite_frames = SubResource("SpriteFrames_2kjvi")
+animation = &"Idle"
 
 [connection signal="button_up" from="Control/Setting" to="Control/Setting" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/Setting" to="Control/Setting" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Setting" to="Control/Setting" method="_on_mouse_exited"]
+[connection signal="option" from="Control/Setting" to="Control/Setting" method="_on_option"]
+[connection signal="option" from="Control/Setting" to="Control/Quit" method="_on_setting_option"]
+[connection signal="option" from="Control/Setting" to="Control/Start" method="_on_setting_option"]
+[connection signal="option" from="Control/Setting" to="Control/Panel" method="_on_setting_option"]
+[connection signal="option" from="Control/Setting" to="Control/Control" method="_on_setting_option"]
+[connection signal="pressed" from="Control/Setting" to="Control/Setting" method="_on_pressed"]
 [connection signal="button_up" from="Control/Quit" to="Control/Setting" method="_on_quit_button_up"]
 [connection signal="mouse_entered" from="Control/Quit" to="Control/Quit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Quit" to="Control/Quit" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/Quit" to="Control/Quit" method="_on_pressed"]
 [connection signal="button_down" from="Control/Start" to="Control/Start" method="_on_button_down"]
 [connection signal="button_up" from="Control/Start" to="Control/Start" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/Start" to="Control/Start" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Start" to="Control/Start" method="_on_mouse_exited"]
 [connection signal="pressed" from="Control/Start" to="Control/Start" method="_on_pressed"]
+[connection signal="back" from="Control/Panel/Back" to="Control/Setting" method="_on_back_back"]
+[connection signal="back" from="Control/Panel/Back" to="Control/Quit" method="_on_back_back"]
+[connection signal="back" from="Control/Panel/Back" to="Control/Start" method="_on_back_back"]
+[connection signal="back" from="Control/Panel/Back" to="Control/Panel" method="_on_back_back"]
+[connection signal="back" from="Control/Panel/Back" to="Control/Control" method="_on_back_back"]
+[connection signal="button_up" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_button_up"]
+[connection signal="mouse_entered" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_pressed"]

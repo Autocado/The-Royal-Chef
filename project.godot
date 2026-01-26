@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Royal Chef"
-run/main_scene="uid://bk1atpb8venwp"
+run/main_scene="uid://ceqd4q25vw1b"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -28,7 +28,11 @@ runtime/balloon_path="uid://discdw306yev6"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/turnity/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 

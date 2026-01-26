@@ -22,3 +22,11 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	Sprite.play("Idle")
+
+
+func _on_setting_option() -> void:
+	hide()
+
+
+func _on_back_back() -> void:
+	show()
