@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene load_steps=4 format=3 uid="uid://ceqd4q25vw1b"]
 
 [ext_resource type="PackedScene" uid="uid://cix1t0rs7ndr0" path="res://player_battler.tscn" id="1_bfqkk"]
+[ext_resource type="Script" uid="uid://82erg01lmyv2" path="res://TurnBase Stuff/turnbase.gd" id="1_me4h7"]
 [ext_resource type="PackedScene" uid="uid://ct4dstnj1rf3a" path="res://enemy_battler.tscn" id="2_me4h7"]
 
 [node name="Battlescene" type="Node"]
+script = ExtResource("1_me4h7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -23,3 +25,35 @@ position = Vector2(-428, 138)
 
 [node name="EnemyBattler4" parent="." instance=ExtResource("2_me4h7")]
 position = Vector2(-226, 234)
+
+[node name="Actioncontainer" type="HBoxContainer" parent="."]
+offset_left = 257.0
+offset_top = 231.0
+offset_right = 565.0
+offset_bottom = 312.0
+
+[node name="Attack" type="Button" parent="Actioncontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="Skip" type="Button" parent="Actioncontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Skip"
+
+[node name="BattleEndPanel" type="Panel" parent="."]
+offset_left = -257.0
+offset_top = -83.0
+offset_right = 263.0
+offset_bottom = 73.0
+
+[node name="BattleEndText" type="RichTextLabel" parent="BattleEndPanel"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 65.0
+offset_right = 342.0
+offset_bottom = 102.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Battle End."
+horizontal_alignment = 1
