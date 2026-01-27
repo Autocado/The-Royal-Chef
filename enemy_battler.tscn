@@ -1,0 +1,212 @@
+[gd_scene load_steps=25 format=3 uid="uid://ct4dstnj1rf3a"]
+
+[ext_resource type="Script" uid="uid://bilyp4ipnjf2r" path="res://enemy_battler.gd" id="1_4gelc"]
+[ext_resource type="SpriteFrames" uid="uid://blkqqwsagx3lo" path="res://Animation resource only/SlimeHolder.tres" id="3_cfton"]
+[ext_resource type="FontFile" uid="uid://bjoxakgjb6a1t" path="res://Font/EquipmentPro.ttf" id="3_sj7uu"]
+[ext_resource type="Texture2D" uid="uid://b0177ej6bh7md" path="res://Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="4_4gelc"]
+[ext_resource type="Texture2D" uid="uid://85avb8dw4vhq" path="res://Eris Esra's Character Template 4.0/OptionButton.png" id="5_t6qt2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhxwu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_ibpv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_euulx"]
+resource_name = "in-turn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.34509805), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.42536646)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3lon"]
+_data = {
+&"RESET": SubResource("Animation_ibpv5"),
+&"in-turn": SubResource("Animation_euulx")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnho3"]
+bg_color = Color(0, 0, 0, 0.25490198)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9999998, 0.8798965, 0.35941407, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf5q3"]
+bg_color = Color(0.27450982, 0.68235296, 0.3254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 0.8784314, 0.36078432, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj7uu"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6qt2"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhxwu"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(192, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnho3"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(288, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf5q3"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(384, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qurbu"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(480, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41nka"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(576, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y4kb"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(672, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyux2"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(768, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h20h4"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(864, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5g84"]
+atlas = ExtResource("4_4gelc")
+region = Rect2(960, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdsf2"]
+atlas = ExtResource("5_t6qt2")
+region = Rect2(320, 480, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdsf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj7uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6qt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhxwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnho3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf5q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qurbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41nka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y4kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyux2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h20h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5g84")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdsf2")
+}],
+"loop": true,
+"name": &"RESET",
+"speed": 5.0
+}]
+
+[node name="EnemyBattler" type="Node2D" groups=["EnemyBattler"]]
+script = ExtResource("1_4gelc")
+
+[node name="Enemy" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.847744e-06, -19.999998)
+scale = Vector2(3.3789065, 3.3789065)
+sprite_frames = ExtResource("3_cfton")
+animation = &"Idle"
+
+[node name="TurnIndicator" type="Panel" parent="."]
+offset_left = -88.0
+offset_top = -135.0
+offset_right = 89.0
+offset_bottom = -95.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhxwu")
+
+[node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator"]
+libraries = {
+&"": SubResource("AnimationLibrary_w3lon")
+}
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -83.0
+offset_top = -131.99998
+offset_right = 84.07941
+offset_bottom = -97.999985
+scale = Vector2(0.99770737, 0.99770737)
+theme_override_fonts/font = ExtResource("3_sj7uu")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_vnho3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uf5q3")
+value = 100.0
+
+[node name="HitFX" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -20)
+scale = Vector2(3.379, 3.379)
+sprite_frames = SubResource("SpriteFrames_tdsf2")
+animation = &"Hit"

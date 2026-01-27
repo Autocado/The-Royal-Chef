@@ -1,47 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene load_steps=3 format=3 uid="uid://ceqd4q25vw1b"]
 
-[ext_resource type="PackedScene" uid="uid://b8hwlxpph7xnp" path="res://TurnBase Stuff/EnemyGroup.tscn" id="2_pmcct"]
-[ext_resource type="Script" uid="uid://d2twdwr7won0" path="res://TurnBase Stuff/enemy_group.gd" id="3_s72hv"]
-[ext_resource type="PackedScene" uid="uid://dsm0veva3e76e" path="res://TurnBase Stuff/playergroup.tscn" id="4_7h6r0"]
-[ext_resource type="Script" uid="uid://bnds1iagudrx4" path="res://TurnBase Stuff/run.gd" id="4_pmcct"]
+[ext_resource type="PackedScene" uid="uid://cix1t0rs7ndr0" path="res://player_battler.tscn" id="1_bfqkk"]
+[ext_resource type="PackedScene" uid="uid://ct4dstnj1rf3a" path="res://enemy_battler.tscn" id="2_me4h7"]
 
-[node name="Turnbase" type="Node2D"]
+[node name="Battlescene" type="Node"]
 
-[node name="Enemy" parent="." instance=ExtResource("2_pmcct")]
-position = Vector2(149, 58.000004)
-scale = Vector2(2.7282429, 2.7282429)
-script = ExtResource("3_s72hv")
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="playergroup" parent="." instance=ExtResource("4_7h6r0")]
-position = Vector2(906, 127)
+[node name="BG" type="Sprite2D" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PlayerBattler" parent="." instance=ExtResource("1_bfqkk")]
+position = Vector2(128, -137)
 
-[node name="choice" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 801.0
-offset_top = 512.0
-offset_right = 1151.0
-offset_bottom = 656.0
+[node name="EnemyBattler" parent="." instance=ExtResource("2_me4h7")]
+position = Vector2(-239, -152)
 
-[node name="Attack" type="Button" parent="CanvasLayer/choice"]
-layout_mode = 2
-text = "Attack"
+[node name="EnemyBattler2" parent="." instance=ExtResource("2_me4h7")]
+position = Vector2(-426, -65)
 
-[node name="Defend" type="Button" parent="CanvasLayer/choice"]
-layout_mode = 2
-text = "Defend
-"
+[node name="EnemyBattler3" parent="." instance=ExtResource("2_me4h7")]
+position = Vector2(-428, 138)
 
-[node name="Run" type="Button" parent="CanvasLayer/choice"]
-layout_mode = 2
-text = "Run"
-script = ExtResource("4_pmcct")
-
-[connection signal="next_player" from="Enemy" to="playergroup" method="_on_enemy_next_player"]
-[connection signal="pressed" from="CanvasLayer/choice/Attack" to="Enemy" method="_on_attack_pressed"]
-[connection signal="pressed" from="CanvasLayer/choice/Run" to="CanvasLayer/choice/Run" method="_on_pressed"]
-
-[editable path="Enemy"]
-[editable path="Enemy/Slime"]
-[editable path="playergroup"]
-[editable path="playergroup/ChefTurnBase"]
+[node name="EnemyBattler4" parent="." instance=ExtResource("2_me4h7")]
+position = Vector2(-226, 234)
