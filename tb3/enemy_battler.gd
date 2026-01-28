@@ -60,7 +60,8 @@ func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("Hit")
 
 func be_damaged(amount: int) -> void:
-	current_hp -= amount
+	var final_damage = max(amount - stats_resource.defense, 0)
+	current_hp -= final_damage
 	_update_health_bar()
 	if current_hp <= 0:
 		current_hp = 0

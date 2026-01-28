@@ -10,3 +10,4 @@ enum BattlerType{
 @export var min_damage : int
 @export var max_damage : int
 @export var turn_speed : int
+@export var defense : int

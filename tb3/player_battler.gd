@@ -11,6 +11,7 @@ var current_hp : int
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
+signal defend
 
 func _ready() -> void:
 	stop_turn()
@@ -50,9 +51,18 @@ func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("default")
 
 func be_damaged(amount: int) -> void:
-	current_hp -= amount
+	if defend.connect(_on_battlescene_defense):
+		var final_damage = max(amount - (stats_resource.defense*2), 0)
+		current_hp -= final_damage
+	else:
+		var final_damage = max(amount - stats_resource.defense, 0)
+		current_hp -= final_damage
 	_update_health_bar()
 	if current_hp <= 0:
 		current_hp = 0
 		dead.emit(self)
 		queue_free()
+
+
+func _on_battlescene_defense() -> void:
+	pass

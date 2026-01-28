@@ -9,4 +9,5 @@ max_hp = 300
 min_damage = 100
 max_damage = 110
 turn_speed = 50
+defense = 40
 metadata/_custom_type_script = "uid://cf0divkoxp8y4"

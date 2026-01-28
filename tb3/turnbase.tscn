@@ -37,6 +37,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Attack"
 
+[node name="defend" type="Button" parent="Actioncontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defend"
+
 [node name="Skip" type="Button" parent="Actioncontainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -57,3 +62,5 @@ offset_bottom = 102.0
 theme_override_font_sizes/normal_font_size = 24
 text = "Battle End."
 horizontal_alignment = 1
+
+[connection signal="defense" from="." to="PlayerBattler" method="_on_battlescene_defense"]

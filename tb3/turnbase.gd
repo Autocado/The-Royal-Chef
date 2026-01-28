@@ -2,6 +2,7 @@ extends Node
 
 @onready var turn_action_buttons: HBoxContainer = $Actioncontainer
 @onready var skip_turn_button: Button = $Actioncontainer/Skip
+@onready var defend_turn_button: Button = $Actioncontainer/defend
 @onready var attack_button: Button = $Actioncontainer/Attack
 @onready var battle_end_panel: Panel = $BattleEndPanel
 @onready var battle_end_text: RichTextLabel = $BattleEndPanel/BattleEndText
@@ -13,6 +14,7 @@ var enemy_battlers = []
 var current_turn: Node2D
 var current_turn_index: int
 
+signal defense
 func _ready() -> void:
 	turn_action_buttons.hide()
 	battle_end_panel.hide()
@@ -27,6 +29,7 @@ func _ready() -> void:
 
 	skip_turn_button.pressed.connect(_next_turn)
 	attack_button.pressed.connect(_show_target_buttons)
+	defend_turn_button.pressed.connect(_next_turn);emit_signal("defense")
 
 	for p in player_battlers:
 		p.turn_ended.connect(_next_turn)
