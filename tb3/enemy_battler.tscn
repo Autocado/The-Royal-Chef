@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ct4dstnj1rf3a"]
+[gd_scene load_steps=34 format=3 uid="uid://ct4dstnj1rf3a"]
 
 [ext_resource type="Script" uid="uid://bilyp4ipnjf2r" path="res://tb3/enemy_battler.gd" id="1_4gelc"]
 [ext_resource type="Resource" uid="uid://dolnihcyntm6r" path="res://tb3/enemy_battler_1.tres" id="2_sj7uu"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bjoxakgjb6a1t" path="res://Font/EquipmentPro.ttf" id="3_sj7uu"]
 [ext_resource type="Texture2D" uid="uid://b0177ej6bh7md" path="res://Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="4_4gelc"]
 [ext_resource type="Texture2D" uid="uid://85avb8dw4vhq" path="res://Eris Esra's Character Template 4.0/OptionButton.png" id="5_t6qt2"]
+[ext_resource type="Texture2D" uid="uid://bdawpbqrxejo7" path="res://Eris Esra's Character Template 4.0/Arrow.png" id="7_h1yy6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhxwu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -172,6 +173,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1yy6"]
+atlas = ExtResource("7_h1yy6")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5fwf"]
+atlas = ExtResource("7_h1yy6")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gduu7"]
+atlas = ExtResource("7_h1yy6")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctoq7"]
+atlas = ExtResource("7_h1yy6")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7gv6"]
+atlas = ExtResource("7_h1yy6")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7brf"]
+atlas = ExtResource("7_h1yy6")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jnf1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1yy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5fwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gduu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctoq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7gv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7brf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="EnemyBattler" type="Node2D" groups=["EnemyBattler"]]
 script = ExtResource("1_4gelc")
 stats_resource = ExtResource("2_sj7uu")
@@ -212,3 +263,15 @@ position = Vector2(0, -20)
 scale = Vector2(3.379, 3.379)
 sprite_frames = SubResource("SpriteFrames_tdsf2")
 animation = &"Hit"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+offset_left = -122.0
+offset_top = -20.0
+offset_right = -62.0
+offset_bottom = 23.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureButton"]
+position = Vector2(27, 21)
+sprite_frames = SubResource("SpriteFrames_jnf1u")
+frame_progress = 0.35378778

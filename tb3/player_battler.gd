@@ -28,7 +28,7 @@ func start_turn() -> void:
 
 func stop_turn() -> void:
 	turn_indicator_animation.play("RESET")
-	animation_player.play("RESET")
+	animation_player.play("Stand")
 	hit_fx_animation.play("RESET")
 
 func start_attacking(enemy_target: Node2D) -> void:
