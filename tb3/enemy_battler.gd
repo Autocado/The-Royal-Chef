@@ -7,6 +7,7 @@ extends Node2D
 @onready var animation_player : AnimatedSprite2D = $Enemy
 @onready var hit_fx_animation : AnimatedSprite2D = $HitFX
 @onready var select_target_button: TextureButton  = $TextureButton
+@onready var focus_arrow = $TextureButton/AnimatedSprite2D
 
 var current_hp : int
 
@@ -41,6 +42,7 @@ func stop_turn() -> void:
 
 func show_select_button() -> void:
 	select_target_button.show()
+	focus_arrow.play("Focus")
 
 func hide_select_button() -> void:
 	select_target_button.hide()

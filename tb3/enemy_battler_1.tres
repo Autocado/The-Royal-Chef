@@ -6,7 +6,7 @@
 script = ExtResource("1_5mdoy")
 type = 1
 max_hp = 300
-min_damage = 150
-max_damage = 200
+min_damage = 100
+max_damage = 110
 turn_speed = 50
 metadata/_custom_type_script = "uid://cf0divkoxp8y4"

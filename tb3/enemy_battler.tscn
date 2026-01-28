@@ -10,8 +10,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhxwu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 2
-border_width_bottom = 2
+border_width_top = 4
+border_width_bottom = 4
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -219,8 +219,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_f7brf")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"Focus",
+"speed": 8.0
 }]
 
 [node name="EnemyBattler" type="Node2D" groups=["EnemyBattler"]]
@@ -235,9 +235,9 @@ animation = &"Idle"
 
 [node name="TurnIndicator" type="Panel" parent="."]
 offset_left = -88.0
-offset_top = -135.0
+offset_top = -140.0
 offset_right = 89.0
-offset_bottom = -95.0
+offset_bottom = -91.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hhxwu")
 
 [node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator"]
@@ -274,4 +274,4 @@ offset_bottom = 23.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureButton"]
 position = Vector2(27, 21)
 sprite_frames = SubResource("SpriteFrames_jnf1u")
-frame_progress = 0.35378778
+animation = &"Focus"

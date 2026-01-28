@@ -504,8 +504,8 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap5aa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 2
-border_width_bottom = 2
+border_width_top = 4
+border_width_bottom = 4
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -642,9 +642,9 @@ frame_progress = 0.3329254
 
 [node name="TurnIndicator" type="Panel" parent="."]
 offset_left = -88.0
-offset_top = -135.0
+offset_top = -139.0
 offset_right = 89.0
-offset_bottom = -95.0
+offset_bottom = -90.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ap5aa")
 
 [node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator"]
