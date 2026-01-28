@@ -11,6 +11,9 @@ script = ExtResource("1_me4h7")
 
 [node name="BG" type="Sprite2D" parent="."]
 
+[node name="PlayerBattler2" parent="." instance=ExtResource("1_bfqkk")]
+position = Vector2(406, -137)
+
 [node name="PlayerBattler" parent="." instance=ExtResource("1_bfqkk")]
 position = Vector2(128, -137)
 

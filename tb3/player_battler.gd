@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var stats_resource : BattlerStats
-
+@export var skill_resource :  skill
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var turn_indicator_animation : AnimationPlayer = $TurnIndicator/TurnIndicatorAnimation
 @onready var animation_player: AnimatedSprite2D = $Chef
