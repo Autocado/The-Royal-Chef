@@ -4,12 +4,12 @@ extends Node2D
 
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var turn_indicator_animation : AnimationPlayer = $TurnIndicator/TurnIndicatorAnimation
-@onready var animation_player = $Enemy
-@onready var hit_fx_animation = $HitFX
+@onready var animation_player: AnimatedSprite2D = $Chef
+@onready var hit_fx_animation : AnimatedSprite2D = $HitFX
 
 var current_hp : int
 
-signal dead(this_battler: Node2D)
+signal dead(this_battler: Node2D) 
 signal turn_ended
 
 func _ready() -> void:
@@ -41,13 +41,13 @@ func start_attacking(enemy_target: Node2D) -> void:
 	turn_ended.emit()
 
 func _play_attack_anim() -> void:
-	animation_player.play("hit")
+	animation_player.play("Skill")
 
 func _get_attack_damage() -> int:
 	return randi_range(stats_resource.min_damage, stats_resource.max_damage)
 
 func play_hit_fx_anim() -> void:
-	hit_fx_animation.play("Hit")
+	hit_fx_animation.play("default")
 
 func be_damaged(amount: int) -> void:
 	current_hp -= amount

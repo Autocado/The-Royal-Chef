@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://ct4dstnj1rf3a"]
+[gd_scene load_steps=26 format=3 uid="uid://ct4dstnj1rf3a"]
 
-[ext_resource type="Script" uid="uid://bilyp4ipnjf2r" path="res://enemy_battler.gd" id="1_4gelc"]
+[ext_resource type="Script" uid="uid://bilyp4ipnjf2r" path="res://tb3/enemy_battler.gd" id="1_4gelc"]
+[ext_resource type="Resource" uid="uid://dolnihcyntm6r" path="res://tb3/enemy_battler_1.tres" id="2_sj7uu"]
 [ext_resource type="SpriteFrames" uid="uid://blkqqwsagx3lo" path="res://Animation resource only/SlimeHolder.tres" id="3_cfton"]
 [ext_resource type="FontFile" uid="uid://bjoxakgjb6a1t" path="res://Font/EquipmentPro.ttf" id="3_sj7uu"]
 [ext_resource type="Texture2D" uid="uid://b0177ej6bh7md" path="res://Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="4_4gelc"]
@@ -173,6 +174,7 @@ animations = [{
 
 [node name="EnemyBattler" type="Node2D" groups=["EnemyBattler"]]
 script = ExtResource("1_4gelc")
+stats_resource = ExtResource("2_sj7uu")
 
 [node name="Enemy" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.847744e-06, -19.999998)

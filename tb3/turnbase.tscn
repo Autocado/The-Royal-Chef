@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceqd4q25vw1b"]
 
-[ext_resource type="PackedScene" uid="uid://cix1t0rs7ndr0" path="res://player_battler.tscn" id="1_bfqkk"]
-[ext_resource type="Script" uid="uid://82erg01lmyv2" path="res://TurnBase Stuff/turnbase.gd" id="1_me4h7"]
-[ext_resource type="PackedScene" uid="uid://ct4dstnj1rf3a" path="res://enemy_battler.tscn" id="2_me4h7"]
+[ext_resource type="PackedScene" uid="uid://cix1t0rs7ndr0" path="res://tb3/player_battler.tscn" id="1_bfqkk"]
+[ext_resource type="Script" uid="uid://82erg01lmyv2" path="res://tb3/turnbase.gd" id="1_me4h7"]
+[ext_resource type="PackedScene" uid="uid://ct4dstnj1rf3a" path="res://tb3/enemy_battler.tscn" id="2_me4h7"]
 
 [node name="Battlescene" type="Node"]
 script = ExtResource("1_me4h7")
