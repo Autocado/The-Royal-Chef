@@ -212,3 +212,11 @@ position = Vector2(0, -20)
 scale = Vector2(3.379, 3.379)
 sprite_frames = SubResource("SpriteFrames_tdsf2")
 animation = &"Hit"
+
+[node name="SelectTargetButton" type="Button" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 20.0
+text = "Target"
