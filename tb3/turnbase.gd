@@ -29,7 +29,7 @@ func _ready() -> void:
 
 	skip_turn_button.pressed.connect(_next_turn)
 	attack_button.pressed.connect(_show_target_buttons)
-	defend_turn_button.pressed.connect(_next_turn);emit_signal("defense")
+	defend_turn_button.pressed.connect(_on_defend_pressed)
 
 	for p in player_battlers:
 		p.turn_ended.connect(_next_turn)
@@ -87,6 +87,12 @@ func _attack_random_player_battler(damage: int) -> void:
 	player_battlers[rand].be_damaged(damage)
 	await get_tree().create_timer(0.1).timeout
 	_next_turn()
+
+func _on_defend_pressed() -> void:
+	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
+		current_turn.set_defending(true)
+	_next_turn()
+
 func _on_enemy_dead(dead_enemy: Node2D) -> void:
 	enemy_battlers.erase(dead_enemy)
 	all_battlers.erase(dead_enemy)

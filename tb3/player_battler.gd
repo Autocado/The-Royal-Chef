@@ -8,10 +8,10 @@ extends Node2D
 @onready var hit_fx_animation : AnimatedSprite2D = $HitFX
 
 var current_hp : int
+var is_defending:= false
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
-signal defend
 
 func _ready() -> void:
 	stop_turn()
@@ -26,6 +26,7 @@ func _update_health_bar() -> void:
 
 func start_turn() -> void:
 	turn_indicator_animation.play("in-turn")
+	is_defending = false
 
 func stop_turn() -> void:
 	turn_indicator_animation.play("RESET")
@@ -51,7 +52,7 @@ func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("default")
 
 func be_damaged(amount: int) -> void:
-	if defend.connect(_on_battlescene_defense):
+	if is_defending == true:
 		var final_damage = max(amount - (stats_resource.defense*2), 0)
 		current_hp -= final_damage
 	else:
@@ -65,4 +66,8 @@ func be_damaged(amount: int) -> void:
 
 
 func _on_battlescene_defense() -> void:
-	pass
+	is_defending = true
+
+
+func set_defending(active: bool) -> void:
+	is_defending = active
