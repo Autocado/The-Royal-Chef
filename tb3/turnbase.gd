@@ -31,6 +31,7 @@ func _ready() -> void:
 	skip_turn_button.pressed.connect(_next_turn)
 	attack_button.pressed.connect(_show_target_buttons)
 	defend_turn_button.pressed.connect(_on_defend_pressed)
+	skip_turn_button.pressed.connect(_on_skill_pressed)
 
 	for p in player_battlers:
 		p.turn_ended.connect(_next_turn)
@@ -76,14 +77,24 @@ func _show_target_buttons() -> void:
 	for e in enemy_battlers:
 		e.show_select_button()
 
+func _show_ally_target() -> void:
+	turn_action_buttons.hide()
+	for p in  player_battlers:
+		p.show_select_button()
 
 func _hide_target_buttons() -> void:
 	for e in enemy_battlers:
 		e.hide_select_button()
+	for p in player_battlers:
+		p.hide_select_button()
 
 func _attack_selected_enemy(selected_enemy: Node2D) -> void:
 	_hide_target_buttons()
 	current_turn.start_attacking(selected_enemy)
+
+func _heal_selected_ally(selected_ally: Node2D) -> void:
+	_hide_target_buttons()
+	current_turn.start_healing(selected_ally)
 
 func _attack_random_player_battler(damage: int) -> void:
 	var rand = randi_range(0, player_battlers.size() - 1)
@@ -97,6 +108,12 @@ func _on_defend_pressed() -> void:
 	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
 		current_turn.set_defending(true)
 	_next_turn()
+
+func _on_skill_pressed() -> void:
+	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
+		turn_action_buttons.hide()
+		unique_skill.emit()
+	_show_ally_target()
 
 func _on_enemy_dead(dead_enemy: Node2D) -> void:
 	enemy_battlers.erase(dead_enemy)
