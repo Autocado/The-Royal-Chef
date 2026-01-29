@@ -628,7 +628,7 @@ animations = [{
 "speed": 25.0
 }]
 
-[node name="PlayerBattler" type="Node2D" groups=["PlayerBattler"]]
+[node name="PlayerBattler" type="Node2D" groups=["Healer", "PlayerBattler"]]
 script = ExtResource("1_ap5aa")
 stats_resource = ExtResource("2_ap5aa")
 

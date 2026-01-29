@@ -15,6 +15,7 @@ var current_turn: Node2D
 var current_turn_index: int
 
 signal defense
+signal unique_skill
 func _ready() -> void:
 	turn_action_buttons.hide()
 	battle_end_panel.hide()
@@ -51,6 +52,10 @@ func _sort_turn_order_ascending(battler_1, battler_2) -> bool:
 func _update_turn() -> void:
 	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
 		turn_action_buttons.show()
+		if current_turn.has_method("_allow_attack"):
+			attack_button.disabled = not current_turn._allow_attack()
+		else:
+			attack_button.disabled = false
 	else: # Enemy
 		turn_action_buttons.hide()
 
@@ -59,7 +64,6 @@ func _update_turn() -> void:
 func _next_turn() -> void:
 	if turn_action_buttons.visible:
 		turn_action_buttons.hide()
-
 	current_turn.stop_turn()
 
 	if _check_for_battle_end() == false:
@@ -71,6 +75,7 @@ func _show_target_buttons() -> void:
 	turn_action_buttons.hide()
 	for e in enemy_battlers:
 		e.show_select_button()
+
 
 func _hide_target_buttons() -> void:
 	for e in enemy_battlers:

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="skill" load_steps=2 format=3 uid="uid://bk6etwgf54ikv"]
+
+[ext_resource type="Script" uid="uid://weaol04wl00" path="res://tb3/skilldata.gd" id="1_1v668"]
+
+[resource]
+script = ExtResource("1_1v668")
+hp = 150

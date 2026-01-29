@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattlerStats" load_steps=2 format=3 uid="uid://bqf6i3t2tu753"]
+
+[ext_resource type="Script" uid="uid://cf0divkoxp8y4" path="res://tb3/battler_stats_res.gd" id="1_tn06c"]
+
+[resource]
+script = ExtResource("1_tn06c")
+max_hp = 1000
+min_damage = 110
+max_damage = 200
+turn_speed = 35
+defense = 50

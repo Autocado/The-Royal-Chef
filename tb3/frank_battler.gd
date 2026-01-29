@@ -4,22 +4,22 @@ extends Node2D
 @export var skill_resource :  skill
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var turn_indicator_animation : AnimationPlayer = $TurnIndicator/TurnIndicatorAnimation
-@onready var animation_player: AnimatedSprite2D = $Chef
+@onready var animation_player: AnimatedSprite2D = $Holder
 @onready var hit_fx_animation : AnimatedSprite2D = $HitFX
+@onready var select_target_button : TextureButton = $TextureButton
+@onready var focus_arrow : AnimatedSprite2D = $TextureButton/AnimatedSprite2D
 
 var current_hp : int
 var is_defending:= false
-var allow_attack := false
-var friend_target = []
+var healer = []
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
-signal heal_skill
+signal be_selected
 
 func _ready() -> void:
 	stop_turn()
-	friend_target = get_tree().get_nodes_in_group("Ally")
-
+	healer = get_tree().get_nodes_in_group("Healer")
 	current_hp = stats_resource.max_hp
 	
 	_update_health_bar()
@@ -34,24 +34,36 @@ func start_turn() -> void:
 
 func stop_turn() -> void:
 	turn_indicator_animation.play("RESET")
-	animation_player.play("Stand")
+	animation_player.play("stand")
 	hit_fx_animation.play("RESET")
 
-func start_healing() -> void:
-	_play_skill_anim()
-	await get_tree().create_timer(0.8).timeout
-	friend_target.be_healed(_get_heal_value())
+func start_attacking(enemy_target: Node2D) -> void:
+	_play_attack_anim()
+	await get_tree().create_timer(0.6).timeout
+	enemy_target.play_hit_fx_anim()
+	await get_tree().create_timer(0.5).timeout
+	enemy_target.be_damaged(_get_attack_damage())
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
-func _play_skill_anim() -> void:
-	animation_player.play("Skill")
+func _play_attack_anim() -> void:
+	animation_player.play("attack")
 
-func _get_heal_value() -> int:
-	return skill_resource.Hp
+func show_select_button() -> void:
+	select_target_button.show()
+	focus_arrow.play("Focus")
+
+func hide_select_button() -> void:
+	select_target_button.hide()
+
+func _on_select_button_pressed() -> void:
+	be_selected.emit(self)
+
+func _get_attack_damage() -> int:
+	return randi_range(stats_resource.min_damage, stats_resource.max_damage)
 
 func play_hit_fx_anim() -> void:
-	hit_fx_animation.play("default")
+	hit_fx_animation.play("hit")
 
 func be_damaged(amount: int) -> void:
 	if is_defending == true:
@@ -66,9 +78,11 @@ func be_damaged(amount: int) -> void:
 		dead.emit(self)
 		queue_free()
 
-func _allow_attack() -> bool:
-	return allow_attack
-	
+func be_healed() -> void:
+	if current_hp <= stats_resource.max_hp:
+		current_hp + healer._get_heal_value()
+	else:
+		return
 
 func _on_battlescene_defense() -> void:
 	is_defending = true
@@ -78,5 +92,5 @@ func set_defending(active: bool) -> void:
 	is_defending = active
 
 
-func _on_battlescene_unique_skill() -> void:
-	start_healing()
+func _on_player_battler_heal_skill() -> void:
+	be_healed()
