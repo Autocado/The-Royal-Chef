@@ -82,13 +82,15 @@ func _show_target_buttons() -> void:
 func _show_ally_target() -> void:
 	turn_action_buttons.hide()
 	for p in  player_battlers:
-		p.show_select_button()
+		if p.has_method("show_select_button"):
+			p.show_select_button()
 
 func _hide_target_buttons() -> void:
 	for e in enemy_battlers:
 		e.hide_select_button()
 	for p in player_battlers:
-		p.hide_select_button()
+		if p.has_method("hide_select_button"):
+			p.hide_select_button()
 
 func _attack_selected_enemy(selected_enemy: Node2D) -> void:
 	_hide_target_buttons()
