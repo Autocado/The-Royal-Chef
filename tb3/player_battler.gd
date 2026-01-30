@@ -6,6 +6,8 @@ extends Node2D
 @onready var turn_indicator_animation : AnimationPlayer = $TurnIndicator/TurnIndicatorAnimation
 @onready var animation_player: AnimatedSprite2D = $Chef
 @onready var hit_fx_animation : AnimatedSprite2D = $HitFX
+@onready var select_target_button: TextureButton = $TextureButton
+@onready var focus_arrow: AnimatedSprite2D = $TextureButton/AnimatedSprite2D
 
 var current_hp : int
 var is_defending:= false
@@ -14,9 +16,12 @@ var allow_attack := false
 signal dead(this_battler: Node2D) 
 signal turn_ended
 signal heal_skill
+signal be_selected(this_target: Node2D)
 
 func _ready() -> void:
 	stop_turn()
+	select_target_button.hide()
+	select_target_button.pressed.connect(_on_select_button_pressed)
 
 	current_hp = stats_resource.max_hp
 	
@@ -55,6 +60,16 @@ func _get_heal_value() -> int:
 
 func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("default")
+
+func show_select_button() -> void:
+	select_target_button.show()
+	focus_arrow.play("Focus")
+
+func hide_select_button() -> void:
+	select_target_button.hide()
+
+func _on_select_button_pressed() -> void:
+	be_selected.emit(self)
 
 func be_damaged(amount: int) -> void:
 	if is_defending == true:
