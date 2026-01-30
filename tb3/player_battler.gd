@@ -44,8 +44,6 @@ func start_healing(target: Node2D) -> void:
 	if target == null or not target.has_method("be_healed"):
 		turn_ended.emit()
 		return
-	if target.has_method("_update_health_bar"):
-		target._update_health_bar()
 	_play_skill_anim()
 	await get_tree().create_timer(0.8).timeout
 	target.be_healed(_get_heal_value())
@@ -86,6 +84,12 @@ func be_damaged(amount: int) -> void:
 		dead.emit(self)
 		queue_free()
 
+func be_healed(amount: int = 0) -> void:
+	if amount <= 0:
+		return
+	current_hp = min(current_hp + amount, stats_resource.max_hp)
+	_update_health_bar()
+	
 func _allow_attack() -> bool:
 	return allow_attack
 	

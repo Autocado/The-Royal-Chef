@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://cix1t0rs7ndr0"]
+[gd_scene format=3 uid="uid://cix1t0rs7ndr0"]
 
 [ext_resource type="Texture2D" uid="uid://ly7pewl8vpcu" path="res://Eris Esra's Character Template 4.0/PCskill.png" id="1_17y42"]
 [ext_resource type="Script" uid="uid://b01x8y5ophury" path="res://tb3/player_battler.gd" id="1_ap5aa"]
@@ -679,11 +679,11 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="PlayerBattler" type="Node2D" groups=["Healer", "PlayerBattler"]]
+[node name="PlayerBattler" type="Node2D" unique_id=704006588 groups=["Healer", "PlayerBattler"]]
 script = ExtResource("1_ap5aa")
 stats_resource = ExtResource("2_ap5aa")
 
-[node name="Chef" type="AnimatedSprite2D" parent="."]
+[node name="Chef" type="AnimatedSprite2D" parent="." unique_id=45856198]
 position = Vector2(3.5762787e-07, -2.3841855e-07)
 scale = Vector2(0.71875006, 0.71875006)
 sprite_frames = SubResource("SpriteFrames_hpkvc")
@@ -691,19 +691,17 @@ animation = &"Stand"
 frame = 1
 frame_progress = 0.3329254
 
-[node name="TurnIndicator" type="Panel" parent="."]
+[node name="TurnIndicator" type="Panel" parent="." unique_id=1256926846]
 offset_left = -88.0
 offset_top = -139.0
 offset_right = 89.0
 offset_bottom = -90.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ap5aa")
 
-[node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator"]
-libraries = {
-&"": SubResource("AnimationLibrary_w3lon")
-}
+[node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator" unique_id=1395821804]
+libraries/ = SubResource("AnimationLibrary_w3lon")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=188502557]
 offset_left = -83.0
 offset_top = -131.99998
 offset_right = 84.07941
@@ -715,21 +713,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ibpv5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_w3lon")
 value = 100.0
 
-[node name="HitFX" type="AnimatedSprite2D" parent="."]
+[node name="HitFX" type="AnimatedSprite2D" parent="." unique_id=940842940]
 visible = false
 position = Vector2(-1, 0)
 scale = Vector2(0.719, 0.719)
 sprite_frames = SubResource("SpriteFrames_sf32i")
 animation = &"RESET"
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=389221917]
 visible = false
 offset_left = -122.0
 offset_top = -20.0
 offset_right = -62.0
 offset_bottom = 23.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureButton"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureButton" unique_id=1854003136]
 position = Vector2(27, 21)
 sprite_frames = SubResource("SpriteFrames_focus")
 animation = &"Focus"
