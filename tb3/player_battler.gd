@@ -1,24 +1,27 @@
 extends Node2D
 
 @export var stats_resource : BattlerStats
-@export var skill_resource :  skill
+@export var skill_resource : skill
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var turn_indicator_animation : AnimationPlayer = $TurnIndicator/TurnIndicatorAnimation
 @onready var animation_player: AnimatedSprite2D = $Chef
 @onready var hit_fx_animation : AnimatedSprite2D = $HitFX
+@onready var select_target_button: TextureButton = $TextureButton
+@onready var focus_arrow: AnimatedSprite2D = $TextureButton/AnimatedSprite2D
 
 var current_hp : int
 var is_defending:= false
 var allow_attack := false
-var friend_target = []
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
 signal heal_skill
+signal be_selected(this_target: Node2D)
 
 func _ready() -> void:
 	stop_turn()
-	friend_target = get_tree().get_nodes_in_group("Ally")
+	select_target_button.hide()
+	select_target_button.pressed.connect(_on_select_button_pressed)
 
 	current_hp = stats_resource.max_hp
 	
@@ -37,10 +40,15 @@ func stop_turn() -> void:
 	animation_player.play("Stand")
 	hit_fx_animation.play("RESET")
 
-func start_healing() -> void:
+func start_healing(target: Node2D) -> void:
+	if target == null or not target.has_method("be_healed"):
+		turn_ended.emit()
+		return
+	if target.has_method("_update_health_bar"):
+		target._update_health_bar()
 	_play_skill_anim()
 	await get_tree().create_timer(0.8).timeout
-	friend_target.be_healed(_get_heal_value())
+	target.be_healed(_get_heal_value())
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
@@ -48,10 +56,22 @@ func _play_skill_anim() -> void:
 	animation_player.play("Skill")
 
 func _get_heal_value() -> int:
-	return skill_resource.Hp
+	if skill_resource == null:
+		return 0
+	return skill_resource.hp
 
 func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("default")
+
+func show_select_button() -> void:
+	select_target_button.show()
+	focus_arrow.play("Focus")
+
+func hide_select_button() -> void:
+	select_target_button.hide()
+
+func _on_select_button_pressed() -> void:
+	be_selected.emit(self)
 
 func be_damaged(amount: int) -> void:
 	if is_defending == true:
@@ -79,4 +99,4 @@ func set_defending(active: bool) -> void:
 
 
 func _on_battlescene_unique_skill() -> void:
-	start_healing()
+	pass

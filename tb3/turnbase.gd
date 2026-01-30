@@ -2,6 +2,7 @@ extends Node
 
 @onready var turn_action_buttons: HBoxContainer = $Actioncontainer
 @onready var skip_turn_button: Button = $Actioncontainer/Skip
+@onready var skill_turn_button: Button = $Actioncontainer/Skill
 @onready var defend_turn_button: Button = $Actioncontainer/defend
 @onready var attack_button: Button = $Actioncontainer/Attack
 @onready var battle_end_panel: Panel = $BattleEndPanel
@@ -31,11 +32,13 @@ func _ready() -> void:
 	skip_turn_button.pressed.connect(_next_turn)
 	attack_button.pressed.connect(_show_target_buttons)
 	defend_turn_button.pressed.connect(_on_defend_pressed)
-	skip_turn_button.pressed.connect(_on_skill_pressed)
+	skill_turn_button.pressed.connect(_on_skill_pressed)
 
 	for p in player_battlers:
 		p.turn_ended.connect(_next_turn)
 		p.dead.connect(_on_player_dead)
+		if p.has_signal("be_selected"):
+			p.be_selected.connect(_heal_selected_ally)
 
 	for e in enemy_battlers:
 		e.be_selected.connect(_attack_selected_enemy)
@@ -80,13 +83,15 @@ func _show_target_buttons() -> void:
 func _show_ally_target() -> void:
 	turn_action_buttons.hide()
 	for p in  player_battlers:
-		p.show_select_button()
+		if p.has_method("show_select_button"):
+			p.show_select_button()
 
 func _hide_target_buttons() -> void:
 	for e in enemy_battlers:
 		e.hide_select_button()
 	for p in player_battlers:
-		p.hide_select_button()
+		if p.has_method("hide_select_button"):
+			p.hide_select_button()
 
 func _attack_selected_enemy(selected_enemy: Node2D) -> void:
 	_hide_target_buttons()
@@ -94,7 +99,10 @@ func _attack_selected_enemy(selected_enemy: Node2D) -> void:
 
 func _heal_selected_ally(selected_ally: Node2D) -> void:
 	_hide_target_buttons()
-	current_turn.start_healing(selected_ally)
+	if current_turn.has_method("start_healing"):
+		current_turn.start_healing(selected_ally)
+	else:
+		_next_turn()
 
 func _attack_random_player_battler(damage: int) -> void:
 	var rand = randi_range(0, player_battlers.size() - 1)
@@ -112,7 +120,6 @@ func _on_defend_pressed() -> void:
 func _on_skill_pressed() -> void:
 	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
 		turn_action_buttons.hide()
-		unique_skill.emit()
 	_show_ally_target()
 
 func _on_enemy_dead(dead_enemy: Node2D) -> void:

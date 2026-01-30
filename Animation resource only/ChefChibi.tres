@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://l3wxl7tl3jn2"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://l3wxl7tl3jn2"]
 
 [ext_resource type="Texture2D" uid="uid://dj1wsb2u7ew0p" path="res://Eris Esra's Character Template 4.0/16x32/PC-idle.png" id="2_wow46"]
 [ext_resource type="Texture2D" uid="uid://c8sinw3vj11me" path="res://Eris Esra's Character Template 4.0/16x32/PC-walk.png" id="6_4mg0d"]

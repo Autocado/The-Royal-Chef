@@ -1,68 +1,68 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene format=3 uid="uid://ceqd4q25vw1b"]
 
 [ext_resource type="PackedScene" uid="uid://cix1t0rs7ndr0" path="res://tb3/player_battler.tscn" id="1_bfqkk"]
 [ext_resource type="Script" uid="uid://82erg01lmyv2" path="res://tb3/turnbase.gd" id="1_me4h7"]
 [ext_resource type="PackedScene" uid="uid://ct4dstnj1rf3a" path="res://tb3/enemy_battler.tscn" id="2_me4h7"]
 [ext_resource type="PackedScene" uid="uid://b37strd21swki" path="res://tb3/Frank_battler.tscn" id="3_uellj"]
 
-[node name="Battlescene" type="Node"]
+[node name="Battlescene" type="Node" unique_id=471382554]
 script = ExtResource("1_me4h7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1219544263]
 
-[node name="BG" type="Sprite2D" parent="."]
+[node name="BG" type="Sprite2D" parent="." unique_id=1887043304]
 
-[node name="PlayerBattler" parent="." instance=ExtResource("1_bfqkk")]
+[node name="PlayerBattler" parent="." unique_id=1783123880 instance=ExtResource("1_bfqkk")]
 position = Vector2(128, -137)
 
-[node name="FrankBattler" parent="." instance=ExtResource("3_uellj")]
+[node name="FrankBattler" parent="." unique_id=1371487869 instance=ExtResource("3_uellj")]
 position = Vector2(408, -137)
 
-[node name="EnemyBattler" parent="." instance=ExtResource("2_me4h7")]
+[node name="EnemyBattler" parent="." unique_id=340517216 instance=ExtResource("2_me4h7")]
 position = Vector2(-239, -152)
 
-[node name="EnemyBattler2" parent="." instance=ExtResource("2_me4h7")]
+[node name="EnemyBattler2" parent="." unique_id=1688843103 instance=ExtResource("2_me4h7")]
 position = Vector2(-426, -65)
 
-[node name="EnemyBattler3" parent="." instance=ExtResource("2_me4h7")]
+[node name="EnemyBattler3" parent="." unique_id=1646211197 instance=ExtResource("2_me4h7")]
 position = Vector2(-428, 138)
 
-[node name="EnemyBattler4" parent="." instance=ExtResource("2_me4h7")]
+[node name="EnemyBattler4" parent="." unique_id=1313811741 instance=ExtResource("2_me4h7")]
 position = Vector2(-226, 234)
 
-[node name="Actioncontainer" type="HBoxContainer" parent="."]
+[node name="Actioncontainer" type="HBoxContainer" parent="." unique_id=431598849]
 offset_left = 257.0
 offset_top = 231.0
 offset_right = 565.0
 offset_bottom = 312.0
 
-[node name="Attack" type="Button" parent="Actioncontainer"]
+[node name="Attack" type="Button" parent="Actioncontainer" unique_id=1008554280]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Attack"
 
-[node name="defend" type="Button" parent="Actioncontainer"]
+[node name="defend" type="Button" parent="Actioncontainer" unique_id=2004248777]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Defend"
 
-[node name="Skill" type="Button" parent="Actioncontainer"]
+[node name="Skill" type="Button" parent="Actioncontainer" unique_id=1812269346]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Skill"
 
-[node name="Skip" type="Button" parent="Actioncontainer"]
+[node name="Skip" type="Button" parent="Actioncontainer" unique_id=2023175739]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Skip"
 
-[node name="BattleEndPanel" type="Panel" parent="."]
+[node name="BattleEndPanel" type="Panel" parent="." unique_id=1106495780]
 offset_left = -257.0
 offset_top = -83.0
 offset_right = 263.0
 offset_bottom = 73.0
 
-[node name="BattleEndText" type="RichTextLabel" parent="BattleEndPanel"]
+[node name="BattleEndText" type="RichTextLabel" parent="BattleEndPanel" unique_id=496284707]
 layout_mode = 0
 offset_left = 172.0
 offset_top = 65.0
