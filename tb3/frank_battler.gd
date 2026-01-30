@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var stats_resource : BattlerStats
-@export var skill_resource :  skill
+@export var skill_resource : skill
 @onready var health_bar : ProgressBar = $HealthBar
 @onready var turn_indicator_animation : AnimationPlayer = $TurnIndicator/TurnIndicatorAnimation
 @onready var animation_player: AnimatedSprite2D = $Holder
@@ -11,7 +11,6 @@ extends Node2D
 
 var current_hp : int
 var is_defending:= false
-var healer = []
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
@@ -19,7 +18,6 @@ signal be_selected
 
 func _ready() -> void:
 	stop_turn()
-	healer = get_tree().get_nodes_in_group("Healer")
 	current_hp = stats_resource.max_hp
 	
 	_update_health_bar()
@@ -78,11 +76,11 @@ func be_damaged(amount: int) -> void:
 		dead.emit(self)
 		queue_free()
 
-func be_healed() -> void:
-	if current_hp <= stats_resource.max_hp:
-		current_hp + healer._get_heal_value()
-	else:
+func be_healed(amount: int = 0) -> void:
+	if amount <= 0:
 		return
+	current_hp = min(current_hp + amount, stats_resource.max_hp)
+	_update_health_bar()
 
 func _on_battlescene_defense() -> void:
 	is_defending = true
