@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://cix1t0rs7ndr0"]
+[gd_scene load_steps=91 format=3 uid="uid://cix1t0rs7ndr0"]
 
 [ext_resource type="Texture2D" uid="uid://ly7pewl8vpcu" path="res://Eris Esra's Character Template 4.0/PCskill.png" id="1_17y42"]
 [ext_resource type="Script" uid="uid://b01x8y5ophury" path="res://tb3/player_battler.gd" id="1_ap5aa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3188eqgjafdu" path="res://Eris Esra's Character Template 4.0/PCsprite_frame.png" id="2_yaw70"]
 [ext_resource type="Texture2D" uid="uid://i60pgmvmqmy2" path="res://Eris Esra's Character Template 4.0/16x32/HitFX.png" id="3_ap5aa"]
 [ext_resource type="Texture2D" uid="uid://85avb8dw4vhq" path="res://Eris Esra's Character Template 4.0/OptionButton.png" id="3_euulx"]
+[ext_resource type="Resource" uid="uid://bk6etwgf54ikv" path="res://tb3/PCskill.tres" id="4_pcskill"]
 [ext_resource type="FontFile" uid="uid://bjoxakgjb6a1t" path="res://Font/EquipmentPro.ttf" id="5_hpkvc"]
 [ext_resource type="Texture2D" uid="uid://bdawpbqrxejo7" path="res://Eris Esra's Character Template 4.0/Arrow.png" id="7_arrow"]
 
@@ -682,6 +683,7 @@ animations = [{
 [node name="PlayerBattler" type="Node2D" groups=["Healer", "PlayerBattler"]]
 script = ExtResource("1_ap5aa")
 stats_resource = ExtResource("2_ap5aa")
+skill_resource = ExtResource("4_pcskill")
 
 [node name="Chef" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.5762787e-07, -2.3841855e-07)
