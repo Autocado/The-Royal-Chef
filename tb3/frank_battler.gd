@@ -98,7 +98,7 @@ func be_damaged(amount: int) -> void:
 		queue_free()
 
 func be_healed(amount: int = 0) -> void:
-	if amount < stats_resource.max_hp:
+	if amount <= 0:
 		return
 	current_hp = min(current_hp + amount, stats_resource.max_hp)
 	_update_health_bar()
