@@ -44,10 +44,23 @@ func start_healing(target: Node2D) -> void:
 	if target == null or not target.has_method("be_healed"):
 		turn_ended.emit()
 		return
-	be_healed()
 	_play_skill_anim()
 	await get_tree().create_timer(0.8).timeout
-	target.be_healed(_get_heal_value())
+	var heal_amount = _get_heal_value()
+	if heal_amount > 0:
+		target.be_healed(heal_amount)
+	await get_tree().create_timer(0.1).timeout
+	turn_ended.emit()
+
+func start_unique_skill(_enemy_targets: Array, ally_targets: Array) -> void:
+	_play_skill_anim()
+	await get_tree().create_timer(0.8).timeout
+	var heal_amount = max(int(stats_resource.max_hp * 0.2), 1)
+	for ally in ally_targets:
+		if ally == null:
+			continue
+		if ally.has_method("be_healed"):
+			ally.be_healed(heal_amount)
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
@@ -57,7 +70,13 @@ func _play_skill_anim() -> void:
 func _get_heal_value() -> int:
 	if skill_resource == null:
 		return 0
-	return skill_resource.hp
+	if skill_resource.type != skill.SkillType.Heal:
+		return 0
+	if skill_resource.hp > 0:
+		return skill_resource.hp
+	if skill_resource.min_damage > 0 or skill_resource.max_damage > 0:
+		return randi_range(skill_resource.min_damage, skill_resource.max_damage)
+	return 0
 
 func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("default")

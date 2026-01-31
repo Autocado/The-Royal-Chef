@@ -44,6 +44,20 @@ func start_attacking(enemy_target: Node2D) -> void:
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
+func start_unique_skill(enemy_targets: Array, _ally_targets: Array) -> void:
+	_play_attack_anim()
+	await get_tree().create_timer(0.6).timeout
+	var damage = _get_unique_damage()
+	for enemy in enemy_targets:
+		if enemy == null:
+			continue
+		if enemy.has_method("play_hit_fx_anim"):
+			enemy.play_hit_fx_anim()
+		if enemy.has_method("be_damaged"):
+			enemy.be_damaged(damage)
+	await get_tree().create_timer(0.1).timeout
+	turn_ended.emit()
+
 func _play_attack_anim() -> void:
 	animation_player.play("attack")
 
@@ -59,6 +73,11 @@ func _on_select_button_pressed() -> void:
 
 func _get_attack_damage() -> int:
 	return randi_range(stats_resource.min_damage, stats_resource.max_damage)
+
+func _get_unique_damage() -> int:
+	if skill_resource != null and skill_resource.type == skill.SkillType.Attack:
+		return randi_range(skill_resource.min_damage, skill_resource.max_damage)
+	return _get_attack_damage()
 
 func play_hit_fx_anim() -> void:
 	hit_fx_animation.play("hit")
