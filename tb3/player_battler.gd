@@ -44,6 +44,7 @@ func start_healing(target: Node2D) -> void:
 	if target == null or not target.has_method("be_healed"):
 		turn_ended.emit()
 		return
+	be_healed()
 	_play_skill_anim()
 	await get_tree().create_timer(0.8).timeout
 	target.be_healed(_get_heal_value())
