@@ -14,7 +14,7 @@ var is_defending:= false
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
-signal be_selected
+signal be_selected(this_target: Node2D)
 
 func _ready() -> void:
 	stop_turn()
