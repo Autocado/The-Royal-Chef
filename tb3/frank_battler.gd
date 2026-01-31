@@ -18,6 +18,8 @@ signal be_selected(this_target: Node2D)
 
 func _ready() -> void:
 	stop_turn()
+	select_target_button.hide()
+	select_target_button.pressed.connect(_on_select_button_pressed)
 	current_hp = stats_resource.max_hp
 	
 	_update_health_bar()
