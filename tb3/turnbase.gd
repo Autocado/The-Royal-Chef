@@ -17,6 +17,9 @@ var enemy_battlers = []
 var current_turn: Node2D
 var current_turn_index: int
 
+enum ActionMode { NONE, ATTACK, HEAL, UNIQUE }
+var action_mode: ActionMode = ActionMode.NONE
+
 func _ready() -> void:
 	turn_action_buttons.hide()
 	battle_end_panel.hide()
@@ -56,6 +59,7 @@ func _sort_turn_order_ascending(battler_1, battler_2) -> bool:
 	return false
 
 func _update_turn() -> void:
+	action_mode = ActionMode.NONE
 	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
 		turn_action_buttons.show()
 		if current_turn.has_method("_allow_attack"):
@@ -70,6 +74,7 @@ func _update_turn() -> void:
 func _next_turn() -> void:
 	if turn_action_buttons.visible:
 		turn_action_buttons.hide()
+	action_mode = ActionMode.NONE
 	current_turn.stop_turn()
 
 	if _check_for_battle_end() == false:
@@ -79,6 +84,7 @@ func _next_turn() -> void:
 
 func _show_target_buttons() -> void:
 	turn_action_buttons.hide()
+	action_mode = ActionMode.ATTACK
 	for e in enemy_battlers:
 		e.show_select_button()
 
@@ -96,11 +102,25 @@ func _hide_target_buttons() -> void:
 			p.hide_select_button()
 
 func _attack_selected_enemy(selected_enemy: Node2D) -> void:
+	if action_mode != ActionMode.ATTACK:
+		return
 	_hide_target_buttons()
+	action_mode = ActionMode.NONE
 	current_turn.start_attacking(selected_enemy)
 
 func _heal_selected_ally(selected_ally: Node2D) -> void:
+	if action_mode == ActionMode.UNIQUE:
+		_hide_target_buttons()
+		action_mode = ActionMode.NONE
+		if current_turn.has_method("start_unique_skill"):
+			current_turn.start_unique_skill(enemy_battlers, player_battlers)
+		else:
+			_next_turn()
+		return
+	if action_mode != ActionMode.HEAL:
+		return
 	_hide_target_buttons()
+	action_mode = ActionMode.NONE
 	if current_turn.has_method("start_healing"):
 		current_turn.start_healing(selected_ally)
 	else:
@@ -122,16 +142,15 @@ func _on_defend_pressed() -> void:
 func _on_skill_pressed() -> void:
 	if current_turn.stats_resource.type == BattlerStats.BattlerType.PLAYER:
 		turn_action_buttons.hide()
+	action_mode = ActionMode.HEAL
 	_show_ally_target()
 
 func _on_unique_pressed() -> void:
 	if current_turn.stats_resource.type != BattlerStats.BattlerType.PLAYER:
 		return
 	turn_action_buttons.hide()
-	if current_turn.has_method("start_unique_skill"):
-		current_turn.start_unique_skill(enemy_battlers, player_battlers)
-	else:
-		_next_turn()
+	action_mode = ActionMode.UNIQUE
+	_show_ally_target()
 
 func _on_run_pressed() -> void:
 	if current_turn.stats_resource.type != BattlerStats.BattlerType.PLAYER:
