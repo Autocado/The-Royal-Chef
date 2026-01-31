@@ -44,7 +44,7 @@ func start_attacking(enemy_target: Node2D) -> void:
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
-func start_unique_skill(enemy_targets: Array, _ally_targets: Array) -> void:
+func start_unique_skill(enemy_targets: Array, _ally_targets: Array, _selected_ally: Node2D = null) -> void:
 	_play_attack_anim()
 	await get_tree().create_timer(0.6).timeout
 	var damage = _get_unique_damage()
@@ -111,3 +111,6 @@ func set_defending(active: bool) -> void:
 
 func _on_player_battler_heal_skill() -> void:
 	be_healed()
+
+func unique_requires_target() -> bool:
+	return false

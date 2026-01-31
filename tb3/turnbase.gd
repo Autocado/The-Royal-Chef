@@ -113,7 +113,7 @@ func _heal_selected_ally(selected_ally: Node2D) -> void:
 		_hide_target_buttons()
 		action_mode = ActionMode.NONE
 		if current_turn.has_method("start_unique_skill"):
-			current_turn.start_unique_skill(enemy_battlers, player_battlers)
+			current_turn.start_unique_skill(enemy_battlers, player_battlers, selected_ally)
 		else:
 			_next_turn()
 		return
@@ -149,6 +149,13 @@ func _on_unique_pressed() -> void:
 	if current_turn.stats_resource.type != BattlerStats.BattlerType.PLAYER:
 		return
 	turn_action_buttons.hide()
+	if current_turn.has_method("unique_requires_target") and current_turn.unique_requires_target() == false:
+		action_mode = ActionMode.NONE
+		if current_turn.has_method("start_unique_skill"):
+			current_turn.start_unique_skill(enemy_battlers, player_battlers)
+		else:
+			_next_turn()
+		return
 	action_mode = ActionMode.UNIQUE
 	_show_ally_target()
 
