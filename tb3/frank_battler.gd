@@ -14,7 +14,7 @@ var is_defending:= false
 
 signal dead(this_battler: Node2D) 
 signal turn_ended
-signal be_selected
+signal be_selected(this_target: Node2D)
 
 func _ready() -> void:
 	stop_turn()
@@ -44,7 +44,7 @@ func start_attacking(enemy_target: Node2D) -> void:
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
-func start_unique_skill(enemy_targets: Array, _ally_targets: Array) -> void:
+func start_unique_skill(enemy_targets: Array, _ally_targets: Array, _selected_ally: Node2D = null) -> void:
 	_play_attack_anim()
 	await get_tree().create_timer(0.6).timeout
 	var damage = _get_unique_damage()
@@ -96,7 +96,7 @@ func be_damaged(amount: int) -> void:
 		queue_free()
 
 func be_healed(amount: int = 0) -> void:
-	if amount <= 0:
+	if amount < stats_resource.max_hp:
 		return
 	current_hp = min(current_hp + amount, stats_resource.max_hp)
 	_update_health_bar()
@@ -111,3 +111,6 @@ func set_defending(active: bool) -> void:
 
 func _on_player_battler_heal_skill() -> void:
 	be_healed()
+
+func unique_requires_target() -> bool:
+	return false

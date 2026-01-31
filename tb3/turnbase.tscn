@@ -46,11 +46,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Defend"
 
-[node name="Skill" type="Button" parent="Actioncontainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Skill"
-
 [node name="Unique" type="Button" parent="Actioncontainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -82,7 +77,4 @@ theme_override_font_sizes/normal_font_size = 24
 text = "Battle End."
 horizontal_alignment = 1
 
-[connection signal="defense" from="." to="PlayerBattler" method="_on_battlescene_defense"]
-[connection signal="defense" from="." to="FrankBattler" method="_on_battlescene_defense"]
-[connection signal="unique_skill" from="." to="PlayerBattler" method="_on_battlescene_unique_skill"]
 [connection signal="heal_skill" from="PlayerBattler" to="FrankBattler" method="_on_player_battler_heal_skill"]
