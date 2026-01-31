@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://5tusf8sxauwy"]
+
+[ext_resource type="Texture2D" uid="uid://brjwf0h55k7st" path="res://icon.svg" id="1_6pumo"]
+[ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="2_0dab6"]
+[ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="3_8nxjb"]
+
+[sub_resource type="Resource" id="Resource_ikvy2"]
+script = ExtResource("3_8nxjb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pumo"]
+size = Vector2(134, 131)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, 2)
+texture = ExtResource("1_6pumo")
+script = ExtResource("2_0dab6")
+drag_input_name = &"Click"
+type = SubResource("Resource_ikvy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_6pumo")

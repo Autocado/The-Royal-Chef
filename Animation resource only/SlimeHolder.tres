@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://blkqqwsagx3lo"]
+[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://blkqqwsagx3lo"]
 
 [ext_resource type="Texture2D" uid="uid://doyownw1cpdwh" path="res://Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="1_r5scr"]
 [ext_resource type="Texture2D" uid="uid://d12103vamq8ko" path="res://Slime Enemy/Jump/Sprite Sheet - Blue Jump Start-up.png" id="2_b0alp"]
