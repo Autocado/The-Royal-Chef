@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://5tusf8sxauwy"]
+[gd_scene load_steps=10 format=3 uid="uid://5tusf8sxauwy"]
 
 [ext_resource type="Texture2D" uid="uid://brjwf0h55k7st" path="res://icon.svg" id="1_6pumo"]
 [ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="2_0dab6"]
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="3_8nxjb"]
+[ext_resource type="Script" uid="uid://nj1hdjl1vob2" path="res://addons/drag_and_drop/scripts/drop_zone.gd" id="4_8nxjb"]
+[ext_resource type="Script" uid="uid://b5wqxyc42r5u" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_reject.gd" id="5_ikvy2"]
 
 [sub_resource type="Resource" id="Resource_ikvy2"]
 script = ExtResource("3_8nxjb")
@@ -10,9 +12,16 @@ script = ExtResource("3_8nxjb")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pumo"]
 size = Vector2(134, 131)
 
+[sub_resource type="Resource" id="Resource_rlgdw"]
+script = ExtResource("5_ikvy2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqt6x"]
+size = Vector2(130, 130)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1084, 583)
 
 [node name="Icon" type="Sprite2D" parent="Area2D"]
 position = Vector2(0, 2)
@@ -24,3 +33,17 @@ type = SubResource("Resource_ikvy2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_6pumo")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(70, 67)
+
+[node name="Icon" type="Sprite2D" parent="Area2D2" node_paths=PackedStringArray("area_reference", "attach_spot")]
+texture = ExtResource("1_6pumo")
+script = ExtResource("4_8nxjb")
+area_reference = NodePath("..")
+attach_spot = NodePath("../../Area2D")
+drop_behavior = SubResource("Resource_rlgdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xqt6x")
