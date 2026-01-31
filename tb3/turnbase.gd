@@ -3,8 +3,10 @@ extends Node
 @onready var turn_action_buttons: HBoxContainer = $Actioncontainer
 @onready var skip_turn_button: Button = $Actioncontainer/Skip
 @onready var skill_turn_button: Button = $Actioncontainer/Skill
+@onready var unique_turn_button: Button = $Actioncontainer/Unique
 @onready var defend_turn_button: Button = $Actioncontainer/defend
 @onready var attack_button: Button = $Actioncontainer/Attack
+@onready var run_button: Button = $Actioncontainer/Run
 @onready var battle_end_panel: Panel = $BattleEndPanel
 @onready var battle_end_text: RichTextLabel = $BattleEndPanel/BattleEndText
 
@@ -15,8 +17,6 @@ var enemy_battlers = []
 var current_turn: Node2D
 var current_turn_index: int
 
-signal defense
-signal unique_skill
 func _ready() -> void:
 	turn_action_buttons.hide()
 	battle_end_panel.hide()
@@ -33,6 +33,8 @@ func _ready() -> void:
 	attack_button.pressed.connect(_show_target_buttons)
 	defend_turn_button.pressed.connect(_on_defend_pressed)
 	skill_turn_button.pressed.connect(_on_skill_pressed)
+	unique_turn_button.pressed.connect(_on_unique_pressed)
+	run_button.pressed.connect(_on_run_pressed)
 
 	for p in player_battlers:
 		p.turn_ended.connect(_next_turn)
@@ -122,6 +124,20 @@ func _on_skill_pressed() -> void:
 		turn_action_buttons.hide()
 	_show_ally_target()
 
+func _on_unique_pressed() -> void:
+	if current_turn.stats_resource.type != BattlerStats.BattlerType.PLAYER:
+		return
+	turn_action_buttons.hide()
+	if current_turn.has_method("start_unique_skill"):
+		current_turn.start_unique_skill(enemy_battlers, player_battlers)
+	else:
+		_next_turn()
+
+func _on_run_pressed() -> void:
+	if current_turn.stats_resource.type != BattlerStats.BattlerType.PLAYER:
+		return
+	_end_battle("Player escaped!")
+
 func _on_enemy_dead(dead_enemy: Node2D) -> void:
 	enemy_battlers.erase(dead_enemy)
 	all_battlers.erase(dead_enemy)
@@ -138,6 +154,17 @@ func _check_for_battle_end() -> bool:
 		_show_battle_end_panel("Player lost!")
 		return true
 	return false
+
+func _end_battle(message: String) -> void:
+	_show_battle_end_panel(message)
+	if turn_action_buttons.visible:
+		turn_action_buttons.hide()
+	for e in enemy_battlers:
+		if e.has_method("hide_select_button"):
+			e.hide_select_button()
+	for p in player_battlers:
+		if p.has_method("hide_select_button"):
+			p.hide_select_button()
 
 func _show_battle_end_panel(message: String) -> void:
 	battle_end_text.clear()

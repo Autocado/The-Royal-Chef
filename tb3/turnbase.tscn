@@ -51,6 +51,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Skill"
 
+[node name="Unique" type="Button" parent="Actioncontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Unique"
+
+[node name="Run" type="Button" parent="Actioncontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Run"
+
 [node name="Skip" type="Button" parent="Actioncontainer"]
 layout_mode = 2
 size_flags_horizontal = 3
