@@ -22,4 +22,4 @@ func _physics_process(_delta):
 func _on_battle_area_area_entered(area: Area2D) -> void:
 	var actionable = $BattleArea.get_overlapping_areas()
 	if actionable.size() > 0:
-		get_tree().change_scene_to_file("res://TurnBase Stuff/turnbase.tscn")
+		get_tree().change_scene_to_file("res://tb3/turnbase.tscn")
