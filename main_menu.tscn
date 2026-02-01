@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bk1atpb8venwp"]
+[gd_scene load_steps=70 format=3 uid="uid://bk1atpb8venwp"]
 
 [ext_resource type="Texture2D" uid="uid://b0esrfifida3c" path="res://background 1/1.png" id="1_48knj"]
 [ext_resource type="FontFile" uid="uid://dou08g1gcif3v" path="res://Font/Round9x13.ttf" id="1_fu7sn"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://drbw3x4bjnpe4" path="res://option.gd" id="29_imjy1"]
 [ext_resource type="Script" uid="uid://bxl5g36ebvqgr" path="res://Backbutton.gd" id="30_v2sba"]
 [ext_resource type="Texture2D" uid="uid://bdawpbqrxejo7" path="res://Eris Esra's Character Template 4.0/Arrow.png" id="31_ai24q"]
+[ext_resource type="Texture2D" uid="uid://cla0q4l4s60ke" path="res://icongame.png" id="34_04soa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg3m2"]
 atlas = ExtResource("2_8qtwp")
@@ -551,6 +552,7 @@ theme_override_font_sizes/font_size = 37
 text = "GET OUT"
 
 [node name="Panel" type="Panel" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 317.0
 offset_top = 53.0
@@ -580,14 +582,22 @@ scale = Vector2(2.375, 2.375)
 sprite_frames = SubResource("SpriteFrames_2kjvi")
 animation = &"Idle"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 359.0
+offset_top = 5.9999995
+offset_right = 4528.0
+offset_bottom = 2959.0
+scale = Vector2(0.08994846, 0.08994846)
+texture = ExtResource("34_04soa")
+
 [connection signal="button_up" from="Control/Setting" to="Control/Setting" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/Setting" to="Control/Setting" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Setting" to="Control/Setting" method="_on_mouse_exited"]
 [connection signal="option" from="Control/Setting" to="Control/Setting" method="_on_option"]
 [connection signal="option" from="Control/Setting" to="Control/Quit" method="_on_setting_option"]
 [connection signal="option" from="Control/Setting" to="Control/Start" method="_on_setting_option"]
-[connection signal="option" from="Control/Setting" to="Control/Panel" method="_on_setting_option"]
 [connection signal="option" from="Control/Setting" to="Control/Control" method="_on_setting_option"]
+[connection signal="option" from="Control/Setting" to="Control/Panel" method="_on_setting_option"]
 [connection signal="pressed" from="Control/Setting" to="Control/Setting" method="_on_pressed"]
 [connection signal="button_up" from="Control/Quit" to="Control/Setting" method="_on_quit_button_up"]
 [connection signal="mouse_entered" from="Control/Quit" to="Control/Quit" method="_on_mouse_entered"]
@@ -601,8 +611,8 @@ animation = &"Idle"
 [connection signal="back" from="Control/Panel/Back" to="Control/Setting" method="_on_back_back"]
 [connection signal="back" from="Control/Panel/Back" to="Control/Quit" method="_on_back_back"]
 [connection signal="back" from="Control/Panel/Back" to="Control/Start" method="_on_back_back"]
-[connection signal="back" from="Control/Panel/Back" to="Control/Panel" method="_on_back_back"]
 [connection signal="back" from="Control/Panel/Back" to="Control/Control" method="_on_back_back"]
+[connection signal="back" from="Control/Panel/Back" to="Control/Panel" method="_on_back_back"]
 [connection signal="button_up" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Panel/Back" to="Control/Panel/Back" method="_on_mouse_exited"]
