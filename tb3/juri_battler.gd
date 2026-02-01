@@ -46,14 +46,20 @@ func start_attacking(enemy_target: Node2D) -> void:
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
 
-func start_unique_skill(enemy_target:Node2D) -> void:
+func start_unique_skill(enemy_targets: Array, _ally_targets: Array, _selected_ally: Node2D = null) -> void:
 	_play_attack_anim()
 	await get_tree().create_timer(0.6).timeout
-	enemy_target.play_hit_fx_anim()
-	await get_tree().create_timer(0.5).timeout
-	enemy_target.be_damaged(_get_unique_damage())
+	var damage = _get_unique_damage()
+	for enemy in enemy_targets:
+		if enemy == null:
+			continue
+		if enemy.has_method("play_hit_fx_anim"):
+			enemy.play_hit_fx_anim()
+		if enemy.has_method("be_damaged"):
+			enemy.be_damaged(damage)
 	await get_tree().create_timer(0.1).timeout
 	turn_ended.emit()
+
 func _play_attack_anim() -> void:
 	animation_player.play("attack")
 
@@ -109,4 +115,4 @@ func _on_player_battler_heal_skill() -> void:
 	be_healed()
 
 func unique_requires_target() -> bool:
-	return true
+	return false
