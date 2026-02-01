@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=4 uid="uid://b0p8ootdkb78v"]
+
+[ext_resource type="Script" uid="uid://b3hc2yugm8k3x" path="res://scripts/cooking_station.gd" id="1_j73u1"]
+[ext_resource type="Texture2D" uid="uid://m73h2u6wc34k" path="res://kitchen assets/Stove/Stove1.png" id="2_nxo4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pv4u"]
+size = Vector2(32, 24)
+
+[node name="CookingStation" type="Area2D"]
+script = ExtResource("1_j73u1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nxo4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2pv4u")
