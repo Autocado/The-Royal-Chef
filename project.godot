@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="The Royal Chef"
-run/main_scene="uid://ceqd4q25vw1b"
+run/main_scene="uid://bk1atpb8venwp"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
