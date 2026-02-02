@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://botysftvq7jy0"]
+[gd_scene load_steps=101 format=4 uid="uid://botysftvq7jy0"]
 
 [ext_resource type="Texture2D" uid="uid://bsssorurywgvo" path="res://Eris Esra's Character Template 4.0/16x32/S__12468233.png" id="1_oix3w"]
 [ext_resource type="Texture2D" uid="uid://b5kcw6at2hkbt" path="res://Eris Esra's Character Template 4.0/16x32/FEN8ya.png" id="2_ls4ia"]
@@ -35,10 +35,12 @@
 [ext_resource type="Texture2D" uid="uid://b503xa7v8t652" path="res://kitchen assets/Cabinet/Kitchen-utensils/Plates.png" id="30_bq5yi"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="34_lb503"]
 [ext_resource type="Script" uid="uid://hnynoauwbfc1" path="res://MainMap.gd" id="35_ahoi8"]
-[ext_resource type="Script" path="res://scripts/inventory_manager.gd" id="36_2mxdb"]
-[ext_resource type="Script" path="res://scripts/kitchen_hud.gd" id="37_2p2fr"]
-[ext_resource type="PackedScene" path="res://scenes/ingredient_pickup.tscn" id="38_u5lqg"]
-[ext_resource type="PackedScene" path="res://scenes/cooking_station.tscn" id="39_48juk"]
+[ext_resource type="Script" uid="uid://dy6ccwi22vnao" path="res://scripts/inventory_manager.gd" id="36_2mxdb"]
+[ext_resource type="Script" uid="uid://dsgmrdiywyqq6" path="res://scripts/kitchen_hud.gd" id="37_2p2fr"]
+[ext_resource type="PackedScene" uid="uid://bs1dsk13n5h0j" path="res://scenes/ingredient_pickup.tscn" id="38_u5lqg"]
+[ext_resource type="PackedScene" uid="uid://b0p8ootdkb78v" path="res://scenes/cooking_station.tscn" id="39_48juk"]
+[ext_resource type="Script" uid="uid://b5juswpr1uw67" path="res://palacetheme.gd" id="40_m1r8r"]
+[ext_resource type="AudioStream" uid="uid://7e8u3hui2c70" path="res://The Crown of Heaven ~ Brilliant Pagoda.mp3" id="41_hlu38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6e772"]
 texture = ExtResource("1_oix3w")
@@ -11663,17 +11665,23 @@ size = Vector2(20, 426)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3b8s"]
 size = Vector2(443, 91)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6prdl"]
-size = Vector2(178, 15)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fosbp"]
 size = Vector2(20, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6prdl"]
+size = Vector2(178, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1r8r"]
 size = Vector2(112, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pesr7"]
+size = Vector2(239, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlu38"]
-size = Vector2(160, 20)
+size = Vector2(160, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg7jk"]
+size = Vector2(358, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1j52w"]
 radius = 35.510563
@@ -11740,56 +11748,56 @@ shape = SubResource("RectangleShape2D_q7jki")
 position = Vector2(-256, -26.5)
 shape = SubResource("RectangleShape2D_06bl7")
 
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-88, -41)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-120, -40)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-120, -9)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-88, -9)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="colisions"]
+position = Vector2(8, -8)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="colisions"]
+position = Vector2(8, -40)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="colisions"]
+position = Vector2(40, -41)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="colisions"]
+position = Vector2(40, -9)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="colisions"]
+position = Vector2(41, 23)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="colisions"]
+position = Vector2(8, 23)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-88, 23)
+shape = SubResource("CircleShape2D_lb503")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-6, -122)
+shape = SubResource("CircleShape2D_lb503")
+
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions"]
 position = Vector2(-120, 23)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10"]
-position = Vector2(32, 0)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(96, 0)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(33, 0)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(-1, -32)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(0, -32)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(-32, 1)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(0, 32)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(-96, -1)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(-32, 0)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(0, -31)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(32, -1)
-shape = SubResource("CircleShape2D_lb503")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="colisions/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10/CollisionShape2D10"]
-position = Vector2(82, -81)
 shape = SubResource("CircleShape2D_lb503")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="colisions"]
@@ -11814,24 +11822,29 @@ shape = SubResource("RectangleShape2D_xrf5w")
 position = Vector2(-514.5, -13.5)
 shape = SubResource("RectangleShape2D_s3b8s")
 
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="colisions"]
-position = Vector2(-631, 44.5)
-shape = SubResource("RectangleShape2D_6prdl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="colisions/CollisionShape2D16"]
-position = Vector2(-83, 42.5)
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-714, 94)
 shape = SubResource("RectangleShape2D_fosbp")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-631, 51.5)
+shape = SubResource("RectangleShape2D_6prdl")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="colisions"]
 position = Vector2(-679, 113)
 shape = SubResource("RectangleShape2D_m1r8r")
 
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-421.5, 42)
+shape = SubResource("RectangleShape2D_pesr7")
+
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="colisions"]
-position = Vector2(-480, 179)
+position = Vector2(-480, 185)
 shape = SubResource("RectangleShape2D_hlu38")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("34_lb503")]
-position = Vector2(-37, 207)
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="colisions"]
+position = Vector2(-38, -55.5)
+shape = SubResource("RectangleShape2D_tg7jk")
 
 [node name="InventoryManager" type="Node" parent="."]
 script = ExtResource("36_2mxdb")
@@ -11840,12 +11853,17 @@ script = ExtResource("36_2mxdb")
 layer = 2
 
 [node name="Hud" type="Control" parent="KitchenHUD"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("37_2p2fr")
 inventory_manager_path = NodePath("../../InventoryManager")
 
 [node name="PromptLabel" type="Label" parent="KitchenHUD/Hud"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 236.0
 offset_right = 330.0
@@ -11853,12 +11871,14 @@ offset_bottom = 260.0
 text = "Press E to interact"
 
 [node name="InventoryPanel" type="Panel" parent="KitchenHUD/Hud"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 236.0
 offset_bottom = 220.0
 
 [node name="InventoryTitle" type="Label" parent="KitchenHUD/Hud/InventoryPanel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 6.0
 offset_right = 120.0
@@ -11866,18 +11886,21 @@ offset_bottom = 26.0
 text = "Inventory"
 
 [node name="InventoryList" type="ItemList" parent="KitchenHUD/Hud/InventoryPanel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 32.0
 offset_right = 212.0
 offset_bottom = 196.0
 
 [node name="CookingPanel" type="Panel" parent="KitchenHUD/Hud"]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 16.0
 offset_right = 580.0
 offset_bottom = 276.0
 
 [node name="CookingTitle" type="Label" parent="KitchenHUD/Hud/CookingPanel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 6.0
 offset_right = 120.0
@@ -11885,12 +11908,14 @@ offset_bottom = 26.0
 text = "Cooking"
 
 [node name="RecipeList" type="ItemList" parent="KitchenHUD/Hud/CookingPanel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 32.0
 offset_right = 156.0
 offset_bottom = 212.0
 
 [node name="RecipeDetails" type="RichTextLabel" parent="KitchenHUD/Hud/CookingPanel"]
+layout_mode = 0
 offset_left = 164.0
 offset_top = 32.0
 offset_right = 318.0
@@ -11899,6 +11924,7 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="CookButton" type="Button" parent="KitchenHUD/Hud/CookingPanel"]
+layout_mode = 0
 offset_left = 164.0
 offset_top = 204.0
 offset_right = 318.0
@@ -11906,44 +11932,35 @@ offset_bottom = 232.0
 text = "Cook"
 
 [node name="CookingStation" parent="." instance=ExtResource("39_48juk")]
-position = Vector2(-208, 164)
+position = Vector2(-648, 64)
 hud_path = NodePath("../KitchenHUD/Hud")
 
 [node name="PickupTomato" parent="." instance=ExtResource("38_u5lqg")]
-position = Vector2(-264, 216)
+position = Vector2(-584, 58)
 item_name = "Tomato"
 inventory_manager_path = NodePath("../InventoryManager")
 hud_path = NodePath("../KitchenHUD/Hud")
 
-[node name="Sprite2D" parent="PickupTomato"]
-texture = ExtResource("28_0wjkr")
-
 [node name="PickupMushroom" parent="." instance=ExtResource("38_u5lqg")]
-position = Vector2(-320, 216)
+position = Vector2(-712, 92)
 item_name = "Mushroom"
 inventory_manager_path = NodePath("../InventoryManager")
 hud_path = NodePath("../KitchenHUD/Hud")
 
-[node name="Sprite2D" parent="PickupMushroom"]
-texture = ExtResource("26_touax")
-
 [node name="PickupMeat" parent="." instance=ExtResource("38_u5lqg")]
-position = Vector2(-376, 216)
+position = Vector2(-616, 58)
 item_name = "Meat"
 inventory_manager_path = NodePath("../InventoryManager")
 hud_path = NodePath("../KitchenHUD/Hud")
 
-[node name="Sprite2D" parent="PickupMeat"]
-texture = ExtResource("25_megfi")
-
 [node name="PickupHerb" parent="." instance=ExtResource("38_u5lqg")]
-position = Vector2(-432, 216)
+position = Vector2(-631, 105)
 item_name = "Herb"
 inventory_manager_path = NodePath("../InventoryManager")
 hud_path = NodePath("../KitchenHUD/Hud")
 
-[node name="Sprite2D" parent="PickupHerb"]
-texture = ExtResource("19_xp74o")
+[node name="CharacterBody2D" parent="." instance=ExtResource("34_lb503")]
+position = Vector2(-37, 207)
 
 [node name="Area2D2" type="Area2D" parent="."]
 script = ExtResource("35_ahoi8")
@@ -11951,6 +11968,16 @@ script = ExtResource("35_ahoi8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-39, 332)
 shape = SubResource("CircleShape2D_1j52w")
+
+[node name="theme" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("40_m1r8r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="theme"]
+stream = ExtResource("41_hlu38")
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

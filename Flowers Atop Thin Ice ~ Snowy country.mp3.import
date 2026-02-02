@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cr6kljw5fexqe"
+path="res://.godot/imported/Flowers Atop Thin Ice ~ Snowy country.mp3-a8e1a225988c8f445f863816ddb0cae3.mp3str"
+
+[deps]
+
+source_file="res://Flowers Atop Thin Ice ~ Snowy country.mp3"
+dest_files=["res://.godot/imported/Flowers Atop Thin Ice ~ Snowy country.mp3-a8e1a225988c8f445f863816ddb0cae3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

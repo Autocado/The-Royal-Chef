@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=4 uid="uid://byhl7q2wpfi0t"]
+[gd_scene load_steps=116 format=4 uid="uid://byhl7q2wpfi0t"]
 
 [ext_resource type="Script" uid="uid://daqarfsmp03m4" path="res://icon.gd" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://b2qn0fuoy1l6x" path="res://The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Ground Tileset/Tileset_Ground.png" id="2_vbegm"]
@@ -23,7 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://gnecjtqjr3sq" path="res://Villager_3.tscn" id="20_eski5"]
 [ext_resource type="PackedScene" uid="uid://c8afn8j75fbw3" path="res://Villager_4.tscn" id="21_pdf00"]
 [ext_resource type="Script" uid="uid://4e0gt4ukwtsd" path="res://Forest.gd" id="24_15c7i"]
+[ext_resource type="Script" uid="uid://cajdo0fiuo6mj" path="res://testtheme.gd" id="26_dpmuy"]
 [ext_resource type="PackedScene" uid="uid://bmkcmv2ehj88m" path="res://npc.tscn" id="27_dpmuy"]
+[ext_resource type="AudioStream" uid="uid://bwdqmvc1ca7yr" path="res://Silence After the Festival.mp3" id="27_yww54"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="29_j75vh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpmuy"]
@@ -21441,3 +21443,13 @@ script = ExtResource("19_4uo0j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Palace"]
 position = Vector2(32, -52)
 shape = SubResource("CircleShape2D_dwqlq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_dpmuy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("27_yww54")

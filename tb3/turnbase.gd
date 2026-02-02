@@ -160,7 +160,7 @@ func _on_run_pressed() -> void:
 	if current_turn.stats_resource.type != BattlerStats.BattlerType.PLAYER:
 		return
 	_end_battle("Player escaped!")
-	get_tree().change_scene_to_file("res://tb3/forrest.tscn")
+	get_tree().change_scene_to_file("res://forest.tscn")
 
 func _on_enemy_dead(dead_enemy: Node2D) -> void:
 	enemy_battlers.erase(dead_enemy)
@@ -173,9 +173,11 @@ func _on_player_dead(dead_battler: Node2D) -> void:
 func _check_for_battle_end() -> bool:
 	if enemy_battlers.is_empty():
 		_show_battle_end_panel("Player won!")
+		get_tree().change_scene_to_file("res://forest.tscn")
 		return true
 	elif player_battlers.is_empty():
 		_show_battle_end_panel("Player lost!")
+		get_tree().change_scene_to_file("res://forest.tscn")
 		return true
 	return false
 

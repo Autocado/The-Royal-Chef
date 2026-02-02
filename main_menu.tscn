@@ -1,8 +1,9 @@
-[gd_scene load_steps=70 format=3 uid="uid://bk1atpb8venwp"]
+[gd_scene load_steps=72 format=3 uid="uid://bk1atpb8venwp"]
 
 [ext_resource type="Texture2D" uid="uid://b0esrfifida3c" path="res://background 1/1.png" id="1_48knj"]
 [ext_resource type="FontFile" uid="uid://dou08g1gcif3v" path="res://Font/Round9x13.ttf" id="1_fu7sn"]
 [ext_resource type="Script" uid="uid://ce3vi8sarfnnd" path="res://setting.gd" id="1_qe12f"]
+[ext_resource type="Script" uid="uid://cnuks8kuoux5w" path="res://mm_theme.gd" id="1_swr0i"]
 [ext_resource type="Texture2D" uid="uid://85avb8dw4vhq" path="res://Eris Esra's Character Template 4.0/OptionButton.png" id="2_8qtwp"]
 [ext_resource type="FontFile" uid="uid://csuo3wusi5ys7" path="res://Font/NicerNightie.ttf" id="2_jix8l"]
 [ext_resource type="Script" uid="uid://cl4eleql7cc5i" path="res://sky.gd" id="2_m2y5l"]
@@ -34,6 +35,7 @@
 [ext_resource type="Script" uid="uid://bxl5g36ebvqgr" path="res://Backbutton.gd" id="30_v2sba"]
 [ext_resource type="Texture2D" uid="uid://bdawpbqrxejo7" path="res://Eris Esra's Character Template 4.0/Arrow.png" id="31_ai24q"]
 [ext_resource type="Texture2D" uid="uid://cla0q4l4s60ke" path="res://icongame.png" id="34_04soa"]
+[ext_resource type="AudioStream" uid="uid://cr6kljw5fexqe" path="res://Flowers Atop Thin Ice ~ Snowy country.mp3" id="36_2urq5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mg3m2"]
 atlas = ExtResource("2_8qtwp")
@@ -391,6 +393,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_swr0i")
 
 [node name="Sky" type="TextureRect" parent="Control"]
 layout_mode = 0
@@ -589,6 +592,9 @@ offset_right = 4528.0
 offset_bottom = 2959.0
 scale = Vector2(0.08994846, 0.08994846)
 texture = ExtResource("34_04soa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_2urq5")
 
 [connection signal="button_up" from="Control/Setting" to="Control/Setting" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/Setting" to="Control/Setting" method="_on_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://rqpkm1c8ux2h"]
+[gd_scene load_steps=21 format=4 uid="uid://rqpkm1c8ux2h"]
 
 [ext_resource type="Texture2D" uid="uid://d3fmqpgia5vtd" path="res://The Fan-tasy Tileset (Free) 1.5.1/fairy forrest/Tileset_Ground.png" id="1_ckba0"]
 [ext_resource type="Texture2D" uid="uid://b2ouxsti27yba" path="res://The Fan-tasy Tileset (Free) 1.5.1/Gray Forrest/Tileset_Road.png" id="2_r31nu"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://chfgwibpvsmd4" path="res://The Fan-tasy Tileset (Free) 1.5.1/fairy forrest/Tree_Emerald_4.png" id="6_1vltu"]
 [ext_resource type="Script" uid="uid://cva2clpl5jwni" path="res://area_2d.gd" id="7_txp6s"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="8_icjpi"]
+[ext_resource type="Script" uid="uid://cfwn71dph23sh" path="res://fairytheme.gd" id="9_knu83"]
+[ext_resource type="AudioStream" uid="uid://du7jk4cg01nr2" path="res://JynX - Falling Ghost.mp3" id="10_ajnkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6h55"]
 texture = ExtResource("1_ckba0")
@@ -333,3 +335,13 @@ shape = SubResource("CircleShape2D_jhnbl")
 [node name="Chef" parent="Area2D" groups=["player"] instance=ExtResource("8_icjpi")]
 position = Vector2(1.9999847, -7.6293945e-06)
 scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_knu83")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("10_ajnkq")

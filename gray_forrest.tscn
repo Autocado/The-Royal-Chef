@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bs87wwjvc3efx"]
+[gd_scene load_steps=23 format=4 uid="uid://bs87wwjvc3efx"]
 
 [ext_resource type="Texture2D" uid="uid://6f2eyw5q2pkr" path="res://The Fan-tasy Tileset (Free) 1.5.1/Gray Forrest/Tileset_Ground.png" id="1_pky36"]
 [ext_resource type="Texture2D" uid="uid://b2ouxsti27yba" path="res://The Fan-tasy Tileset (Free) 1.5.1/Gray Forrest/Tileset_Road.png" id="2_1jykj"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://3xj6l156857c" path="res://The Fan-tasy Tileset (Free) 1.5.1/Gray Forrest/Tree_Emerald_4.png" id="6_hus3g"]
 [ext_resource type="PackedScene" uid="uid://domd5ohkuqplj" path="res://chef.tscn" id="7_1jykj"]
 [ext_resource type="Script" uid="uid://cklthskb3fxsr" path="res://mainforrest.gd" id="8_ury3d"]
+[ext_resource type="Script" uid="uid://cn8gyefe87dun" path="res://control.gd" id="9_bpaft"]
+[ext_resource type="AudioStream" uid="uid://bnpa3ckefdkkf" path="res://JynX - After All.mp3" id="10_hus3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7a5vw"]
 texture = ExtResource("1_pky36")
@@ -319,3 +321,13 @@ script = ExtResource("8_ury3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_hus3g")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_bpaft")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("10_hus3g")
