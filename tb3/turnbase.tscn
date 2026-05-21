@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceqd4q25vw1b"]
+[gd_scene load_steps=7 format=3 uid="uid://ceqd4q25vw1b"]
 
 [ext_resource type="PackedScene" uid="uid://cix1t0rs7ndr0" path="res://tb3/player_battler.tscn" id="1_bfqkk"]
 [ext_resource type="Script" uid="uid://82erg01lmyv2" path="res://tb3/turnbase.gd" id="1_me4h7"]
 [ext_resource type="PackedScene" uid="uid://ct4dstnj1rf3a" path="res://tb3/enemy_battler.tscn" id="2_me4h7"]
 [ext_resource type="PackedScene" uid="uid://b37strd21swki" path="res://tb3/Frank_battler.tscn" id="3_uellj"]
+[ext_resource type="Script" uid="uid://ej3yl6uagmuo" path="res://tb3/control.gd" id="5_tpset"]
+[ext_resource type="AudioStream" uid="uid://bkj4o486j7fig" path="res://JynX - Room the History.mp3" id="6_jp18m"]
 
 [node name="Battlescene" type="Node"]
 script = ExtResource("1_me4h7")
@@ -76,5 +78,15 @@ offset_bottom = 102.0
 theme_override_font_sizes/normal_font_size = 24
 text = "Battle End."
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_tpset")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("6_jp18m")
 
 [connection signal="heal_skill" from="PlayerBattler" to="FrankBattler" method="_on_player_battler_heal_skill"]

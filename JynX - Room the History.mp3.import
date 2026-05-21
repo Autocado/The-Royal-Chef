@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkj4o486j7fig"
+path="res://.godot/imported/JynX - Room the History.mp3-8fab8d46d2fd02bb640522f9da301b8f.mp3str"
+
+[deps]
+
+source_file="res://JynX - Room the History.mp3"
+dest_files=["res://.godot/imported/JynX - Room the History.mp3-8fab8d46d2fd02bb640522f9da301b8f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
