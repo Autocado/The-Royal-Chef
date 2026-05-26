@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://domd5ohkuqplj"]
+[gd_scene load_steps=7 format=3 uid="uid://domd5ohkuqplj"]
 
 [ext_resource type="Script" uid="uid://dqfwrp4g1ao48" path="res://ChefMovement.gd" id="1_mivr5"]
 [ext_resource type="SpriteFrames" uid="uid://l3wxl7tl3jn2" path="res://Animation resource only/ChefChibi.tres" id="2_j8bwy"]
+[ext_resource type="Script" path="res://scenes/inventory/Inventory.gd" id="3_0x2yd"]
+[ext_resource type="PackedScene" path="res://scenes/inventory/InventoryUI.tscn" id="4_6uvuw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mivr5"]
 radius = 16.0
@@ -20,6 +22,14 @@ zoom = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/NpcInteractionArea"]
 shape = SubResource("CircleShape2D_mivr5")
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("3_0x2yd")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" parent="HUD" instance=ExtResource("4_6uvuw")]
+inventory_path = NodePath("../../Inventory")
 
 [node name="idle" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_j8bwy")

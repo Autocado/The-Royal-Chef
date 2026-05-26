@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://dhhsmhc3m7klf"]
+
+[ext_resource type="Script" path="res://scenes/inventory/InventoryItem.gd" id="1_qd1uu"]
+[ext_resource type="Texture2D" path="res://icon.png" id="2_8k8sb"]
+
+[resource]
+script = ExtResource("1_qd1uu")
+id = &"coin"
+display_name = "Coin"
+icon = ExtResource("2_8k8sb")
+max_stack = 99
